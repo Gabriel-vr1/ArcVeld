@@ -100,7 +100,7 @@ test('the production build loads routes and required assets at the project path 
   }
   await page.getByRole('link', { name: 'See data provenance' }).click()
   await expect(page).toHaveURL(new URL('#/research', project).href)
-  await page.getByText('GPM IMERG Final Daily V07', { exact: true }).click()
+  await page.locator('summary').filter({ hasText: /^GPM IMERG Final Daily V07$/ }).click()
   await expect(page.getByText(/All 76 days had 48/)).toBeVisible()
   await page.getByText('Landsat geographic context', { exact: true }).click()
   await expect(page.getByRole('link', { name: 'Landsat scene metadata' })).toBeVisible()
