@@ -4,6 +4,7 @@ import App from './App'
 import { NASAComparison } from './components/NASAComparison'
 import { SourcePanel } from './components/SourcePanel'
 import { compareScenario, initialScenario } from './data/scenario'
+import { referenceWindow, referenceYear } from './data/researchReference'
 
 describe('ArcVeld workspace shell', () => {
   it('renders the geographic welcome with a direct link to the overview', () => {
@@ -15,10 +16,11 @@ describe('ArcVeld workspace shell', () => {
   })
 
   it('keeps computed exposure, ground-cover assumptions and data eligibility distinct', () => {
-    const observations = renderToStaticMarkup(<NASAComparison scenario={initialScenario} analysis={compareScenario(initialScenario)} onDateSelect={() => {}} />)
+    const observations = renderToStaticMarkup(<NASAComparison scenario={initialScenario} analysis={compareScenario(initialScenario)}
+      onDateSelect={() => {}} season={{ year: referenceYear, onChange: () => {} }} window={referenceWindow} />)
     const research = renderToStaticMarkup(<SourcePanel />)
     expect(observations).toContain('Calendar and uniform-rainfall baselines tie.')
-    expect(observations).toContain('Research-transcribed NASA POWER / MERRA-2 rainfall')
+    expect(observations).toContain('NASA POWER / MERRA-2 · independently validated')
     expect(observations).toContain('Illustrative ground cover')
     expect(observations).not.toContain('Analysis unavailable')
     expect(research).toContain('NASA source: unconfirmed.')

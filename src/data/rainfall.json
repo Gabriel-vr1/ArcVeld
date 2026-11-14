@@ -1,0 +1,2322 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+  "rawSha256": "ffd1e2fcee278c679b011b53beeda18c6ca3d6626c8cdc6e7d5d0a14667f8767",
+  "seasons": [
+    {
+      "startYear": 2018,
+      "startIso": "2018-11-01",
+      "endIso": "2019-01-15",
+      "days": [
+        {
+          "dateIso": "2018-11-01",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-02",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-03",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-04",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-05",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-06",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-07",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-08",
+          "rainMm": 0.08,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-09",
+          "rainMm": 0.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-10",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-11",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-12",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-13",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-14",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-15",
+          "rainMm": 0.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-16",
+          "rainMm": 0.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-17",
+          "rainMm": 0.02,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-18",
+          "rainMm": 3.6,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-19",
+          "rainMm": 5.76,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-20",
+          "rainMm": 0.47,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-21",
+          "rainMm": 0.48,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-22",
+          "rainMm": 2.82,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-23",
+          "rainMm": 9.95,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-24",
+          "rainMm": 45.47,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-25",
+          "rainMm": 14.89,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-26",
+          "rainMm": 9.48,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-27",
+          "rainMm": 0.41,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-28",
+          "rainMm": 13.09,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-29",
+          "rainMm": 3.88,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-11-30",
+          "rainMm": 24.6,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-01",
+          "rainMm": 18.71,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-02",
+          "rainMm": 15.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-03",
+          "rainMm": 5.44,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-04",
+          "rainMm": 4.24,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-05",
+          "rainMm": 0.63,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-06",
+          "rainMm": 4.07,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-07",
+          "rainMm": 1.83,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-08",
+          "rainMm": 1.86,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-09",
+          "rainMm": 2.86,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-10",
+          "rainMm": 6.32,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-11",
+          "rainMm": 47.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-12",
+          "rainMm": 40.24,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-13",
+          "rainMm": 12.37,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-14",
+          "rainMm": 5.79,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-15",
+          "rainMm": 1.94,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-16",
+          "rainMm": 5.88,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-17",
+          "rainMm": 10.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-18",
+          "rainMm": 13.8,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-19",
+          "rainMm": 13.48,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-20",
+          "rainMm": 17.54,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-21",
+          "rainMm": 20.25,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-22",
+          "rainMm": 8.67,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-23",
+          "rainMm": 8.45,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-24",
+          "rainMm": 13.27,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-25",
+          "rainMm": 9.4,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-26",
+          "rainMm": 3.91,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-27",
+          "rainMm": 2.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-28",
+          "rainMm": 2.37,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-29",
+          "rainMm": 8.21,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-30",
+          "rainMm": 24.9,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2018-12-31",
+          "rainMm": 2.46,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-01",
+          "rainMm": 0.53,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-02",
+          "rainMm": 0.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-03",
+          "rainMm": 2.95,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-04",
+          "rainMm": 41.74,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-05",
+          "rainMm": 16.6,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-06",
+          "rainMm": 7.57,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-07",
+          "rainMm": 13.92,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-08",
+          "rainMm": 10.19,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-09",
+          "rainMm": 1.46,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-10",
+          "rainMm": 9.88,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-11",
+          "rainMm": 4.4,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-12",
+          "rainMm": 14.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-13",
+          "rainMm": 13.64,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-14",
+          "rainMm": 15.22,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-01-15",
+          "rainMm": 7.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        }
+      ]
+    },
+    {
+      "startYear": 2019,
+      "startIso": "2019-11-01",
+      "endIso": "2020-01-15",
+      "days": [
+        {
+          "dateIso": "2019-11-01",
+          "rainMm": 0.11,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-02",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-03",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-04",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-05",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-06",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-07",
+          "rainMm": 0.21,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-08",
+          "rainMm": 0.31,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-09",
+          "rainMm": 0.44,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-10",
+          "rainMm": 0.21,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-11",
+          "rainMm": 0.15,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-12",
+          "rainMm": 0.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-13",
+          "rainMm": 0.04,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-14",
+          "rainMm": 0.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-15",
+          "rainMm": 0.09,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-16",
+          "rainMm": 2.52,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-17",
+          "rainMm": 1.29,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-18",
+          "rainMm": 0.12,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-19",
+          "rainMm": 0.1,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-20",
+          "rainMm": 0.26,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-21",
+          "rainMm": 0.04,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-22",
+          "rainMm": 2.75,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-23",
+          "rainMm": 1.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-24",
+          "rainMm": 7.29,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-25",
+          "rainMm": 25.58,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-26",
+          "rainMm": 4.3,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-27",
+          "rainMm": 19.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-28",
+          "rainMm": 14.4,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-29",
+          "rainMm": 4.87,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-11-30",
+          "rainMm": 23.99,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-01",
+          "rainMm": 7.24,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-02",
+          "rainMm": 0.51,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-03",
+          "rainMm": 0.15,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-04",
+          "rainMm": 0.4,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-05",
+          "rainMm": 4.21,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-06",
+          "rainMm": 1.77,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-07",
+          "rainMm": 4.19,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-08",
+          "rainMm": 20.66,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-09",
+          "rainMm": 6.5,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-10",
+          "rainMm": 14.73,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-11",
+          "rainMm": 7.8,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-12",
+          "rainMm": 6.44,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-13",
+          "rainMm": 6.8,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-14",
+          "rainMm": 4.33,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-15",
+          "rainMm": 3.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-16",
+          "rainMm": 3.15,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-17",
+          "rainMm": 0.68,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-18",
+          "rainMm": 1.6,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-19",
+          "rainMm": 2.88,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-20",
+          "rainMm": 2.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-21",
+          "rainMm": 2.98,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-22",
+          "rainMm": 2.87,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-23",
+          "rainMm": 10.48,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-24",
+          "rainMm": 5.64,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-25",
+          "rainMm": 9.84,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-26",
+          "rainMm": 9.49,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-27",
+          "rainMm": 4.58,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-28",
+          "rainMm": 12.57,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-29",
+          "rainMm": 10.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-30",
+          "rainMm": 66.86,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2019-12-31",
+          "rainMm": 113.8,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-01",
+          "rainMm": 4.59,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-02",
+          "rainMm": 24.44,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-03",
+          "rainMm": 13.38,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-04",
+          "rainMm": 3.82,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-05",
+          "rainMm": 4.26,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-06",
+          "rainMm": 2.73,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-07",
+          "rainMm": 12.82,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-08",
+          "rainMm": 11.85,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-09",
+          "rainMm": 2.92,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-10",
+          "rainMm": 9.04,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-11",
+          "rainMm": 7.38,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-12",
+          "rainMm": 11.78,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-13",
+          "rainMm": 28.52,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-14",
+          "rainMm": 29.1,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-01-15",
+          "rainMm": 6.98,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        }
+      ]
+    },
+    {
+      "startYear": 2020,
+      "startIso": "2020-11-01",
+      "endIso": "2021-01-15",
+      "days": [
+        {
+          "dateIso": "2020-11-01",
+          "rainMm": 2.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-02",
+          "rainMm": 3.33,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-03",
+          "rainMm": 0.02,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-04",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-05",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-06",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-07",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-08",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-09",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-10",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-11",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-12",
+          "rainMm": 1.99,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-13",
+          "rainMm": 1.64,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-14",
+          "rainMm": 0.8,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-15",
+          "rainMm": 0.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-16",
+          "rainMm": 0.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-17",
+          "rainMm": 0.04,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-18",
+          "rainMm": 0.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-19",
+          "rainMm": 0.54,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-20",
+          "rainMm": 4.98,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-21",
+          "rainMm": 11.37,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-22",
+          "rainMm": 0.18,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-23",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-24",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-25",
+          "rainMm": 0.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-26",
+          "rainMm": 2.26,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-27",
+          "rainMm": 18.68,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-28",
+          "rainMm": 1.11,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-29",
+          "rainMm": 0.8,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-11-30",
+          "rainMm": 2.08,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-01",
+          "rainMm": 3.96,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-02",
+          "rainMm": 16.28,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-03",
+          "rainMm": 10.61,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-04",
+          "rainMm": 1.87,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-05",
+          "rainMm": 0.98,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-06",
+          "rainMm": 0.38,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-07",
+          "rainMm": 1.81,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-08",
+          "rainMm": 22.18,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-09",
+          "rainMm": 1.67,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-10",
+          "rainMm": 0.86,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-11",
+          "rainMm": 1.52,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-12",
+          "rainMm": 5.68,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-13",
+          "rainMm": 39.81,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-14",
+          "rainMm": 3.5,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-15",
+          "rainMm": 3.2,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-16",
+          "rainMm": 6.67,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-17",
+          "rainMm": 3.25,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-18",
+          "rainMm": 7.99,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-19",
+          "rainMm": 1.36,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-20",
+          "rainMm": 3.89,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-21",
+          "rainMm": 0.71,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-22",
+          "rainMm": 1.64,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-23",
+          "rainMm": 0.82,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-24",
+          "rainMm": 0.2,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-25",
+          "rainMm": 12.96,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-26",
+          "rainMm": 5.12,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-27",
+          "rainMm": 2.75,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-28",
+          "rainMm": 2.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-29",
+          "rainMm": 24.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-30",
+          "rainMm": 4.74,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2020-12-31",
+          "rainMm": 9.5,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-01",
+          "rainMm": 8.99,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-02",
+          "rainMm": 11.47,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-03",
+          "rainMm": 45.79,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-04",
+          "rainMm": 2.91,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-05",
+          "rainMm": 4.32,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-06",
+          "rainMm": 2.21,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-07",
+          "rainMm": 1.36,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-08",
+          "rainMm": 6.29,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-09",
+          "rainMm": 5.97,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-10",
+          "rainMm": 16.16,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-11",
+          "rainMm": 16.64,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-12",
+          "rainMm": 6.08,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-13",
+          "rainMm": 21.68,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-14",
+          "rainMm": 10.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-01-15",
+          "rainMm": 16.76,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        }
+      ]
+    },
+    {
+      "startYear": 2021,
+      "startIso": "2021-11-01",
+      "endIso": "2022-01-15",
+      "days": [
+        {
+          "dateIso": "2021-11-01",
+          "rainMm": 1.51,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-02",
+          "rainMm": 0.02,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-03",
+          "rainMm": 0.02,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-04",
+          "rainMm": 0.12,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-05",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-06",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-07",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-08",
+          "rainMm": 0.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-09",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-10",
+          "rainMm": 0.23,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-11",
+          "rainMm": 0.04,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-12",
+          "rainMm": 0.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-13",
+          "rainMm": 0.04,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-14",
+          "rainMm": 0.22,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-15",
+          "rainMm": 0.27,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-16",
+          "rainMm": 0.08,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-17",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-18",
+          "rainMm": 0.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-19",
+          "rainMm": 0.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-20",
+          "rainMm": 0.04,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-21",
+          "rainMm": 0.2,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-22",
+          "rainMm": 0.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-23",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-24",
+          "rainMm": 0.11,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-25",
+          "rainMm": 13.13,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-26",
+          "rainMm": 48.95,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-27",
+          "rainMm": 0.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-28",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-29",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-11-30",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-01",
+          "rainMm": 0.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-02",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-03",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-04",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-05",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-06",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-07",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-08",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-09",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-10",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-11",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-12",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-13",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-14",
+          "rainMm": 0.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-15",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-16",
+          "rainMm": 0.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-17",
+          "rainMm": 4.33,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-18",
+          "rainMm": 3.26,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-19",
+          "rainMm": 19.42,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-20",
+          "rainMm": 7.61,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-21",
+          "rainMm": 2.7,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-22",
+          "rainMm": 1.27,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-23",
+          "rainMm": 0.18,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-24",
+          "rainMm": 0.62,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-25",
+          "rainMm": 3.12,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-26",
+          "rainMm": 0.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-27",
+          "rainMm": 0.08,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-28",
+          "rainMm": 0.2,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-29",
+          "rainMm": 0.07,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-30",
+          "rainMm": 4.09,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2021-12-31",
+          "rainMm": 15.56,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-01",
+          "rainMm": 16.91,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-02",
+          "rainMm": 12.63,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-03",
+          "rainMm": 2.7,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-04",
+          "rainMm": 9.45,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-05",
+          "rainMm": 3.24,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-06",
+          "rainMm": 140.19,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-07",
+          "rainMm": 5.84,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-08",
+          "rainMm": 19.68,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-09",
+          "rainMm": 36.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-10",
+          "rainMm": 97.02,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-11",
+          "rainMm": 3.38,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-12",
+          "rainMm": 11.99,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-13",
+          "rainMm": 26.79,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-14",
+          "rainMm": 10.08,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-01-15",
+          "rainMm": 6.51,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        }
+      ]
+    },
+    {
+      "startYear": 2022,
+      "startIso": "2022-11-01",
+      "endIso": "2023-01-15",
+      "days": [
+        {
+          "dateIso": "2022-11-01",
+          "rainMm": 0.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-02",
+          "rainMm": 0.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-03",
+          "rainMm": 0.16,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-04",
+          "rainMm": 0.17,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-05",
+          "rainMm": 0.22,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-06",
+          "rainMm": 0.03,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-07",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-08",
+          "rainMm": 0.01,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-09",
+          "rainMm": 0.29,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-10",
+          "rainMm": 6.43,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-11",
+          "rainMm": 3.69,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-12",
+          "rainMm": 4.63,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-13",
+          "rainMm": 0.98,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-14",
+          "rainMm": 0.09,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-15",
+          "rainMm": 1.43,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-16",
+          "rainMm": 2.92,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-17",
+          "rainMm": 6.38,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-18",
+          "rainMm": 2.26,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-19",
+          "rainMm": 0.56,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-20",
+          "rainMm": 0.29,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-21",
+          "rainMm": 0.26,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-22",
+          "rainMm": 0.56,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-23",
+          "rainMm": 1.13,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-24",
+          "rainMm": 3.76,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-25",
+          "rainMm": 0.08,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-26",
+          "rainMm": 0.0,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-27",
+          "rainMm": 0.09,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-28",
+          "rainMm": 0.06,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-29",
+          "rainMm": 1.24,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-11-30",
+          "rainMm": 3.88,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-01",
+          "rainMm": 4.23,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-02",
+          "rainMm": 9.72,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-03",
+          "rainMm": 7.32,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-04",
+          "rainMm": 1.63,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-05",
+          "rainMm": 21.34,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-06",
+          "rainMm": 5.31,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-07",
+          "rainMm": 2.5,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-08",
+          "rainMm": 7.58,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-09",
+          "rainMm": 9.12,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-10",
+          "rainMm": 15.31,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-11",
+          "rainMm": 8.69,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-12",
+          "rainMm": 5.12,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-13",
+          "rainMm": 7.47,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-14",
+          "rainMm": 6.58,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-15",
+          "rainMm": 3.22,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-16",
+          "rainMm": 23.22,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-17",
+          "rainMm": 3.6,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-18",
+          "rainMm": 1.77,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-19",
+          "rainMm": 14.53,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-20",
+          "rainMm": 8.36,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-21",
+          "rainMm": 8.73,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-22",
+          "rainMm": 9.32,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-23",
+          "rainMm": 12.79,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-24",
+          "rainMm": 7.11,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-25",
+          "rainMm": 4.83,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-26",
+          "rainMm": 16.77,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-27",
+          "rainMm": 83.34,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-28",
+          "rainMm": 4.44,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-29",
+          "rainMm": 19.58,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-30",
+          "rainMm": 8.7,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2022-12-31",
+          "rainMm": 5.82,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-01",
+          "rainMm": 5.39,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-02",
+          "rainMm": 4.69,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-03",
+          "rainMm": 5.23,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-04",
+          "rainMm": 1.31,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-05",
+          "rainMm": 3.4,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-06",
+          "rainMm": 16.3,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-07",
+          "rainMm": 6.21,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-08",
+          "rainMm": 58.67,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-09",
+          "rainMm": 40.05,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-10",
+          "rainMm": 25.16,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-11",
+          "rainMm": 1.86,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-12",
+          "rainMm": 24.14,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-13",
+          "rainMm": 23.74,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-14",
+          "rainMm": 2.84,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        },
+        {
+          "dateIso": "2023-01-15",
+          "rainMm": 7.63,
+          "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+          "sourceStatus": "provider_validated"
+        }
+      ]
+    }
+  ]
+}

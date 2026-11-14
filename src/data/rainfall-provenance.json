@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "caseId": "kasungu-reference",
+  "sourceId": "NASA_POWER_PRECTOTCORR_MERRA2",
+  "sourceVerification": "provider_validated",
+  "scientificMode": "historical_exposure_proxy",
+  "coverBasis": "illustrative",
+  "challengeEligibility": "unconfirmed",
+  "product": {
+    "provider": "NASA",
+    "product": "NASA/POWER Source Native Resolution Daily Data",
+    "apiName": "POWER Daily API",
+    "apiVersion": "v2.10.3",
+    "sources": [
+      "MERRA2"
+    ],
+    "variable": "PRECTOTCORR",
+    "variableDescription": "Precipitation Corrected",
+    "providerUnits": "mm/day",
+    "normalizedUnits": "mm",
+    "timeStandard": "UTC",
+    "fillValue": -999.0,
+    "community": "AG",
+    "queryLatitude": -13.05,
+    "queryLongitude": 33.45
+  },
+  "acquisition": {
+    "acquisitionUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=33.45&latitude=-13.05&start=20181101&end=20240115&format=JSON&time-standard=UTC",
+    "httpStatus": 200,
+    "retrievedAtUtc": "2026-11-14T12:21:39Z",
+    "rawSha256": "ffd1e2fcee278c679b011b53beeda18c6ca3d6626c8cdc6e7d5d0a14667f8767",
+    "startIso": "2018-11-01",
+    "endIso": "2024-01-15",
+    "recordCount": 1902
+  },
+  "validation": {
+    "missingDates": 0,
+    "duplicateDates": 0,
+    "fillValues": 0,
+    "invalidValues": 0,
+    "publishedRecordCount": 380
+  },
+  "spotCheck": {
+    "acquisitionUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=33.45&latitude=-13.05&start=20221227&end=20221227&format=JSON&time-standard=UTC",
+    "httpStatus": 200,
+    "retrievedAtUtc": "2026-11-14T12:21:39Z",
+    "rawSha256": "514a56500fee3e89667a2c718798f09479a4656862f083a17d42cc1e5c83e764",
+    "dateIso": "2022-12-27",
+    "rainMm": 83.34
+  },
+  "researchComparison2022": {
+    "comparedDays": 76,
+    "exactMatches": 76,
+    "differences": [],
+    "missingDates": [],
+    "unexpectedValues": [],
+    "researchReportedRawSha256": "e3f2c102cca7e467e56ace90d2e0d0f7c0e2dd355bdb417bb664a9064aacaf0b",
+    "providerApiVersion": "v2.10.3",
+    "researchApiVersion": null,
+    "rawHashMatchesResearch": false
+  },
+  "seasons": [
+    {
+      "startYear": 2018,
+      "startIso": "2018-11-01",
+      "endIso": "2019-01-15",
+      "dayCount": 76,
+      "totalRainMm": 627.32,
+      "researchTotalMm": 627.32,
+      "differenceMm": 0.0
+    },
+    {
+      "startYear": 2019,
+      "startIso": "2019-11-01",
+      "endIso": "2020-01-15",
+      "dayCount": 76,
+      "totalRainMm": 631.15,
+      "researchTotalMm": 631.15,
+      "differenceMm": 0.0
+    },
+    {
+      "startYear": 2020,
+      "startIso": "2020-11-01",
+      "endIso": "2021-01-15",
+      "dayCount": 76,
+      "totalRainMm": 430.65,
+      "researchTotalMm": 430.65,
+      "differenceMm": 0.0
+    },
+    {
+      "startYear": 2021,
+      "startIso": "2021-11-01",
+      "endIso": "2022-01-15",
+      "dayCount": 76,
+      "totalRainMm": 530.21,
+      "researchTotalMm": 530.21,
+      "differenceMm": 0.0
+    },
+    {
+      "startYear": 2022,
+      "startIso": "2022-11-01",
+      "endIso": "2023-01-15",
+      "dayCount": 76,
+      "totalRainMm": 616.35,
+      "researchTotalMm": 616.35,
+      "differenceMm": 0.0
+    }
+  ]
+}

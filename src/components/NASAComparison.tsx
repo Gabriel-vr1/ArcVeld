@@ -1,17 +1,21 @@
 import { ArrowRight, CalendarDays, Info } from 'lucide-react'
-import { formatNumber, formatSigned } from '../format'
+import { formatNumber, formatSigned, formatWindow } from '../format'
 import { formatScientificClaim } from '../domain/scientificClaim'
 import type { compareScenario, Scenario } from '../data/scenario'
 import { routes } from '../navigation'
 import { ObservationChart } from './ObservationChart'
 import { ButtonLink } from './ui/Button'
-import { referenceProvenance } from '../data/researchReference'
+import { referenceProvenance, type referenceWindow } from '../data/researchReference'
+import { challengeEligibility, rainfallLabel } from '../data/historicalRainfall'
+import { HistoricalSeasonSelect, type HistoricalSeasonSelection } from './HistoricalSeasonSelect'
 
-export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect }: {
+export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect, season, window }: {
   scenario: Scenario
   analysis: ReturnType<typeof compareScenario>
   selectedDate?: string
   onDateSelect: (date: string) => void
+  season: HistoricalSeasonSelection
+  window: typeof referenceWindow
 }) {
   const { comparison, error } = analysis
   const claim = comparison && formatScientificClaim(comparison)
@@ -21,16 +25,19 @@ export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect 
       <header className="page-heading">
         <div>
           <h1>Earth Observations</h1>
-          <p>Kasungu, Malawi · Research-transcribed NASA POWER / MERRA-2 rainfall</p>
+          <p>Kasungu, Malawi · {rainfallLabel}</p>
         </div>
-        <ButtonLink variant="secondary" href={routes.planner.href}>Edit scenario <ArrowRight size={16} aria-hidden="true" /></ButtonLink>
+        <div className="season-controls">
+          <HistoricalSeasonSelect {...season} />
+          <ButtonLink variant="secondary" href={routes.planner.href}>Edit scenario <ArrowRight size={16} aria-hidden="true" /></ButtonLink>
+        </div>
       </header>
       <div className="observation-meta">
-        <span><CalendarDays size={16} aria-hidden="true" /> 1 Nov 2022 – 15 Jan 2023 · UTC</span>
+        <span><CalendarDays size={16} aria-hidden="true" /> {formatWindow(window)} · UTC</span>
         <span className="technical">PRECTOTCORR</span>
         <span className="technical">{Math.abs(referenceProvenance.queryLat).toFixed(2)}° S, {referenceProvenance.queryLon.toFixed(2)}° E</span>
         <span>Illustrative ground cover</span>
-        <span>Challenge source eligibility unconfirmed</span>
+        <span>Challenge source eligibility {challengeEligibility}</span>
         <a href={routes.research.href}>See data provenance</a>
       </div>
       {comparison ? (

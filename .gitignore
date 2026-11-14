@@ -6,3 +6,4 @@ test-results/
 *.local
 .env*
 data/raw/
+__pycache__/

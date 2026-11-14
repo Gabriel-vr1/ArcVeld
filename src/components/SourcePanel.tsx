@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import { referenceProvenance } from '../data/researchReference'
+import { challengeEligibility, historicalRainfall, seasonLabel } from '../data/historicalRainfall'
 import { routes } from '../navigation'
 
 const sections = [
@@ -20,6 +21,7 @@ function SourceLink({ href, children }: { href: string; children: string }) {
 }
 
 export function SourcePanel() {
+  const provenance = historicalRainfall.provenance
   return (
     <div className="page-width page-body">
       <header className="page-heading">
@@ -44,19 +46,34 @@ export function SourcePanel() {
         <div className="research-content">
           <section id="background" tabIndex={-1}>
             <h2>Research background</h2>
-            <p>The Kasungu case compares earlier and later returns of protected groundnut residue before maize, using the same illustrative cover assumptions and the same 2022/23 rainfall record.</p>
+            <p>The Kasungu case compares earlier and later returns of protected groundnut residue before maize. Each comparison uses the same historical rainfall record and illustrative cover assumptions for both schedules.</p>
           </section>
           <section id="datasets" tabIndex={-1}>
             <h2>NASA data &amp; provenance</h2>
-            <p>The bundled rainfall series was transcribed from the ArcVeld research report. Independent verification of the original provider response is pending.</p>
+            {provenance ? (
+              <p>ArcVeld independently retrieved and validated {provenance.validation.publishedRecordCount} daily values across {provenance.seasons.length} seasons. The frozen 2022/23 research CSV is retained separately for comparison.</p>
+            ) : historicalRainfall.seasons.length > 0 ? (
+              <p>The provider bundle failed validation. The app is using the separately identified research-transcribed 2022/23 reference. {historicalRainfall.error}</p>
+            ) : (
+              <p>Rainfall evidence is unavailable. {historicalRainfall.error}</p>
+            )}
             <dl className="source-facts">
               <div><dt>Research product</dt><dd>NASA POWER · MERRA-2 reanalysis</dd></div>
               <div><dt>Variable</dt><dd>PRECTOTCORR · corrected daily precipitation (mm)</dd></div>
-              <div><dt>Reference window</dt><dd>1 Nov 2022 – 15 Jan 2023 · {referenceProvenance.dayCount} UTC days</dd></div>
+              <div><dt>Historical seasons</dt><dd>{historicalRainfall.seasons.map(({ startYear }) => seasonLabel(startYear)).join(', ') || 'Unavailable'} · {referenceProvenance.dayCount} UTC days per season</dd></div>
               <div><dt>Query point</dt><dd>13.05° S, 33.45° E · Kasungu reference</dd></div>
             </dl>
             <details className="research-details">
               <summary>Technical provenance</summary>
+              {provenance && (
+                <>
+                  <p>POWER Daily API {provenance.product.apiVersion}. NASA reports {provenance.product.providerUnits} for each full UTC day, represented as mm per observation in ArcVeld.</p>
+                  <p>Provider acquisition: HTTP {provenance.acquisition.httpStatus} at <time dateTime={provenance.acquisition.retrievedAtUtc}>{provenance.acquisition.retrievedAtUtc}</time>.</p>
+                  <p>Retrieved response SHA-256: <code>{provenance.acquisition.rawSha256}</code></p>
+                  <p>{provenance.researchComparison2022.exactMatches} of {provenance.researchComparison2022.comparedDays} daily values match the frozen CSV exactly. A separate NASA request returned {provenance.spotCheck.rainMm} mm on {provenance.spotCheck.dateIso}.</p>
+                  <p><SourceLink href={repo + 'src/data/rainfall-provenance.json'}>Provider validation manifest</SourceLink></p>
+                </>
+              )}
               <p>{referenceProvenance.sourceSection}</p>
               <p>Research report: <code>{referenceProvenance.sourceDocument}</code></p>
               <p>Reported original response SHA-256: <code>{referenceProvenance.reportedOriginalRawSHA256}</code></p>
@@ -103,13 +120,13 @@ export function SourcePanel() {
               <li>NASA POWER / MERRA-2 supplies regional reanalysis precipitation for the Kasungu reference query.</li>
               <li>Historical exposure is a comparison proxy. It does not measure erosion, runoff, yield or future risk.</li>
               <li>Local observations and an extension adviser can help verify residue availability, grazing control, timing and cover before a field decision.</li>
-              <li>The blueprint reports an opposite result in 2021/22 under its reference assumptions. The underlying daily series for that season is outside the bundled evidence.</li>
+              {provenance && <li>Use the 2021/22 season and reset the research scenario to inspect how the historical exposure comparison can reverse under the same cover assumptions.</li>}
             </ul>
           </section>
 
           <section id="eligibility" tabIndex={-1}>
             <h2>Competition-resource eligibility</h2>
-            <p><strong>NASA source: unconfirmed.</strong> Confirmation that the source appears on the official Field Shift resources list is pending. GPM IMERG is a separate product and does not supply this comparison.</p>
+            <p><strong>NASA source: {challengeEligibility}.</strong> The official Field Shift Resources tab could not be verified. GPM IMERG is a separate product and does not supply this comparison.</p>
             <SourceLink href="https://www.spaceappschallenge.org/2026/challenges/field-shift-adapting-farms-with-nasa-data/?tab=resources">Field Shift challenge resources</SourceLink>
           </section>
 

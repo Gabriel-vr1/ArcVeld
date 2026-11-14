@@ -1,12 +1,13 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
-import { referenceWindow, researchReference } from '../data/researchReference'
+import { referenceWindow, referenceYear, researchReference } from '../data/researchReference'
+import { historicalRainfall } from '../data/historicalRainfall'
 import { formatNumber, formatShortDate } from '../format'
 import { routes } from '../navigation'
 import { KasunguMap } from './KasunguMap'
 import { ButtonLink } from './ui/Button'
 
 export function Overview() {
-  const rain = researchReference.days
+  const rain = historicalRainfall.seasons.find((season) => season.startYear === referenceYear)?.days
 
   return (
     <div className="page-width overview">

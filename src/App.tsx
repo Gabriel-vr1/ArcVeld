@@ -5,7 +5,9 @@ import { RotationPlanner, type ManagementOption } from './components/RotationPla
 import { SiteHeader } from './components/SiteHeader'
 import { SourcePanel } from './components/SourcePanel'
 import { Welcome } from './components/Welcome'
-import { compareScenario, initialConstraints, initialScenario, type Constraints, type Scenario } from './data/scenario'
+import { compareScenario, initialConstraints, initialScenario, scenarioForSeason, type Constraints, type Scenario } from './data/scenario'
+import { referenceYear } from './data/researchReference'
+import { historicalWindow } from './domain/dates'
 import { routes, usePage } from './navigation'
 
 export default function App() {
@@ -16,7 +18,17 @@ export default function App() {
   const [constraints, setConstraints] = useState<Constraints>(initialConstraints)
   const [management, setManagement] = useState<ManagementOption>('managed')
   const [selectedDate, setSelectedDate] = useState<string>()
-  const analysis = useMemo(() => compareScenario(scenario), [scenario])
+  const [year, setYear] = useState(referenceYear)
+  const seasonWindow = useMemo(() => historicalWindow(year), [year])
+  const analysis = useMemo(() => compareScenario(scenario, year), [scenario, year])
+
+  function changeSeason(nextYear: number) {
+    if (nextYear === year) return
+    setScenario((current) => scenarioForSeason(current, year, nextYear))
+    setConstraints((current) => ({ ...current, earlyWorkable: 'unknown', lateWorkable: 'unknown' }))
+    setSelectedDate(undefined)
+    setYear(nextYear)
+  }
 
   useEffect(() => {
     document.title = page === 'welcome' ? 'ArcVeld · Earth Observation for Agricultural Planning' : `${routes[page].title} · ArcVeld`
@@ -36,11 +48,13 @@ export default function App() {
         {page === 'planner' && (
           <RotationPlanner scenario={scenario} onScenarioChange={setScenario}
             constraints={constraints} onConstraintsChange={setConstraints} analysis={analysis}
-            management={management} onManagementChange={setManagement} />
+            management={management} onManagementChange={setManagement}
+            season={{ year, onChange: changeSeason }} window={seasonWindow} />
         )}
         {page === 'observations' && (
           <NASAComparison scenario={scenario} analysis={analysis}
-            selectedDate={selectedDate} onDateSelect={setSelectedDate} />
+            selectedDate={selectedDate} onDateSelect={setSelectedDate}
+            season={{ year, onChange: changeSeason }} window={seasonWindow} />
         )}
         {page === 'research' && <SourcePanel />}
       </main>

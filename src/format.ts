@@ -13,3 +13,5 @@ export const formatSigned = (value: number) => signedNumeric.format(value).repla
 export const formatContribution = (value: number) => contributionNumeric.format(value).replace('-', '−')
 export const formatDate = (iso: string) => dateLabel.format(new Date(iso))
 export const formatShortDate = (iso: string) => shortDateLabel.format(new Date(iso))
+export const formatWindow = (window: { startIso: string; endIso: string }) =>
+  `${formatShortDate(window.startIso)} ${window.startIso.slice(0, 4)} – ${formatShortDate(window.endIso)} ${window.endIso.slice(0, 4)}`

@@ -1,7 +1,8 @@
 import { makeCoverCurve, evaluateFeasibility } from '../domain/cover'
 import { utcDayIndex } from '../domain/dates'
 import { compareAgainstBaselines } from '../domain/exposure'
-import { referenceWindow, referenceYear, researchReference, researchScenario } from './researchReference'
+import { referenceYear, researchReference, researchScenario } from './researchReference'
+import { historicalRainfall } from './historicalRainfall'
 
 export type Comparison = ReturnType<typeof compareAgainstBaselines>
 
@@ -24,9 +25,17 @@ export const initialConstraints: Constraints = {
   lateWorkable: 'unknown',
 }
 
-export function compareScenario(scenario: Scenario): { comparison: Comparison; error?: never } | { comparison?: never; error: string } {
-  if (!researchReference.days) return { error: researchReference.error }
-  const { startIso, endIso, dates } = referenceWindow
+export function scenarioForSeason(scenario: Scenario, fromYear: number, toYear: number): Scenario {
+  const moveDate = (date: string) => date
+    ? String(Number(date.slice(0, 4)) + toYear - fromYear) + date.slice(4)
+    : date
+  return { ...scenario, earlyDate: moveDate(scenario.earlyDate), lateDate: moveDate(scenario.lateDate) }
+}
+
+export function compareScenario(scenario: Scenario, year = referenceYear): { comparison: Comparison; error?: never } | { comparison?: never; error: string } {
+  const season = historicalRainfall.seasons.find(({ startYear }) => startYear === year)
+  if (!season) return { error: researchReference.error ?? 'Rainfall is unavailable for this historical season.' }
+  const { startIso, endIso, dates } = season.window
   const { earlyDate, lateDate, baselinePercent, addedPercent, plateau, duration } = scenario
 
   if (!earlyDate || !lateDate) return { error: 'Enter both residue-return dates.' }
@@ -50,7 +59,7 @@ export function compareScenario(scenario: Scenario): { comparison: Comparison; e
     }, dates.length)
 
     return {
-      comparison: compareAgainstBaselines(researchReference.days, coverForDate(earlyDate), coverForDate(lateDate), referenceYear),
+      comparison: compareAgainstBaselines(season.days, coverForDate(earlyDate), coverForDate(lateDate), year),
     }
   } catch (error) {
     if (!(error instanceof Error)) throw error

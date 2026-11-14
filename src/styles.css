@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "./identity.css";
 
+@layer components {
+  .season-controls { @apply flex flex-wrap items-center gap-2.5; }
+  .season-select select { @apply min-h-10 rounded-md border border-[#aab6ad] bg-white px-2 text-sm text-ink; }
+}
+
 @theme {
   --font-sans: "Public Sans Variable", sans-serif;
   --font-display: "Instrument Serif", Georgia, serif;

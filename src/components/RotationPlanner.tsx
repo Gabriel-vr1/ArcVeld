@@ -1,11 +1,13 @@
 import { ArrowRight, CalendarDays, Leaf, Wheat } from 'lucide-react'
 import { useRef, type Dispatch, type SetStateAction } from 'react'
-import { referenceWindow } from '../data/researchReference'
-import { initialScenario, type compareScenario, type Constraints, type Scenario } from '../data/scenario'
+import { referenceYear, type referenceWindow } from '../data/researchReference'
+import { initialScenario, scenarioForSeason, type compareScenario, type Constraints, type Scenario } from '../data/scenario'
 import { evaluateFeasibility } from '../domain/cover'
 import { formatScientificClaim } from '../domain/scientificClaim'
-import { formatNumber, formatSigned } from '../format'
+import { formatNumber, formatSigned, formatWindow } from '../format'
 import { routes } from '../navigation'
+import { seasonLabel } from '../data/historicalRainfall'
+import { HistoricalSeasonSelect, type HistoricalSeasonSelection } from './HistoricalSeasonSelect'
 import { ButtonLink } from './ui/Button'
 import { PlannerTimeline } from './PlannerTimeline'
 
@@ -17,6 +19,8 @@ interface PlannerProps {
   analysis: ReturnType<typeof compareScenario>
   management: ManagementOption
   onManagementChange: (management: ManagementOption) => void
+  season: HistoricalSeasonSelection
+  window: typeof referenceWindow
 }
 
 export type ManagementOption = 'current' | 'ordinary' | 'managed'
@@ -40,7 +44,7 @@ function Crop({ name }: { name: 'Maize' | 'Groundnut' }) {
   return <span className={`crop crop-${name.toLowerCase()}`}><Icon size={19} aria-hidden="true" />{name}</span>
 }
 
-export function RotationPlanner({ scenario, onScenarioChange, constraints, onConstraintsChange, analysis, management, onManagementChange }: PlannerProps) {
+export function RotationPlanner({ scenario, onScenarioChange, constraints, onConstraintsChange, analysis, management, onManagementChange, season, window }: PlannerProps) {
   const managedRadio = useRef<HTMLInputElement>(null)
   const feasibility = evaluateFeasibility(constraints)
   const { comparison, error } = analysis
@@ -54,11 +58,12 @@ export function RotationPlanner({ scenario, onScenarioChange, constraints, onCon
   }
 
   function resetScenario() {
-    onScenarioChange(initialScenario)
+    const defaults = scenarioForSeason(initialScenario, referenceYear, season.year)
+    onScenarioChange(defaults)
     onConstraintsChange((current) => ({
       ...current,
-      earlyWorkable: scenario.earlyDate === initialScenario.earlyDate ? current.earlyWorkable : 'unknown',
-      lateWorkable: scenario.lateDate === initialScenario.lateDate ? current.lateWorkable : 'unknown',
+      earlyWorkable: scenario.earlyDate === defaults.earlyDate ? current.earlyWorkable : 'unknown',
+      lateWorkable: scenario.lateDate === defaults.lateDate ? current.lateWorkable : 'unknown',
     }))
   }
 
@@ -75,7 +80,10 @@ export function RotationPlanner({ scenario, onScenarioChange, constraints, onCon
           <h1>Crop Rotation Planner</h1>
           <p>Compare two crop sequences and test when to return protected groundnut residue.</p>
         </div>
-        <span className="page-context"><CalendarDays size={16} aria-hidden="true" /> 1 Nov 2022 – 15 Jan 2023 · UTC</span>
+        <div className="season-controls">
+          <HistoricalSeasonSelect {...season} />
+          <span className="page-context"><CalendarDays size={16} aria-hidden="true" /> {formatWindow(window)} · UTC</span>
+        </div>
       </header>
 
       <div className="planner-grid">
@@ -119,14 +127,14 @@ export function RotationPlanner({ scenario, onScenarioChange, constraints, onCon
               <div className="fields-grid">
                 <div className="return-field">
                   <label htmlFor="early-return">Earlier return (UTC)</label>
-                  <input id="early-return" type="date" min={referenceWindow.startIso} max={referenceWindow.endIso}
+                  <input id="early-return" type="date" min={window.startIso} max={window.endIso}
                     aria-describedby="early-feasibility" value={scenario.earlyDate}
                     onChange={(event) => updateDate('earlyDate', event.currentTarget.value)} />
                   <span id="early-feasibility" className={`feasibility feasibility-${feasibility.early}`}>{feasibility.early}</span>
                 </div>
                 <div className="return-field">
                   <label htmlFor="late-return">Later return (UTC)</label>
-                  <input id="late-return" type="date" min={referenceWindow.startIso} max={referenceWindow.endIso}
+                  <input id="late-return" type="date" min={window.startIso} max={window.endIso}
                     aria-describedby="late-feasibility" value={scenario.lateDate}
                     onChange={(event) => updateDate('lateDate', event.currentTarget.value)} />
                   <span id="late-feasibility" className={`feasibility feasibility-${feasibility.late}`}>{feasibility.late}</span>
@@ -170,7 +178,7 @@ export function RotationPlanner({ scenario, onScenarioChange, constraints, onCon
         <section className="workspace-panel planner-results" aria-labelledby="planner-result-title">
           <div className="planner-analysis-heading">
             <div><h2 id="planner-result-title">Historical exposure</h2><p>Managed residue return · illustrative cover</p></div>
-            <span className="context-label">2022/23</span>
+            <span className="context-label">{seasonLabel(season.year)}</span>
           </div>
           {comparison ? (
             <>
