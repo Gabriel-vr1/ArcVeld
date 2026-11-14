@@ -5,16 +5,18 @@
 | Public Sans and Instrument Serif | SIL Open Font License 1.1. The Fontsource packages ship their license files. [Public Sans](https://github.com/uswds/public-sans) · [Instrument Serif](https://github.com/Instrument/instrument-serif) |
 | Lucide icons | ISC, with MIT terms for inherited Feather icons. See the [Lucide license](https://github.com/lucide-icons/lucide/blob/main/LICENSE). |
 | Class Variance Authority | Apache-2.0. See the [CVA license](https://github.com/joe-bell/cva/blob/main/LICENSE). |
-| shadcn/ui Badge and Button patterns | MIT. ArcVeld adapts these primitives locally. See the notice below. |
-| Central Malawi landscape illustration | Generated with OpenAI ImageGen for this interface. It depicts an illustrative landscape. |
+| shadcn/ui Button pattern | MIT. ArcVeld adapts this primitive locally. See the notice below. |
+| Malawi reference map | Public-domain Natural Earth 1:50m country boundaries and lakes, projected locally for the study map. See the sources below. |
 
 NASA product documentation is credited in the app. The development reference records historical precipitation from NASA POWER Daily, MERRA-2, PRECTOTCORR. Its provenance is recorded in [the research reference metadata](Arcveld_Malawi_2022_Rainfall_Reference_Provenance.json). NASA insignia is absent from the application.
 
-## Landscape generation prompt
+## Map sources
 
-The built-in OpenAI ImageGen tool produced [the landscape illustration](src/assets/central-malawi-illustration.jpg) from this prompt.
+The bundled map paths are derived from the Natural Earth v5.1.1 distribution of [Admin 0 Countries](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.1/geojson/ne_50m_admin_0_countries.geojson) and [Lakes](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.1/geojson/ne_50m_lakes.geojson). The map uses a locally scaled longitude–latitude grid. The Kasungu point comes from the research query coordinates. [Natural Earth terms of use](https://www.naturalearthdata.com/about/terms-of-use/)
 
-> Generate a photorealistic editorial hero photograph, landscape 3:2, for ArcVeld's agricultural soil-cover research interface. An illustrative Central Malawi smallholder landscape near Kasungu, looking from just above a field across a gently rolling mosaic of small green and rust-brown rainfed plots. Clearly visible hand-planted parallel maize rows and earthen ridges sweep diagonally through the foreground; scattered broad-canopy trees, low distant hills, and a soft pale morning sky with light clouds across the upper quarter. Warm, natural light, realistic subdued deep green, olive and reddish earth, restrained documentary aesthetic. The landscape should feel intimate and lived-in, with irregular boundaries and varied plots. No people, text, logos, overlays, buildings in the foreground, or modern farm machinery. This is an illustrative landscape, not a depiction of a specific measured farm.
+## Earlier landscape illustration
+
+The built-in OpenAI ImageGen tool produced the [earlier landscape illustration](src/assets/central-malawi-illustration.jpg) for Stage 1. The current interface uses the Natural Earth reference map.
 
 ## shadcn/ui MIT notice
 

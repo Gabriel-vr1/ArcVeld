@@ -1,49 +1,65 @@
-import { ArrowDown, BookOpen, CalendarDays, MapPin } from 'lucide-react'
-import landscape from '../assets/central-malawi-illustration.jpg'
-import { Badge } from './ui/Badge'
+import { ArrowDownRight, ArrowRight, CloudRain, MapPin, Sprout } from 'lucide-react'
+import { referenceWindow, researchReference } from '../data/researchReference'
+import type { Comparison } from '../data/scenario'
+import { formatNumber } from '../format'
+import { routes } from '../navigation'
+import { KasunguMap } from './KasunguMap'
 import { ButtonLink } from './ui/Button'
 
-export function Overview() {
+export function Overview({ comparison }: { comparison?: Comparison }) {
+  const rain = researchReference.days
+  const maxRain = rain ? Math.max(1, ...rain.map(({ rainMm }) => rainMm)) : 1
+
   return (
-    <section aria-labelledby="overview-title" className="overview page-width">
-      <div className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow"><MapPin size={15} aria-hidden="true" /> Kasungu, Central Malawi</p>
-          <h1 id="overview-title">Soil-cover<br /><em>continuity</em></h1>
-          <p className="hero-description">
-            Compare crop sequences and explore how residue return timing could change
-            when soil is left uncovered during Malawi’s early rains.
-          </p>
-          <div className="hero-actions">
-            <ButtonLink href="#scenarios">Explore scenarios <ArrowDown size={17} aria-hidden="true" /></ButtonLink>
-            <ButtonLink variant="secondary" href="#research-example">
-              <BookOpen size={17} aria-hidden="true" /> View research example
-            </ButtonLink>
+    <div className="page-width overview">
+      <section className="overview-intro" aria-labelledby="overview-title">
+        <div className="overview-copy">
+          <p className="location-label"><MapPin size={15} aria-hidden="true" /> Kasungu, Central Malawi</p>
+          <h1 id="overview-title">Agricultural<br className="overview-break" /> Rotation Planning</h1>
+          <p className="intro-text">Explore how crop rotation and the timing of residue return could affect soil cover during Malawi’s early rains.</p>
+          <div className="actions">
+            <ButtonLink href={routes.planner.href}>Open Rotation Planner <ArrowRight size={16} aria-hidden="true" /></ButtonLink>
+            <ButtonLink href={routes.observations.href} variant="secondary">Explore NASA Data</ButtonLink>
           </div>
         </div>
+        <KasunguMap />
+      </section>
 
-        <figure className="hero-figure">
-          <img
-            src={landscape}
-            alt="Illustrated maize rows and small rainfed plots in a rolling Central Malawi landscape"
-            width={1536}
-            height={1024}
-            fetchPriority="high"
-          />
-          <figcaption>AI-generated landscape illustration</figcaption>
-        </figure>
-      </div>
+      <dl className="reference-strip" aria-label="Reference study">
+        <div><dt>Historical window</dt><dd>1 Nov 2022 – 15 Jan 2023</dd></div>
+        <div><dt>Daily rainfall record</dt><dd>{rain ? `${referenceWindow.dates.length} UTC days` : 'Unavailable'}</dd></div>
+        <div><dt>Rainfall source</dt><dd>NASA POWER / MERRA-2</dd></div>
+      </dl>
 
-      <div className="evidence-strip" aria-label="Reference case and evidence status">
-        <p className="reference-window"><CalendarDays size={17} aria-hidden="true" />
-          <span>Reference window <strong>1 Nov–15 Jan · UTC</strong></span>
-        </p>
-        <ul className="evidence-badges">
-          <li><Badge tone="rain">Research reference: NASA POWER / MERRA-2</Badge></li>
-          <li><Badge tone="ochre">NASA source: unconfirmed</Badge></li>
-          <li><Badge tone="green">Cover inputs: illustrative</Badge></li>
-        </ul>
-      </div>
-    </section>
+      <section className="overview-workspaces" aria-label="Planning and observation workflows">
+        <a className="workspace-preview" href={routes.planner.href}>
+          <span className="preview-icon"><Sprout size={20} aria-hidden="true" /></span>
+          <div>
+            <h2>Rotation Planner</h2>
+            <p>Compare crop sequences and test two residue-return schedules.</p>
+            <span className="mini-sequence">Groundnut <ArrowRight size={13} aria-hidden="true" /> Maize</span>
+          </div>
+          <ArrowDownRight className="preview-arrow" size={20} aria-hidden="true" />
+        </a>
+        <a className="workspace-preview" href={routes.observations.href}>
+          <span className="preview-icon preview-rain"><CloudRain size={20} aria-hidden="true" /></span>
+          <div>
+            <h2>Earth Observations</h2>
+            <p>See how daily rainfall overlaps with estimated ground cover.</p>
+            {rain && (
+              <span className="mini-rain">
+                <svg width="130" height="26" viewBox="0 0 152 26" aria-hidden="true">
+                  {rain.map(({ dateIso, rainMm }, index) => (
+                    <rect key={dateIso} x={index * 2} y={26 - (rainMm / maxRain) * 25} width="1.5" height={(rainMm / maxRain) * 25} />
+                  ))}
+                </svg>
+                {comparison && <span>{formatNumber(comparison.totalRainMm)} mm</span>}
+              </span>
+            )}
+          </div>
+          <ArrowDownRight className="preview-arrow" size={20} aria-hidden="true" />
+        </a>
+      </section>
+    </div>
   )
 }
