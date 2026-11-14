@@ -1,0 +1,20 @@
+{
+  "purpose": "Development reference, not a fully independently reverified provider acquisition",
+  "sourceDocument": "Arcveld_Malawi_NASA_Integration_and_Innovation_Validation.md",
+  "sourceSection": "Appendix: frozen 2022-11-01 through 2023-01-15 vector",
+  "source": "NASA POWER Daily Point API, PRECTOTCORR, AG, MERRA2, UTC",
+  "queryUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&longitude=33.45&latitude=-13.05&start=20181101&end=20240115&format=JSON&time-standard=UTC",
+  "queryLat": -13.05,
+  "queryLon": 33.45,
+  "dayBasis": "UTC",
+  "firstDate": "2022-11-01",
+  "lastDate": "2023-01-15",
+  "dayCount": 76,
+  "totalRainMm": 616.35,
+  "reportedOriginalRawSHA256": "e3f2c102cca7e467e56ace90d2e0d0f7c0e2dd355bdb417bb664a9064aacaf0b",
+  "providerRawPayloadAttached": false,
+  "providerBytesIndependentlyVerified": false,
+  "competitionEligibility": "unconfirmed",
+  "coverInputsStatus": "illustrative; not from an observed Malawian parcel",
+  "requiredBeforeRelease": "Re-fetch raw provider response, verify complete dates/units/source/version and spot check one day; obtain official Field Shift resource title."
+}
