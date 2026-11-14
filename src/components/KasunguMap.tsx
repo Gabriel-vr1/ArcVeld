@@ -14,6 +14,7 @@ const y = 165 + (-13.25 - queryLat) * 38
 
 export function KasunguMap() {
   const [view, setView] = useState<'map' | 'satellite'>('map')
+  const [satelliteUnavailable, setSatelliteUnavailable] = useState(false)
 
   return (
     <figure className="reference-map">
@@ -21,17 +22,22 @@ export function KasunguMap() {
         <span><MapPin size={16} aria-hidden="true" /> Kasungu reference area</span>
         <div className="map-view-switch" role="group" aria-label="Kasungu view">
           <button type="button" aria-pressed={view === 'map'} onClick={() => setView('map')}>Regional Map</button>
-          <button type="button" aria-pressed={view === 'satellite'} onClick={() => setView('satellite')}>Satellite View</button>
+          <button type="button" aria-pressed={view === 'satellite'} disabled={satelliteUnavailable} onClick={() => setView('satellite')}>Satellite View</button>
         </div>
       </div>
       <div className="map-view">
         {view === 'map' ? <RegionalMap /> : <img src={satellite} width={landsat.width} height={landsat.height}
+          onError={() => {
+            setSatelliteUnavailable(true)
+            setView('map')
+          }}
           alt="Natural-colour Landsat view of the Kasungu reference area in Central Malawi, showing fields, wooded areas and drainage lines." />}
       </div>
       {view === 'map' ? <figcaption>
         <div><span>NASA POWER query point</span><strong>{Math.abs(queryLat).toFixed(2)}° S, {queryLon.toFixed(2)}° E</strong></div>
         <div><span>Fixed rainfall example</span><strong>1 Nov 2022 – 15 Jan 2023</strong></div>
         <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>
+        {satelliteUnavailable && <span className="basis-full" role="status">Satellite imagery is unavailable. Showing the regional map.</span>}
       </figcaption> : <figcaption>
         <div><span>{landsat.mission} · {landsat.collection} · {formatDate(landsat.acquiredOn)}</span><strong className="satellite-product">{landsat.productId}</strong></div>
         <a href={landsat.sceneUrl}>USGS / NASA Landsat via Planetary Computer</a>

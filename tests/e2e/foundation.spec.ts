@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 test('the welcome opens immediately and supports keyboard entry with reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.goto('/')
+  await page.goto('./')
   const entry = page.getByRole('link', { name: 'Enter ArcVeld' })
   await expect(page.getByRole('heading', { name: 'ArcVeld' })).toBeVisible()
   await expect(page.getByRole('img', { name: 'Africa with Malawi highlighted' })).toBeVisible()
@@ -26,7 +26,7 @@ test('all four workspaces open and refresh without the welcome', async ({ page }
     ['#/observations', 'Earth Observations'],
     ['#/research', 'Research & Methodology'],
   ]) {
-    await page.goto('/' + route)
+    await page.goto('./' + route)
     await expect(page.getByRole('heading', { name: title, level: 1 })).toBeVisible()
     await page.reload()
     await expect(page.getByRole('heading', { name: title, level: 1 })).toBeVisible()
@@ -34,7 +34,7 @@ test('all four workspaces open and refresh without the welcome', async ({ page }
 })
 
 test('workspaces support keyboard navigation and browser history', async ({ page }) => {
-  await page.goto('/#/')
+  await page.goto('./#/')
   await expect(page.getByRole('heading', { name: 'Agricultural Rotation Planning' })).toBeVisible()
   await page.keyboard.press('Tab')
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused()
@@ -59,6 +59,62 @@ test('workspaces support keyboard navigation and browser history', async ({ page
   await expect(page.locator('#method')).toBeFocused()
   await page.goBack()
   await expect(page.getByRole('heading', { name: 'Earth Observations', level: 1 })).toBeVisible()
+  await page.goForward()
+  await expect(page.getByRole('heading', { name: 'Research & Methodology', level: 1 })).toBeVisible()
+})
+
+test('the production build loads routes and required assets at the project path on a tablet', async ({ page, baseURL }) => {
+  const project = new URL('./', baseURL)
+  const errors: string[] = []
+  const assets = new Set<string>()
+  page.on('pageerror', (error) => errors.push(error.message))
+  page.on('console', (message) => {
+    if (message.type() === 'error') errors.push(message.text())
+  })
+  page.on('requestfailed', (request) => errors.push(request.url()))
+  page.on('response', (response) => {
+    const url = new URL(response.url())
+    if (url.origin !== project.origin || !url.pathname.startsWith(project.pathname) || response.status() >= 400) {
+      errors.push(`${response.status()} ${url.href}`)
+    }
+    if (response.ok()) assets.add(url.pathname)
+  })
+
+  await page.setViewportSize({ width: 768, height: 1024 })
+  await page.goto('./')
+  await expect(page).toHaveURL(project.href)
+  await page.getByRole('link', { name: 'Enter ArcVeld' }).click()
+  await expect(page).toHaveURL(new URL('#/', project).href)
+  await page.getByRole('button', { name: 'Satellite View' }).click()
+  const image = page.getByRole('img', { name: /Natural-colour Landsat/ })
+  await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.naturalHeight)).toBe(690)
+  await page.getByRole('link', { name: 'Open Rotation Planner' }).click()
+  await expect(page).toHaveURL(new URL('#/planner', project).href)
+  await expect(page.getByLabel('Earlier return (UTC)')).toBeVisible()
+  await page.getByRole('link', { name: 'Inspect rainfall and cover' }).click()
+  await expect(page).toHaveURL(new URL('#/observations', project).href)
+  await page.getByLabel('Rainfall source').selectOption('imerg')
+  const table = page.getByRole('region', { name: 'POWER and IMERG comparison' })
+  for (const [label, value] of [['Earlier exposure', '224.09'], ['Later exposure', '217.47'], ['Later minus earlier', '−6.62']]) {
+    await expect(table.getByRole('row', { name: new RegExp(label) })).toContainText(value)
+  }
+  await page.getByRole('link', { name: 'See data provenance' }).click()
+  await expect(page).toHaveURL(new URL('#/research', project).href)
+  await page.getByText('GPM IMERG Final Daily V07', { exact: true }).click()
+  await expect(page.getByText(/All 76 days had 48/)).toBeVisible()
+  await page.getByText('Landsat geographic context', { exact: true }).click()
+  await expect(page.getByRole('link', { name: 'Landsat scene metadata' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Scientific limitations' })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(768)
+  await page.goto('./#/unknown')
+  await expect(page.getByRole('heading', { name: 'Agricultural Rotation Planning' })).toBeVisible()
+  expect([...assets]).toEqual(expect.arrayContaining([
+    expect.stringMatching(/\/assets\/.*\.js$/),
+    expect.stringMatching(/\/assets\/.*\.css$/),
+    expect.stringMatching(/\/assets\/.*\.woff2?$/),
+    expect.stringMatching(/\/assets\/kasungu-landsat9-.*\.webp$/),
+  ]))
+  expect(errors).toEqual([])
 })
 
 test('all workspaces fit at 360 px and use locally bundled data', async ({ page, baseURL }) => {
@@ -72,7 +128,7 @@ test('all workspaces fit at 360 px and use locally bundled data', async ({ page,
     return route.abort()
   })
 
-  await page.goto('/')
+  await page.goto('./')
   await expect(page.getByRole('link', { name: 'Enter ArcVeld' })).toBeInViewport()
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(360)
   await page.getByRole('link', { name: 'Enter ArcVeld' }).click()
@@ -90,7 +146,7 @@ test('all workspaces fit at 360 px and use locally bundled data', async ({ page,
 })
 
 test('planner edits and feasibility carry between routes while historical rainfall stays fixed', async ({ page }) => {
-  await page.goto('/#/observations')
+  await page.goto('./#/observations')
   const daily = page.getByRole('table', { name: 'Calendar, uniform and historical daily rainfall exposure' })
   const tie = page.getByText('Calendar and uniform-rainfall baselines tie.', { exact: true })
   const early = page.getByLabel('Earlier return (UTC)')
@@ -157,7 +213,7 @@ test('planner edits and feasibility carry between routes while historical rainfa
 })
 
 test('daily evidence can be investigated by keyboard, chart events and a table', async ({ page }) => {
-  await page.goto('/#/observations')
+  await page.goto('./#/observations')
   const day = page.getByLabel('Inspect UTC date')
   await expect(day).toHaveValue('2022-12-27')
   await day.focus()
@@ -190,7 +246,7 @@ test('the verified historical seasons update both workspaces without a NASA requ
   page.on('request', (request) => {
     if (new URL(request.url()).hostname.endsWith('nasa.gov')) requests.push(request.url())
   })
-  await page.goto('/#/observations')
+  await page.goto('./#/observations')
   const season = page.getByLabel('Historical season')
   await expect(season.locator('option')).toHaveCount(5)
   await expect(season).toHaveValue('2022')
@@ -234,7 +290,7 @@ test('the verified historical seasons update both workspaces without a NASA requ
 })
 
 test('IMERG updates daily evidence and carries the edited scenario across workspaces', async ({ page }) => {
-  await page.goto('/#/observations')
+  await page.goto('./#/observations')
   const source = page.getByLabel('Rainfall source')
   const table = page.getByRole('region', { name: 'POWER and IMERG comparison' })
   await expect(table.getByRole('row', { name: /Total precipitation/ })).toContainText('616.35')
@@ -260,7 +316,7 @@ test('the verified Landsat crop is bundled and the regional map remains availabl
   await page.setViewportSize({ width: 360, height: 800 })
   await page.route('**/*', (route) => new URL(route.request().url()).origin === new URL(baseURL!).origin
     ? route.continue() : route.abort())
-  await page.goto('/#/')
+  await page.goto('./#/')
   const map = page.getByRole('button', { name: 'Regional Map' })
   const satellite = page.getByRole('button', { name: 'Satellite View' })
   await expect(map).toHaveAttribute('aria-pressed', 'true')
@@ -274,5 +330,16 @@ test('the verified Landsat crop is bundled and the regional map remains availabl
   await expect(page.getByText('LC09_L2SP_169069_20221107_20221110_02_T1')).toBeVisible()
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(360)
   await map.click()
+  await expect(page.getByRole('img', { name: /Malawi and the Kasungu/ })).toBeVisible()
+})
+
+test('a failed satellite asset falls back to the regional map', async ({ page }) => {
+  await page.route('**/assets/kasungu-landsat9-*.webp', (route) => route.abort())
+  await page.goto('./#/')
+  const satellite = page.getByRole('button', { name: 'Satellite View' })
+  await satellite.click()
+  await expect(page.getByRole('status')).toHaveText('Satellite imagery is unavailable. Showing the regional map.')
+  await expect(satellite).toBeDisabled()
+  await expect(page.getByRole('button', { name: 'Regional Map' })).toHaveAttribute('aria-pressed', 'true')
   await expect(page.getByRole('img', { name: /Malawi and the Kasungu/ })).toBeVisible()
 })

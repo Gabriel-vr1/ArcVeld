@@ -1,9 +1,12 @@
 node_modules/
+/node_modules.stage5-*/
 dist/
 coverage/
 playwright-report/
 test-results/
 *.local
 .env*
+.netrc
+_netrc
 data/raw/
 __pycache__/
