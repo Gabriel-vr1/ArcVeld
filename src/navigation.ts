@@ -8,14 +8,16 @@ export const routes = {
 } as const
 
 export type Page = keyof typeof routes
+type Screen = Page | 'welcome'
 
 function subscribe(onChange: () => void) {
   window.addEventListener('hashchange', onChange)
   return () => window.removeEventListener('hashchange', onChange)
 }
 
-function currentPage(): Page {
+function currentPage(): Screen {
   const hash = window.location.hash
+  if (!hash) return 'welcome'
   if (hash === '#scenarios') return 'planner'
   if (hash === '#nasa-analysis') return 'observations'
   if (hash === '#sources' || hash === '#research-example') return 'research'
@@ -23,5 +25,5 @@ function currentPage(): Page {
 }
 
 export function usePage() {
-  return useSyncExternalStore(subscribe, currentPage, (): Page => 'overview')
+  return useSyncExternalStore(subscribe, currentPage, (): Screen => 'welcome')
 }

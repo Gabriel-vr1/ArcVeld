@@ -12,10 +12,14 @@ function timeTicks(events: readonly Event[]) {
   })
 }
 
-export function ObservationChart({ events, scenario }: { events: readonly Event[]; scenario: Scenario }) {
+export function ObservationChart({ events, scenario, selectedDate, onDateSelect }: {
+  events: readonly Event[]
+  scenario: Scenario
+  selectedDate?: string
+  onDateSelect: (date: string) => void
+}) {
   const topEvents = [...events].filter(({ contribution }) => Math.abs(contribution) > 1e-6)
     .sort((a, b) => Math.abs(b.contribution) - Math.abs(a.contribution)).slice(0, 3)
-  const [selectedDate, setSelectedDate] = useState<string>()
   const selected = events.find((event) => event.dateIso === selectedDate) ?? topEvents[0] ?? events[0]
   const selectedIndex = events.indexOf(selected)
   const chart = useRef<HTMLDivElement>(null)
@@ -41,15 +45,16 @@ export function ObservationChart({ events, scenario }: { events: readonly Event[
   const coverY = (fraction: number) => coverBottom - fraction * 112
   const coverPoints = (key: 'earlyCover' | 'lateCover') => events
     .map((event, index) => `${x(index)},${coverY(event[key])}`).join(' ')
-  const setDay = (index: number) => setSelectedDate(events[index].dateIso)
+  const setDay = (index: number) => onDateSelect(events[index].dateIso)
 
   return (
     <section className="workspace-panel observation-workspace" aria-labelledby="timeline-title">
       <div className="workspace-heading">
         <div>
           <h2 id="timeline-title">Rainfall and ground cover</h2>
-          <p className="muted">Daily precipitation and two estimated cover schedules on the same UTC timeline.</p>
+          <p className="muted">Select a day to inspect its rainfall, estimated cover, and contribution.</p>
         </div>
+        <span className="context-label">{events.length} days · UTC</span>
       </div>
       <div className="chart-layout">
         <div className="chart-main">
@@ -84,7 +89,7 @@ export function ObservationChart({ events, scenario }: { events: readonly Event[
                   </text>
                 </g>
               ))}
-              <rect x={x(selectedIndex) - step / 2} y="39" width={step} height={coverBottom - 39} className="plot-selection" />
+              <rect x={x(selectedIndex) - Math.max(step / 2, 2)} y="39" width={Math.max(step, 4)} height={coverBottom - 39} className="plot-selection" />
               {events.map((event, index) => (
                 <rect key={event.dateIso} x={x(index) - step * .36} y={rainY(event.rainMm)} width={step * .72}
                   height={rainBottom - rainY(event.rainMm)} className={event === selected ? 'plot-rain plot-rain-selected' : 'plot-rain'} />
@@ -94,6 +99,7 @@ export function ObservationChart({ events, scenario }: { events: readonly Event[
                   x2={x(events.findIndex((event) => event.dateIso === date))} y2={coverBottom}
                   className={index === 0 ? 'plot-return plot-early' : 'plot-return plot-late'} />
               ))}
+              <line x1={x(selectedIndex)} x2={x(selectedIndex)} y1="39" y2={coverBottom} className="plot-cursor" />
               <polyline points={coverPoints('earlyCover')} className="plot-cover plot-early" />
               <polyline points={coverPoints('lateCover')} className="plot-cover plot-late" />
               <circle cx={x(selectedIndex)} cy={coverY(selected.earlyCover)} r="3.5" className="plot-dot plot-early" />
@@ -111,7 +117,7 @@ export function ObservationChart({ events, scenario }: { events: readonly Event[
               <ChevronLeft size={17} aria-hidden="true" />
             </button>
             <label><span className="sr-only">Inspect UTC date</span>
-              <select value={selected.dateIso} onChange={(event) => setSelectedDate(event.currentTarget.value)}>
+              <select value={selected.dateIso} onChange={(event) => onDateSelect(event.currentTarget.value)}>
                 {events.map(({ dateIso }) => <option key={dateIso} value={dateIso}>{formatDate(dateIso)} (UTC)</option>)}
               </select>
             </label>
@@ -136,7 +142,7 @@ export function ObservationChart({ events, scenario }: { events: readonly Event[
               <ul>
                 {topEvents.map((event) => (
                   <li key={event.dateIso}>
-                    <button type="button" aria-pressed={event === selected} onClick={() => setSelectedDate(event.dateIso)}>
+                    <button type="button" aria-pressed={event === selected} onClick={() => onDateSelect(event.dateIso)}>
                       <span>{formatShortDate(event.dateIso)}</span><strong>{formatContribution(event.contribution)}</strong>
                     </button>
                   </li>
@@ -155,7 +161,8 @@ export function ObservationChart({ events, scenario }: { events: readonly Event[
             <thead><tr><th scope="col">Date (UTC)</th><th scope="col">Rainfall (mm)</th><th scope="col">Earlier cover (%)</th><th scope="col">Later cover (%)</th><th scope="col">Contribution (mm-equivalent)</th></tr></thead>
             <tbody>{events.map((event) => (
               <tr key={event.dateIso} className={event === selected ? 'selected-row' : undefined}>
-                <th scope="row">{event.dateIso}</th><td>{formatNumber(event.rainMm)}</td>
+                <th scope="row"><button type="button" aria-pressed={event === selected}
+                  onClick={() => onDateSelect(event.dateIso)}>{event.dateIso}</button></th><td>{formatNumber(event.rainMm)}</td>
                 <td>{(event.earlyCover * 100).toFixed(2)}</td><td>{(event.lateCover * 100).toFixed(2)}</td>
                 <td>{formatContribution(event.contribution)}</td>
               </tr>

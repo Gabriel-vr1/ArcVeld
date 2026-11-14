@@ -3,10 +3,12 @@ import { referenceProvenance } from '../data/researchReference'
 import { routes } from '../navigation'
 
 const sections = [
+  { id: 'background', label: 'Research background' },
   { id: 'datasets', label: 'NASA data & provenance' },
   { id: 'agriculture', label: 'Agricultural research' },
   { id: 'method', label: 'Scientific method' },
-  { id: 'limitations', label: 'Assumptions & limits' },
+  { id: 'assumptions', label: 'Cover assumptions' },
+  { id: 'limitations', label: 'Scientific limitations' },
   { id: 'eligibility', label: 'Competition eligibility' },
   { id: 'references', label: 'References & credits' },
 ]
@@ -40,6 +42,10 @@ export function SourcePanel() {
         </nav>
 
         <div className="research-content">
+          <section id="background" tabIndex={-1}>
+            <h2>Research background</h2>
+            <p>The Kasungu case compares earlier and later returns of protected groundnut residue before maize, using the same illustrative cover assumptions and the same 2022/23 rainfall record.</p>
+          </section>
           <section id="datasets" tabIndex={-1}>
             <h2>NASA data &amp; provenance</h2>
             <p>The bundled rainfall series was transcribed from the ArcVeld research report. Independent verification of the original provider response is pending.</p>
@@ -74,21 +80,27 @@ export function SourcePanel() {
           <section id="method" tabIndex={-1}>
             <h2>Scientific method</h2>
             <dl className="method-steps">
-              <div><dt>Calendar</dt><dd>Sum the uncovered fraction on each day, in uncovered area-days.</dd></div>
-              <div><dt>Uniform rainfall</dt><dd>Spread the season’s rainfall evenly across the days and weight it by estimated uncovered ground.</dd></div>
-              <div><dt>Historical daily rainfall</dt><dd>Multiply each day’s rainfall by its estimated uncovered fraction, then sum the products in mm-equivalent.</dd></div>
+              <div><dt>Calendar</dt><dd><span className="method-equation">D = Σ (1 − cᵢ)</span>Sum the daily uncovered fractions in uncovered area-days.</dd></div>
+              <div><dt>Uniform rainfall</dt><dd><span className="method-equation">E = (Σ Pᵢ / n) × D</span>Use mean daily rainfall over the analysis window.</dd></div>
+              <div><dt>Historical daily rainfall</dt><dd><span className="method-equation">E = Σ Pᵢ (1 − cᵢ)</span>Weight each day’s rainfall by its estimated uncovered fraction.</dd></div>
             </dl>
+            <p><var>Pᵢ</var> is daily rainfall in mm, <var>cᵢ</var> is estimated cover as a fraction, and <var>n</var> is the number of days. Both rainfall-weighted results are in mm-equivalent.</p>
+            <p>Each date’s contribution to the later-minus-earlier difference is its rainfall multiplied by earlier cover minus later cover, with cover expressed as fractions.</p>
+          </section>
+
+          <section id="assumptions" tabIndex={-1}>
+            <h2>Cover assumptions</h2>
+            <p>Ground cover and residue persistence are illustrative. Both schedules assume the same nominal stock of protected residue.</p>
             <details className="research-details">
               <summary>Illustrative return dates and cover model</summary>
               <p>The research example uses 15 November 2022 and 6 December 2022. Both schedules start from 15% baseline cover and add 25 percentage points on return. The added cover holds through day 14 and falls linearly to zero by day 28.</p>
-              <p>Each date’s contribution to the later-minus-earlier difference is its rainfall multiplied by earlier cover minus later cover, with cover expressed as fractions.</p>
             </details>
           </section>
 
           <section id="limitations" tabIndex={-1}>
-            <h2>Assumptions &amp; limits</h2>
+            <h2>Scientific limitations</h2>
             <ul className="research-list">
-              <li>NASA POWER / MERRA-2 supplies regional reanalysis precipitation. Ground cover and residue persistence are illustrative.</li>
+              <li>NASA POWER / MERRA-2 supplies regional reanalysis precipitation for the Kasungu reference query.</li>
               <li>Historical exposure is a comparison proxy. It does not measure erosion, runoff, yield or future risk.</li>
               <li>Local observations and an extension adviser can help verify residue availability, grazing control, timing and cover before a field decision.</li>
               <li>The blueprint reports an opposite result in 2021/22 under its reference assumptions. The underlying daily series for that season is outside the bundled evidence.</li>

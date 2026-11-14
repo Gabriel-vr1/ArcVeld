@@ -1,7 +1,40 @@
 import { expect, test } from '@playwright/test'
 
-test('four pages support keyboard navigation, history and direct refresh', async ({ page }) => {
+test('the welcome opens immediately and supports keyboard entry with reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/')
+  const entry = page.getByRole('link', { name: 'Enter ArcVeld' })
+  await expect(page.getByRole('heading', { name: 'ArcVeld' })).toBeVisible()
+  await expect(page.getByRole('img', { name: 'Africa with Malawi highlighted' })).toBeVisible()
+  await expect(page.getByRole('navigation', { name: 'Main navigation' })).toHaveCount(0)
+  await expect(entry).toHaveCSS('animation-name', 'none')
+  await expect(page.locator('.welcome-stage')).toHaveCSS('animation-name', 'none')
+  await page.keyboard.press('Tab')
+  await expect(entry).toBeFocused()
+  await page.keyboard.press('Enter')
+  await expect(page).toHaveURL(/#\/$/)
+  await expect(page.getByRole('heading', { name: 'Agricultural Rotation Planning' })).toBeVisible()
+  await expect(page.getByRole('main')).toBeFocused()
+  await page.goBack()
+  await expect(entry).toBeVisible()
+})
+
+test('all four workspaces open and refresh without the welcome', async ({ page }) => {
+  for (const [route, title] of [
+    ['#/', 'Agricultural Rotation Planning'],
+    ['#/planner', 'Crop Rotation Planner'],
+    ['#/observations', 'Earth Observations'],
+    ['#/research', 'Research & Methodology'],
+  ]) {
+    await page.goto('/' + route)
+    await expect(page.getByRole('heading', { name: title, level: 1 })).toBeVisible()
+    await page.reload()
+    await expect(page.getByRole('heading', { name: title, level: 1 })).toBeVisible()
+  }
+})
+
+test('workspaces support keyboard navigation and browser history', async ({ page }) => {
+  await page.goto('/#/')
   await page.keyboard.press('Tab')
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused()
   await page.keyboard.press('Enter')
@@ -39,6 +72,9 @@ test('all workspaces fit at 360 px and use locally bundled data', async ({ page,
   })
 
   await page.goto('/')
+  await expect(page.getByRole('link', { name: 'Enter ArcVeld' })).toBeInViewport()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(360)
+  await page.getByRole('link', { name: 'Enter ArcVeld' }).click()
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Agricultural\s*Rotation Planning/)
   await expect(page.getByRole('img', { name: /Malawi and the Kasungu/ })).toBeVisible()
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(360)
@@ -70,7 +106,16 @@ test('planner edits and feasibility carry between routes while historical rainfa
   await expect(rain).toBeVisible()
 
   await page.getByRole('link', { name: 'Edit scenario' }).click()
+  const laterLane = page.locator('.schedule-late')
+  const originalMarker = await laterLane.locator('.schedule-return').getAttribute('d')
+  await page.getByRole('radio', { name: /Existing maize management/ }).check()
+  await expect(late).not.toBeVisible()
+  await page.getByRole('radio', { name: /Ordinary practice/ }).check()
+  await expect(page.getByText('Groundnut → Maize', { exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Edit managed return dates' }).click()
   await late.fill('2022-12-07')
+  await expect(laterLane).toHaveAttribute('data-return-date', '2022-12-07')
+  await expect(laterLane.locator('.schedule-return')).not.toHaveAttribute('d', originalMarker!)
   await expect(page.getByText('468.47', { exact: true })).toHaveCount(0)
   await page.getByText('Check management constraints', { exact: true }).click()
   await page.getByLabel('Is the later date workable?').selectOption('no')
@@ -124,6 +169,12 @@ test('daily evidence can be investigated by keyboard, chart events and a table',
   const table = page.getByRole('table', { name: 'Daily NASA rainfall and illustrative ground cover' })
   await expect(table.getByRole('row')).toHaveCount(77)
   await expect(table.getByRole('row', { name: /2022-12-27/ })).toContainText('−10.4175')
+  await table.getByRole('button', { name: '2022-12-19' }).click()
+  await expect(day).toHaveValue('2022-12-19')
+  await page.getByRole('link', { name: 'Edit scenario' }).click()
+  await page.getByLabel('Later return (UTC)').fill('2022-12-07')
+  await page.getByRole('link', { name: 'Inspect rainfall and cover' }).click()
+  await expect(day).toHaveValue('2022-12-19')
 
   await page.getByRole('button', { name: /27 Dec/ }).click()
   await expect(page.getByRole('button', { name: /27 Dec/ })).toHaveAttribute('aria-pressed', 'true')

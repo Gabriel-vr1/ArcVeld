@@ -6,13 +6,15 @@
 | Lucide icons | ISC, with MIT terms for inherited Feather icons. See the [Lucide license](https://github.com/lucide-icons/lucide/blob/main/LICENSE). |
 | Class Variance Authority | Apache-2.0. See the [CVA license](https://github.com/joe-bell/cva/blob/main/LICENSE). |
 | shadcn/ui Button pattern | MIT. ArcVeld adapts this primitive locally. See the notice below. |
-| Malawi reference map | Public-domain Natural Earth 1:50m country boundaries and lakes, projected locally for the study map. See the sources below. |
+| Africa welcome map and Malawi reference map | Public-domain Natural Earth boundaries and lakes. See the sources below. |
 
 NASA product documentation is credited in the app. The development reference records historical precipitation from NASA POWER Daily, MERRA-2, PRECTOTCORR. Its provenance is recorded in [the research reference metadata](Arcveld_Malawi_2022_Rainfall_Reference_Provenance.json). NASA insignia is absent from the application.
 
 ## Map sources
 
 The bundled map paths are derived from the Natural Earth v5.1.1 distribution of [Admin 0 Countries](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.1/geojson/ne_50m_admin_0_countries.geojson) and [Lakes](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.1/geojson/ne_50m_lakes.geojson). The map uses a locally scaled longitude–latitude grid. The Kasungu point comes from the research query coordinates. [Natural Earth terms of use](https://www.naturalearthdata.com/about/terms-of-use/)
+
+The welcome map uses [Natural Earth 1:110m Admin 0 Countries v5.1.1](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.1/geojson/ne_110m_admin_0_countries.geojson), cropped to Africa and its geographic context. Both maps use the same Kasungu query coordinates.
 
 ## Earlier landscape illustration
 

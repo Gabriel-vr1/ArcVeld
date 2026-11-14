@@ -2,7 +2,7 @@
 
 ArcVeld is a soil-cover scenario explorer for a rainfed groundnut-to-maize transition near Kasungu, Central Malawi. The Overview locates the reference site, the Rotation Planner holds management inputs, Earth Observations compares historical exposure, and Research & Methodology documents the evidence. Planner inputs carry across pages during the current session.
 
-The four pages use hash URLs (`#/`, `#/planner`, `#/observations`, and `#/research`). The production build uses relative asset paths and supports direct navigation and refresh on static hosts such as GitHub Pages.
+The base URL opens the map-led welcome. The four workspaces use hash URLs (`#/`, `#/planner`, `#/observations`, and `#/research`). The production build uses relative asset paths and supports direct navigation and refresh on static hosts such as GitHub Pages.
 
 The exposure proxy weights regional precipitation by the estimated uncovered fraction of ground on each UTC day. Results are expressed in mm-equivalent. The assumptions require field observations and local feasibility checks before they can inform farm advice.
 

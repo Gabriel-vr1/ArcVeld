@@ -12,7 +12,7 @@ export function KasunguMap() {
   return (
     <figure className="reference-map">
       <div className="map-heading">
-        <span><MapPin size={16} aria-hidden="true" /> Study location</span>
+        <span><MapPin size={16} aria-hidden="true" /> Kasungu reference area</span>
         <span>Central Malawi</span>
       </div>
       <svg viewBox="0 0 660 330" role="img" aria-labelledby="map-title map-description">
@@ -20,16 +20,15 @@ export function KasunguMap() {
         <desc id="map-description">Map of Malawi and its neighbours, with Lake Malawi and the NASA POWER query at 13.05 degrees south, 33.45 degrees east.</desc>
         <defs>
           <pattern id="map-grid" x="13.2" y="3.5" width="43" height="38" patternUnits="userSpaceOnUse">
-            <path d="M 43 0 H 0 V 38" fill="none" stroke="#546d59" strokeOpacity=".2" strokeWidth="1" />
+            <path d="M 43 0 H 0 V 38" fill="none" className="regional-gridline" />
           </pattern>
         </defs>
-        <rect width="660" height="330" fill="#e7eae0" />
+        <rect width="660" height="330" className="regional-water" />
         {Object.entries(geography.countries).map(([country, path]) => (
-          <path key={country} d={path} fill={country === 'MWI' ? '#b8d0af' : '#e5e6d8'}
-            stroke={country === 'MWI' ? '#587e58' : '#a5ad97'} strokeWidth={country === 'MWI' ? 1.7 : 1}
+          <path key={country} d={path} className={country === 'MWI' ? 'regional-country regional-malawi' : 'regional-country'}
             fillRule="evenodd" />
         ))}
-        {geography.lakes.map((path) => <path key={path} d={path} fill="#b9d0d3" stroke="#91afb3" strokeWidth=".9" />)}
+        {geography.lakes.map((path) => <path key={path} d={path} className="regional-lake" />)}
         <rect width="660" height="330" fill="url(#map-grid)" />
         <g className="map-labels" aria-hidden="true">
           <text x="125" y="119">ZAMBIA</text>
@@ -40,17 +39,18 @@ export function KasunguMap() {
           <text className="map-water" x="381" y="134">Malawi</text>
         </g>
         <g aria-hidden="true">
-          <path d={`M ${x} ${y} l -32 30 h -65`} fill="none" stroke="#1e503c" strokeWidth="1.5" />
-          <circle cx={x} cy={y} r="13" fill="#fbfcf3" fillOpacity=".8" stroke="#1e503c" />
-          <circle cx={x} cy={y} r="5.5" fill="#1e503c" />
-          <rect x={x - 175} y={y + 16} width="94" height="30" rx="3" fill="#163c2d" />
+          <path d={`M ${x} ${y} l -32 30 h -65`} className="regional-leader" />
+          <circle cx={x} cy={y} r="13" className="regional-ring" />
+          <circle cx={x} cy={y} r="5.5" className="regional-dot" />
+          <rect x={x - 175} y={y + 16} width="94" height="30" rx="3" fill="#142e29" />
           <text x={x - 128} y={y + 35.5} textAnchor="middle" className="map-point">Kasungu</text>
-          <path d="M 620 58 V 36 m -6 7 l 6 -7 l 6 7" fill="none" stroke="#41574a" strokeWidth="1.5" />
+          <path d="M 620 58 V 36 m -6 7 l 6 -7 l 6 7" className="regional-leader" />
           <text x="620" y="30" textAnchor="middle" className="map-north">N</text>
         </g>
       </svg>
       <figcaption>
-        <span>NASA POWER query point <strong>{Math.abs(queryLat).toFixed(2)}° S, {queryLon.toFixed(2)}° E</strong></span>
+        <div><span>NASA POWER query point</span><strong>{Math.abs(queryLat).toFixed(2)}° S, {queryLon.toFixed(2)}° E</strong></div>
+        <div><span>Observation period</span><strong>1 Nov 2022 – 15 Jan 2023</strong></div>
         <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>
       </figcaption>
     </figure>
