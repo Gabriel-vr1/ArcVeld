@@ -1,6 +1,8 @@
 # ArcVeld
 
-ArcVeld is a soil-cover scenario explorer for a rainfed groundnut-to-maize transition near Kasungu, Central Malawi. Stage 1 provides the one-page application, agricultural scenarios, NASA comparison structure, and source provenance. It displays the research example context and illustrative return dates. Historical calculations and daily rainfall are pending integration.
+ArcVeld is a soil-cover scenario explorer for a rainfed groundnut-to-maize transition near Kasungu, Central Malawi. Stage 2 computes calendar and uniform-rainfall baselines, daily historical exposure, and daily event contributions for two illustrative residue-return dates. Date edits recalculate the results against the same research-transcribed 2022/23 rainfall series.
+
+The exposure proxy weights regional precipitation by the estimated uncovered fraction of ground on each UTC day. Results are expressed in mm-equivalent. The assumptions require field observations and local feasibility checks before they can inform farm advice.
 
 ## Run locally
 

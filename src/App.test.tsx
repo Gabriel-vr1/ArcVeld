@@ -2,13 +2,15 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
 import App from './App'
 
-describe('Stage 1 application shell', () => {
+describe('ArcVeld application shell', () => {
   const markup = renderToStaticMarkup(<App />)
 
-  it('keeps source eligibility, illustrative cover, and analysis availability visible', () => {
+  it('keeps computed analysis distinct from eligibility and cover evidence', () => {
     expect(markup).toContain('NASA source: unconfirmed')
     expect(markup).toContain('Cover inputs: illustrative')
-    expect(markup).toContain('Analysis unavailable')
+    expect(markup).toContain('Calendar and uniform-rainfall baselines tie.')
+    expect(markup).toContain('Research-transcribed NASA POWER / MERRA-2 rainfall.')
+    expect(markup).not.toContain('Analysis unavailable')
     expect(markup).toContain('NASA POWER · MERRA-2 reanalysis')
   })
 

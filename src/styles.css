@@ -264,6 +264,46 @@
     @apply border-[#c7dce0] bg-[#f6fbfb];
   }
 
+  .return-controls {
+    @apply mb-4 flex min-w-0 flex-wrap items-end gap-x-4 gap-y-3 rounded-2xl border border-line bg-panel px-5 pt-2 pb-4 sm:px-6;
+  }
+
+  .return-controls legend {
+    @apply px-1.5 text-sm font-bold text-forest;
+  }
+
+  .return-controls label {
+    @apply grid gap-1 text-sm font-semibold;
+  }
+
+  .return-controls input {
+    @apply min-h-11 w-full rounded-lg border border-[#a9b5ad] bg-white px-2.5 py-2 tabular-nums;
+  }
+
+  .return-controls p {
+    @apply mt-0 basis-full;
+  }
+
+  .comparison-table {
+    @apply mt-4 w-full text-sm tabular-nums;
+  }
+
+  .comparison-table th {
+    @apply text-left font-semibold;
+  }
+
+  .comparison-table :is(th, td) {
+    @apply border-b border-line py-2;
+  }
+
+  .comparison-table :is(th, td):not(:first-child) {
+    @apply pl-2 text-right;
+  }
+
+  .comparison-difference {
+    @apply mt-3 flex flex-wrap items-baseline justify-between gap-x-2 text-sm text-rain tabular-nums;
+  }
+
   .analysis-status {
     @apply mt-3.5 flex flex-wrap items-start gap-3 rounded-2xl border border-[#c7dce0] bg-[#e4eeee] p-4 sm:p-5;
   }

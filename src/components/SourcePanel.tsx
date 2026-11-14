@@ -1,4 +1,5 @@
 import { ArrowUpRight, BookOpen, FileText } from 'lucide-react'
+import { referenceProvenance } from '../data/researchReference'
 import { Badge } from './ui/Badge'
 
 const sourceLinks = [
@@ -30,6 +31,7 @@ export function SourcePanel() {
             <div><dt>Variable</dt><dd>PRECTOTCORR · corrected precipitation</dd></div>
             <div><dt>Reference dates</dt><dd>1 Nov 2022–15 Jan 2023 · UTC</dd></div>
             <div><dt>Query point</dt><dd>13.05° S, 33.45° E · Kasungu reference</dd></div>
+            <div><dt>Research record</dt><dd>{referenceProvenance.sourceSection}</dd></div>
           </dl>
           <details className="research-details">
             <summary>Illustrative return dates</summary>
