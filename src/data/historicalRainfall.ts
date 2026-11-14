@@ -84,7 +84,6 @@ export const historicalRainfall = loadRainfall()
 export const rainfallLabel = historicalRainfall.provenance
   ? 'NASA POWER / MERRA-2 · independently validated'
   : 'Research-transcribed NASA POWER / MERRA-2'
-export const challengeEligibility = manifest.challengeEligibility
 
 export function seasonLabel(startYear: number) {
   return `${startYear}/${String(startYear + 1).slice(-2)}`

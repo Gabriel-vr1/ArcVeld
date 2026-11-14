@@ -1,0 +1,1170 @@
+{
+  "schemaVersion": 1,
+  "collection": "C2723754864-GES_DISC",
+  "doi": "10.5067/GPM/IMERGDF/DAY/07",
+  "version": "V07B",
+  "variable": "precipitation",
+  "timeStandard": "UTC",
+  "sourceUnits": "mm/day",
+  "units": "mm",
+  "startYear": 2022,
+  "cell": {
+    "lon": 33.45000076293945,
+    "lat": -13.049999999999994
+  },
+  "gridSpacingDegrees": 0.1,
+  "scaleFactor": 1,
+  "addOffset": 0,
+  "fillValue": -9999.900390625,
+  "sampleCountRange": {
+    "min": 48,
+    "max": 48
+  },
+  "spotCheck": {
+    "dateIso": "2022-12-27",
+    "rainMm": 0.14499999582767487
+  },
+  "totalRainMm": 284.399992890656,
+  "days": [
+    {
+      "dateIso": "2022-11-01",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-01T00:00:00+00:00",
+        "2022-11-01T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833340252-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221101-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:35.982412+00:00",
+      "sha256": "d263329f81f1112d6d0925695f2f943089c7d3faf50ef755d0c0ae999430a3d8",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-02",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-02T00:00:00+00:00",
+        "2022-11-02T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833445140-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221102-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:37.922030+00:00",
+      "sha256": "c4ed962a0ca763caea5951ca06de2fc5d3764bb78fc2965d6490321b7d217d4e",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-03",
+      "rainMm": 0.07000000029802322,
+      "sampleCount": 48,
+      "randomErrorMm": 4.305800437927246,
+      "timeBoundsUtc": [
+        "2022-11-03T00:00:00+00:00",
+        "2022-11-03T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833506935-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221103-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:39.970512+00:00",
+      "sha256": "dc57c2e85a982887679752b918cbfdb2824c309c7f06551e3460e88d9ee5d140",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-04",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-04T00:00:00+00:00",
+        "2022-11-04T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833340251-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221104-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:41.917355+00:00",
+      "sha256": "bf21c65a73e3d37d11b6f50a50e72e3210ac0211024c05517d28503c3265163c",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-05",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-05T00:00:00+00:00",
+        "2022-11-05T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833362883-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221105-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:43.862508+00:00",
+      "sha256": "9212b678554cc5423a5f816ba93a9612edfcaa922a40b6d93cdb32fcd40ba1e6",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-06",
+      "rainMm": 0.03999999910593033,
+      "sampleCount": 48,
+      "randomErrorMm": 3.670100688934326,
+      "timeBoundsUtc": [
+        "2022-11-06T00:00:00+00:00",
+        "2022-11-06T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833344859-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221106-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:45.807009+00:00",
+      "sha256": "4b0ea4cd5f0fcefe096243cfdf0e7b5e42ef1d94cfdbb43cc36e23d709e699d1",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-07",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-07T00:00:00+00:00",
+        "2022-11-07T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833343956-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221107-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:48.060040+00:00",
+      "sha256": "c7676cb93c187b2e53a7d88be5b6def8464b4d36f9d6d5935e390bb2d4374775",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-08",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-08T00:00:00+00:00",
+        "2022-11-08T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833360617-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221108-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:50.212758+00:00",
+      "sha256": "f0c7b4f532662ab1d1ffd863e695e4ca4efc9962c649732ce3c8b71195c305fd",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-09",
+      "rainMm": 0.054999999701976776,
+      "sampleCount": 48,
+      "randomErrorMm": 4.171300411224365,
+      "timeBoundsUtc": [
+        "2022-11-09T00:00:00+00:00",
+        "2022-11-09T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833532762-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221109-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:52.053509+00:00",
+      "sha256": "dfff5098f440bf387ea27272e4951d64e953e2fe73524f24a938bd1a4887158b",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-10",
+      "rainMm": 0.48499998450279236,
+      "sampleCount": 48,
+      "randomErrorMm": 20.239700317382812,
+      "timeBoundsUtc": [
+        "2022-11-10T00:00:00+00:00",
+        "2022-11-10T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833460937-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221110-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:54.005424+00:00",
+      "sha256": "5082b5d57c88a963fcb67555f9fc4c0498aa304310c9c16c3530a0b03c873cc7",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-11",
+      "rainMm": 2.0849997997283936,
+      "sampleCount": 48,
+      "randomErrorMm": 144.9751739501953,
+      "timeBoundsUtc": [
+        "2022-11-11T00:00:00+00:00",
+        "2022-11-11T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833484271-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221111-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:55.963963+00:00",
+      "sha256": "1b7cb16b960571ed906828f4e45eccc9fd8721b19934402719f9ee1c0a07a3b7",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-12",
+      "rainMm": 0.25,
+      "sampleCount": 48,
+      "randomErrorMm": 13.996800422668457,
+      "timeBoundsUtc": [
+        "2022-11-12T00:00:00+00:00",
+        "2022-11-12T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833406036-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221112-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:58.095843+00:00",
+      "sha256": "c806a00d4749320ca6e8d776dc3a8cd746acbddd1c4e7a8b19b697961873993d",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-13",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-13T00:00:00+00:00",
+        "2022-11-13T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833362901-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221113-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:00.346076+00:00",
+      "sha256": "27fb623017d47ff82d46dbc96dcc0d822bb82d34d94698ce44f0cb19edc996e9",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-14",
+      "rainMm": 2.309999942779541,
+      "sampleCount": 48,
+      "randomErrorMm": 137.9436492919922,
+      "timeBoundsUtc": [
+        "2022-11-14T00:00:00+00:00",
+        "2022-11-14T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833416532-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221114-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:02.315845+00:00",
+      "sha256": "492090a6164a6879bfd327fa4d973c37ff5070d62ccc2978e93854ab7f84a1e2",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-15",
+      "rainMm": 0.08999999612569809,
+      "sampleCount": 48,
+      "randomErrorMm": 5.631300449371338,
+      "timeBoundsUtc": [
+        "2022-11-15T00:00:00+00:00",
+        "2022-11-15T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833342491-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221115-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:04.546152+00:00",
+      "sha256": "80e610bb9ee26b083e4b51fad67f8229545a529c0b90c03d195d112210527870",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-16",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-16T00:00:00+00:00",
+        "2022-11-16T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833518563-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221116-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:06.810401+00:00",
+      "sha256": "32b21b1c98bdaa3ca738f525df262e0278333fae54c72e242e4c60bfc7e7e55c",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-17",
+      "rainMm": 17.76999855041504,
+      "sampleCount": 48,
+      "randomErrorMm": 2409.13623046875,
+      "timeBoundsUtc": [
+        "2022-11-17T00:00:00+00:00",
+        "2022-11-17T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833341434-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221117-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:09.050507+00:00",
+      "sha256": "5055236a3aa8bd1e76dc151382bd865bf1f56b224287353cb3bb4bc6329b8c70",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-18",
+      "rainMm": 0.19499999284744263,
+      "sampleCount": 48,
+      "randomErrorMm": 10.603300094604492,
+      "timeBoundsUtc": [
+        "2022-11-18T00:00:00+00:00",
+        "2022-11-18T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833409207-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221118-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:10.792247+00:00",
+      "sha256": "238505126060313cc2c92fd3b6bca5b630d488cbc2f7aebed6f12ff0d351d125",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-19",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-19T00:00:00+00:00",
+        "2022-11-19T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833340934-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221119-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:13.147964+00:00",
+      "sha256": "af89868025095b7016057c55e114e20e820ef46420ecd03887eaae588e911c0d",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-20",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-20T00:00:00+00:00",
+        "2022-11-20T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833341224-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221120-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:15.402586+00:00",
+      "sha256": "422ff056db04968d860e740d813de6b265ba83b0708a0901135fdf2218c66639",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-21",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-21T00:00:00+00:00",
+        "2022-11-21T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833341484-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221121-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:17.245497+00:00",
+      "sha256": "ac25492508952dff46f78191eb7b01c2ce27d71657b81834ed7c64eb936adc7d",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-22",
+      "rainMm": 0.19499999284744263,
+      "sampleCount": 48,
+      "randomErrorMm": 10.659600257873535,
+      "timeBoundsUtc": [
+        "2022-11-22T00:00:00+00:00",
+        "2022-11-22T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833340935-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221122-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:19.501296+00:00",
+      "sha256": "f2825007864d63832b6266c904aeb790883069223bbc42dc0c4d9e3b093d052d",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-23",
+      "rainMm": 1.4199999570846558,
+      "sampleCount": 48,
+      "randomErrorMm": 61.927330017089844,
+      "timeBoundsUtc": [
+        "2022-11-23T00:00:00+00:00",
+        "2022-11-23T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833409652-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221123-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:21.470754+00:00",
+      "sha256": "0438d994772e239b5d5128756ca9c64516e353413795291921e8a3539500e199",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-24",
+      "rainMm": 0.7250000238418579,
+      "sampleCount": 48,
+      "randomErrorMm": 39.52516174316406,
+      "timeBoundsUtc": [
+        "2022-11-24T00:00:00+00:00",
+        "2022-11-24T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833341246-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221124-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:23.596923+00:00",
+      "sha256": "7c7ef9405cc17cba3e1e5d89e8ae020a7cdc69278beccd6b1605e731407b05ba",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-25",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-25T00:00:00+00:00",
+        "2022-11-25T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833391364-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221125-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:25.743478+00:00",
+      "sha256": "2586c2371357958479ade3bf708293a15a65aef74011e04318bf85c4bf896483",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-26",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-11-26T00:00:00+00:00",
+        "2022-11-26T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833521051-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221126-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:27.692122+00:00",
+      "sha256": "aa08cf053fe31ee65f05141f042f68e742d2bc0c48c4207d41c0713fb2dab782",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-27",
+      "rainMm": 0.1599999964237213,
+      "sampleCount": 48,
+      "randomErrorMm": 8.650399208068848,
+      "timeBoundsUtc": [
+        "2022-11-27T00:00:00+00:00",
+        "2022-11-27T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833356595-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221127-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:29.552423+00:00",
+      "sha256": "a1d281545d715e9d695d9e5861961de0231bce7ae714d7006f2b997c938351f9",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-28",
+      "rainMm": 2.1000001430511475,
+      "sampleCount": 48,
+      "randomErrorMm": 171.92996215820312,
+      "timeBoundsUtc": [
+        "2022-11-28T00:00:00+00:00",
+        "2022-11-28T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833492064-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221128-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:31.578982+00:00",
+      "sha256": "c7ef3ec3035cf6433f578dbb4ac1ba9993cf28bf164267fbf4d0a28c8828d9ed",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-29",
+      "rainMm": 1.6049998998641968,
+      "sampleCount": 48,
+      "randomErrorMm": 79.81932067871094,
+      "timeBoundsUtc": [
+        "2022-11-29T00:00:00+00:00",
+        "2022-11-29T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833460797-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221129-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:33.118336+00:00",
+      "sha256": "73db1dad0f4621fe3ca71e19e4ba2925cf357e5d1574a7da0423b374dd20e746",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-11-30",
+      "rainMm": 21.09000015258789,
+      "sampleCount": 48,
+      "randomErrorMm": 2712.27490234375,
+      "timeBoundsUtc": [
+        "2022-11-30T00:00:00+00:00",
+        "2022-11-30T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833361240-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221130-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:34.655109+00:00",
+      "sha256": "9cf34bd64ce79f39f063a321d1ae90be34fe87b533da5a0377e13b2279c10387",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-01",
+      "rainMm": 22.670000076293945,
+      "sampleCount": 48,
+      "randomErrorMm": 3043.00537109375,
+      "timeBoundsUtc": [
+        "2022-12-01T00:00:00+00:00",
+        "2022-12-01T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833339799-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221201-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:36.806950+00:00",
+      "sha256": "67e0a3b1ec668fb5bde647ca4aafd9730d2c357074e8697a263f3bd49e22cd12",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-02",
+      "rainMm": 6.720000267028809,
+      "sampleCount": 48,
+      "randomErrorMm": 403.46112060546875,
+      "timeBoundsUtc": [
+        "2022-12-02T00:00:00+00:00",
+        "2022-12-02T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833339783-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221202-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:38.959225+00:00",
+      "sha256": "3c606fa8e18611474aee92e37eeb33a403097768ef002937b95fdae883145098",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-03",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-12-03T00:00:00+00:00",
+        "2022-12-03T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833339791-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221203-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:40.900649+00:00",
+      "sha256": "b6ba51c7d765432d4cee967ecf7d3fad58ba4e6ba2ba3da6236fe27bf228aca1",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-04",
+      "rainMm": 0.03999999910593033,
+      "sampleCount": 48,
+      "randomErrorMm": 3.707200765609741,
+      "timeBoundsUtc": [
+        "2022-12-04T00:00:00+00:00",
+        "2022-12-04T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833339792-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221204-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:43.151440+00:00",
+      "sha256": "53b44d5c28aebc1320cb2fdfeb4199c1552712e8a80a3d2bfd555ad753fd8dca",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-05",
+      "rainMm": 0.6949999332427979,
+      "sampleCount": 48,
+      "randomErrorMm": 32.567378997802734,
+      "timeBoundsUtc": [
+        "2022-12-05T00:00:00+00:00",
+        "2022-12-05T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833452248-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221205-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:45.303270+00:00",
+      "sha256": "e8aaea5a6df005da780c43e59f91ca6f3cd0eab32bed048975206f6061781e35",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-06",
+      "rainMm": 1.5250000953674316,
+      "sampleCount": 48,
+      "randomErrorMm": 63.574466705322266,
+      "timeBoundsUtc": [
+        "2022-12-06T00:00:00+00:00",
+        "2022-12-06T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833471035-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221206-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:47.168745+00:00",
+      "sha256": "6c333cacd06068b0a07188908b3f44996e2708f1898d3cfe291d775667f16369",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-07",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-12-07T00:00:00+00:00",
+        "2022-12-07T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833425092-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221207-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:49.094619+00:00",
+      "sha256": "5945337f5430cbb11e91b61b7dc126baab587d24043a04684e85db2716526c1c",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-08",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-12-08T00:00:00+00:00",
+        "2022-12-08T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833343360-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221208-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:51.346065+00:00",
+      "sha256": "7d5a539c6a34d2606b404838cdaadc2dcf6da07aafb9bf16e9dbc10534d87675",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-09",
+      "rainMm": 0.8700000047683716,
+      "sampleCount": 48,
+      "randomErrorMm": 38.7239990234375,
+      "timeBoundsUtc": [
+        "2022-12-09T00:00:00+00:00",
+        "2022-12-09T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833581109-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221209-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:53.498199+00:00",
+      "sha256": "79da7c05c07e10c52835867fae20734844dd2fea642074eced0205d85a8b8ab3",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-10",
+      "rainMm": 2.694999933242798,
+      "sampleCount": 48,
+      "randomErrorMm": 142.76068115234375,
+      "timeBoundsUtc": [
+        "2022-12-10T00:00:00+00:00",
+        "2022-12-10T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833343286-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221210-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:55.749700+00:00",
+      "sha256": "c15cfee808ffb2e14a7839f8828de082042499ff01dd313019eddb46a2b528cc",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-11",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-12-11T00:00:00+00:00",
+        "2022-12-11T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833343362-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221211-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:57.900164+00:00",
+      "sha256": "c9cb04716bf68049e61ac79f72c32a936e5821e8ee47740430e0bc90f1a279e3",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-12",
+      "rainMm": 0.5349999666213989,
+      "sampleCount": 48,
+      "randomErrorMm": 20.59320068359375,
+      "timeBoundsUtc": [
+        "2022-12-12T00:00:00+00:00",
+        "2022-12-12T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833362989-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221212-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:42:59.845772+00:00",
+      "sha256": "cf1b41078e531640ebd48b23f4347c8722973779ced414929fcf4f8be77b1461",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-13",
+      "rainMm": 0.07999999821186066,
+      "sampleCount": 48,
+      "randomErrorMm": 5.182100772857666,
+      "timeBoundsUtc": [
+        "2022-12-13T00:00:00+00:00",
+        "2022-12-13T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833362976-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221213-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:01.790967+00:00",
+      "sha256": "0de561271520b105e51729a45aa26f7d88fd12d1fcf4ba0e8d88e816dd682b56",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-14",
+      "rainMm": 0.0,
+      "sampleCount": 48,
+      "randomErrorMm": 2.764800786972046,
+      "timeBoundsUtc": [
+        "2022-12-14T00:00:00+00:00",
+        "2022-12-14T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833374070-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221214-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:04.066599+00:00",
+      "sha256": "97bb85f232e1ab753f0cbf1101b6b8daf2908932acdd63db320966ddde113634",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-15",
+      "rainMm": 5.149999141693115,
+      "sampleCount": 48,
+      "randomErrorMm": 382.1988220214844,
+      "timeBoundsUtc": [
+        "2022-12-15T00:00:00+00:00",
+        "2022-12-15T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833345946-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221215-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:06.095157+00:00",
+      "sha256": "833e1df0468f1ac4d2a7cc948d2870f0c561c61034f2b0041e1a05faae75a066",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-16",
+      "rainMm": 1.934999942779541,
+      "sampleCount": 48,
+      "randomErrorMm": 110.62472534179688,
+      "timeBoundsUtc": [
+        "2022-12-16T00:00:00+00:00",
+        "2022-12-16T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833337342-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221216-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:08.352540+00:00",
+      "sha256": "382a427fd47826d641081df7a551f5a07682e3cf7e4948fd2770077056bb4274",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-17",
+      "rainMm": 4.509999752044678,
+      "sampleCount": 48,
+      "randomErrorMm": 278.4864807128906,
+      "timeBoundsUtc": [
+        "2022-12-17T00:00:00+00:00",
+        "2022-12-17T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833409214-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221217-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:10.494911+00:00",
+      "sha256": "e4b319ebca166cbd926b9b03f8b2c28151f77076399399c4820b7b4d3542277d",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-18",
+      "rainMm": 3.5399999618530273,
+      "sampleCount": 48,
+      "randomErrorMm": 180.0524444580078,
+      "timeBoundsUtc": [
+        "2022-12-18T00:00:00+00:00",
+        "2022-12-18T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833447459-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221218-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:12.655041+00:00",
+      "sha256": "3f04081758097bad81c8e119b614e4f88a92acb82af3b7c8cf8abd532d4c1f60",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-19",
+      "rainMm": 1.5899996757507324,
+      "sampleCount": 48,
+      "randomErrorMm": 57.15608215332031,
+      "timeBoundsUtc": [
+        "2022-12-19T00:00:00+00:00",
+        "2022-12-19T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833362842-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221219-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:14.604987+00:00",
+      "sha256": "f64164339f0f93b94505f7ca8efe2030b1b26d6183cfc99593582d3a2dbe5e96",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-20",
+      "rainMm": 8.475000381469727,
+      "sampleCount": 48,
+      "randomErrorMm": 499.80999755859375,
+      "timeBoundsUtc": [
+        "2022-12-20T00:00:00+00:00",
+        "2022-12-20T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833409190-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221220-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:16.845063+00:00",
+      "sha256": "fa0271efd8a0d5968cfc37b2c8006aa1c8bde1e59430488d7ac5e03edd87d67d",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-21",
+      "rainMm": 8.515000343322754,
+      "sampleCount": 48,
+      "randomErrorMm": 580.3192138671875,
+      "timeBoundsUtc": [
+        "2022-12-21T00:00:00+00:00",
+        "2022-12-21T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833340946-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221221-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:20.120298+00:00",
+      "sha256": "6550c971eda76c62545edf7dd5b4b04fa643ea88d28acdb3c955181d9f8e83f9",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-22",
+      "rainMm": 31.36499786376953,
+      "sampleCount": 48,
+      "randomErrorMm": 2582.588134765625,
+      "timeBoundsUtc": [
+        "2022-12-22T00:00:00+00:00",
+        "2022-12-22T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833409292-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221222-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:22.269936+00:00",
+      "sha256": "220392c59fa43506617fe68ba88780e484a58d67f44c73c14ee565a80a1ad376",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-23",
+      "rainMm": 22.420001983642578,
+      "sampleCount": 48,
+      "randomErrorMm": 1952.8272705078125,
+      "timeBoundsUtc": [
+        "2022-12-23T00:00:00+00:00",
+        "2022-12-23T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833540585-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221223-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:24.122664+00:00",
+      "sha256": "9e41296a0958e80723bf4d38b306fa919971ede8f599113143989a9cb0ef14cf",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-24",
+      "rainMm": 9.454998970031738,
+      "sampleCount": 48,
+      "randomErrorMm": 608.2394409179688,
+      "timeBoundsUtc": [
+        "2022-12-24T00:00:00+00:00",
+        "2022-12-24T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833510802-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221224-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:26.573474+00:00",
+      "sha256": "87e728027c304d2c1401788cfce02fcb3f6629421dc0c9c9fdd750a2326bf921",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-25",
+      "rainMm": 4.289999485015869,
+      "sampleCount": 48,
+      "randomErrorMm": 240.34385681152344,
+      "timeBoundsUtc": [
+        "2022-12-25T00:00:00+00:00",
+        "2022-12-25T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833435257-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221225-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:28.721066+00:00",
+      "sha256": "e1debb50f1030271fa2af783a3a2dcd6fdcd173c810c67761b8feca36448c64f",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-26",
+      "rainMm": 3.5500001907348633,
+      "sampleCount": 48,
+      "randomErrorMm": 190.6580047607422,
+      "timeBoundsUtc": [
+        "2022-12-26T00:00:00+00:00",
+        "2022-12-26T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833345441-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221226-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:30.566488+00:00",
+      "sha256": "4c051902bd0fbcc3192926699c8c815073b5cb8342595cd67d1b042400ace12e",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-27",
+      "rainMm": 0.14499999582767487,
+      "sampleCount": 48,
+      "randomErrorMm": 6.599600791931152,
+      "timeBoundsUtc": [
+        "2022-12-27T00:00:00+00:00",
+        "2022-12-27T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833498864-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221227-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:41:00.833257+00:00",
+      "sha256": "847d0bf93b8cd5887f0d6af05b7ae23762ad5a0200ed152f3fe0bb96f306f081",
+      "method": "HTTPS full granule"
+    },
+    {
+      "dateIso": "2022-12-28",
+      "rainMm": 0.32999998331069946,
+      "sampleCount": 48,
+      "randomErrorMm": 11.364300727844238,
+      "timeBoundsUtc": [
+        "2022-12-28T00:00:00+00:00",
+        "2022-12-28T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833346246-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221228-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:32.735367+00:00",
+      "sha256": "b09f633919bce4baa37880100a2280fb8b31970cecbf328bceb8575188e556a8",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-29",
+      "rainMm": 0.4399999976158142,
+      "sampleCount": 48,
+      "randomErrorMm": 15.208600044250488,
+      "timeBoundsUtc": [
+        "2022-12-29T00:00:00+00:00",
+        "2022-12-29T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833346219-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221229-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:34.867405+00:00",
+      "sha256": "c190a2ada957a1d272649567a47372ec8d7bc6c4d01f45c71183f98bf9747d5d",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-30",
+      "rainMm": 0.7599998712539673,
+      "sampleCount": 48,
+      "randomErrorMm": 24.596601486206055,
+      "timeBoundsUtc": [
+        "2022-12-30T00:00:00+00:00",
+        "2022-12-30T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833346345-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221230-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:36.813195+00:00",
+      "sha256": "f0dc8b762521daa5fad7636779fae532c7e7811dca0af8c11938ebc0d02566ac",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2022-12-31",
+      "rainMm": 3.6399998664855957,
+      "sampleCount": 48,
+      "randomErrorMm": 170.560302734375,
+      "timeBoundsUtc": [
+        "2022-12-31T00:00:00+00:00",
+        "2022-12-31T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2833567013-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20221231-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:38.758957+00:00",
+      "sha256": "c3db9021d026b8dcb16979b5ebcc9a034983381c54456e0a09be68b91b475b83",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-01",
+      "rainMm": 0.7750000953674316,
+      "sampleCount": 48,
+      "randomErrorMm": 34.403324127197266,
+      "timeBoundsUtc": [
+        "2023-01-01T00:00:00+00:00",
+        "2023-01-01T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834713934-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230101-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:40.911314+00:00",
+      "sha256": "dc12fbdeef49d6c95a2f7acc1ae802792a287ffc34a6cad6512fe8c77fb21f10",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-02",
+      "rainMm": 10.61999797821045,
+      "sampleCount": 48,
+      "randomErrorMm": 809.0227661132812,
+      "timeBoundsUtc": [
+        "2023-01-02T00:00:00+00:00",
+        "2023-01-02T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834714091-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230102-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:42.874520+00:00",
+      "sha256": "c038579b79395c2d38007eb172ee340705d7e748f946be90e7cf77d2a224d109",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-03",
+      "rainMm": 8.300000190734863,
+      "sampleCount": 48,
+      "randomErrorMm": 650.8310546875,
+      "timeBoundsUtc": [
+        "2023-01-03T00:00:00+00:00",
+        "2023-01-03T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834713933-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230103-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:44.903069+00:00",
+      "sha256": "377c22054aead0732db15b722b577141c5b030aa532110c4fc4ae3f36f5800a7",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-04",
+      "rainMm": 3.739999771118164,
+      "sampleCount": 48,
+      "randomErrorMm": 296.1966552734375,
+      "timeBoundsUtc": [
+        "2023-01-04T00:00:00+00:00",
+        "2023-01-04T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834710635-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230104-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:47.153562+00:00",
+      "sha256": "68d4910778a8138721014131751d6ea2eb7b74091966b8e1972238550dea04fb",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-05",
+      "rainMm": 4.46999979019165,
+      "sampleCount": 48,
+      "randomErrorMm": 273.4173889160156,
+      "timeBoundsUtc": [
+        "2023-01-05T00:00:00+00:00",
+        "2023-01-05T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834713958-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230105-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:48.192482+00:00",
+      "sha256": "f8c043a2f1013cde0d41b52be2623fcd166f780229ef53fa308fe2a6b07124fc",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-06",
+      "rainMm": 3.820000171661377,
+      "sampleCount": 48,
+      "randomErrorMm": 219.2345428466797,
+      "timeBoundsUtc": [
+        "2023-01-06T00:00:00+00:00",
+        "2023-01-06T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834713286-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230106-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:50.333207+00:00",
+      "sha256": "4bf9ce7c8a4d04e89ee7e1f7dbf356c0a05ca7f657c3cce6ed1d962f9ddaab06",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-07",
+      "rainMm": 1.2649999856948853,
+      "sampleCount": 48,
+      "randomErrorMm": 57.76429748535156,
+      "timeBoundsUtc": [
+        "2023-01-07T00:00:00+00:00",
+        "2023-01-07T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834710632-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230107-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:52.482498+00:00",
+      "sha256": "55c713cc8ad79877109f6022d1d35a13063c583a8a4cd878c3634f40a88d9598",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-08",
+      "rainMm": 4.215000152587891,
+      "sampleCount": 48,
+      "randomErrorMm": 399.5074157714844,
+      "timeBoundsUtc": [
+        "2023-01-08T00:00:00+00:00",
+        "2023-01-08T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834712182-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230108-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:54.238861+00:00",
+      "sha256": "69bc8b72e454d1bb9f046b35995ae919cc0d41d8dd6275a726a623a432a58006",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-09",
+      "rainMm": 20.625,
+      "sampleCount": 48,
+      "randomErrorMm": 2482.84130859375,
+      "timeBoundsUtc": [
+        "2023-01-09T00:00:00+00:00",
+        "2023-01-09T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834710649-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230109-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:56.167445+00:00",
+      "sha256": "cd0a9e4097a19b8e151e0cce4d65f3758319be47a88b87a7243a68ae226d17f6",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-10",
+      "rainMm": 0.5450000166893005,
+      "sampleCount": 48,
+      "randomErrorMm": 26.84119987487793,
+      "timeBoundsUtc": [
+        "2023-01-10T00:00:00+00:00",
+        "2023-01-10T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834714071-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230110-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:58.011833+00:00",
+      "sha256": "2c7528b0cd56bd7346988a17767951d2d3afdf9179d3283610240ddcdb349aa0",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-11",
+      "rainMm": 1.4900000095367432,
+      "sampleCount": 48,
+      "randomErrorMm": 85.34364318847656,
+      "timeBoundsUtc": [
+        "2023-01-11T00:00:00+00:00",
+        "2023-01-11T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834712191-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230111-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:43:59.956023+00:00",
+      "sha256": "2d385cf43086faad012e6fa068c70e2523748eed82a5ceb093d6977f1add17dd",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-12",
+      "rainMm": 3.880000114440918,
+      "sampleCount": 48,
+      "randomErrorMm": 255.41270446777344,
+      "timeBoundsUtc": [
+        "2023-01-12T00:00:00+00:00",
+        "2023-01-12T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834713936-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230112-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:44:02.005761+00:00",
+      "sha256": "baaee92516da9743145f30f177a525cce430eeb862695393d1edeb558bca4c63",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-13",
+      "rainMm": 13.559999465942383,
+      "sampleCount": 48,
+      "randomErrorMm": 1211.5650634765625,
+      "timeBoundsUtc": [
+        "2023-01-13T00:00:00+00:00",
+        "2023-01-13T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834713285-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230113-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:44:04.076263+00:00",
+      "sha256": "6f746089950d07d2bd98d9d16d217744ae77d1ac2fc7b5b6942219c063d75e44",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-14",
+      "rainMm": 2.8849995136260986,
+      "sampleCount": 48,
+      "randomErrorMm": 200.19058227539062,
+      "timeBoundsUtc": [
+        "2023-01-14T00:00:00+00:00",
+        "2023-01-14T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834713961-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230114-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:44:06.312044+00:00",
+      "sha256": "6184ceef980a0be31ad610cbbe4c0aecaccb8918ed0c1696672e9f1bfd70ea2f",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    },
+    {
+      "dateIso": "2023-01-15",
+      "rainMm": 7.624999523162842,
+      "sampleCount": 48,
+      "randomErrorMm": 861.5771484375,
+      "timeBoundsUtc": [
+        "2023-01-15T00:00:00+00:00",
+        "2023-01-15T23:59:59.000027+00:00"
+      ],
+      "granuleId": "G2834713940-GES_DISC",
+      "granule": "3B-DAY.MS.MRG.3IMERG.20230115-S000000-E235959.V07B.nc4",
+      "retrievedAtUtc": "2026-11-14T13:44:08.479494+00:00",
+      "sha256": "03d3b91c3bf1f244e155cdda7df49f437d7f49ab0b15b8dba939ddae23cdcf11",
+      "method": "Cloud OPeNDAP NetCDF subset"
+    }
+  ]
+}

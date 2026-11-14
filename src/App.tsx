@@ -5,7 +5,7 @@ import { RotationPlanner, type ManagementOption } from './components/RotationPla
 import { SiteHeader } from './components/SiteHeader'
 import { SourcePanel } from './components/SourcePanel'
 import { Welcome } from './components/Welcome'
-import { compareScenario, initialConstraints, initialScenario, scenarioForSeason, type Constraints, type Scenario } from './data/scenario'
+import { compareScenario, initialConstraints, initialScenario, scenarioForSeason, type Constraints, type RainfallSource, type Scenario } from './data/scenario'
 import { referenceYear } from './data/researchReference'
 import { historicalWindow } from './domain/dates'
 import { routes, usePage } from './navigation'
@@ -19,14 +19,16 @@ export default function App() {
   const [management, setManagement] = useState<ManagementOption>('managed')
   const [selectedDate, setSelectedDate] = useState<string>()
   const [year, setYear] = useState(referenceYear)
+  const [source, setSource] = useState<RainfallSource>('power')
   const seasonWindow = useMemo(() => historicalWindow(year), [year])
-  const analysis = useMemo(() => compareScenario(scenario, year), [scenario, year])
+  const analysis = useMemo(() => compareScenario(scenario, year, source), [scenario, year, source])
 
   function changeSeason(nextYear: number) {
     if (nextYear === year) return
     setScenario((current) => scenarioForSeason(current, year, nextYear))
     setConstraints((current) => ({ ...current, earlyWorkable: 'unknown', lateWorkable: 'unknown' }))
     setSelectedDate(undefined)
+    if (nextYear !== referenceYear) setSource('power')
     setYear(nextYear)
   }
 
@@ -49,12 +51,12 @@ export default function App() {
           <RotationPlanner scenario={scenario} onScenarioChange={setScenario}
             constraints={constraints} onConstraintsChange={setConstraints} analysis={analysis}
             management={management} onManagementChange={setManagement}
-            season={{ year, onChange: changeSeason }} window={seasonWindow} />
+            season={{ year, onChange: changeSeason }} window={seasonWindow} source={source} onSourceChange={setSource} />
         )}
         {page === 'observations' && (
           <NASAComparison scenario={scenario} analysis={analysis}
             selectedDate={selectedDate} onDateSelect={setSelectedDate}
-            season={{ year, onChange: changeSeason }} window={seasonWindow} />
+            season={{ year, onChange: changeSeason }} window={seasonWindow} source={source} onSourceChange={setSource} />
         )}
         {page === 'research' && <SourcePanel />}
       </main>

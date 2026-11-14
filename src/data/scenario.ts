@@ -1,10 +1,12 @@
 import { makeCoverCurve, evaluateFeasibility } from '../domain/cover'
-import { utcDayIndex } from '../domain/dates'
+import { historicalWindow, utcDayIndex } from '../domain/dates'
 import { compareAgainstBaselines } from '../domain/exposure'
 import { referenceYear, researchReference, researchScenario } from './researchReference'
 import { historicalRainfall } from './historicalRainfall'
+import { imergRainfall } from './imergRainfall'
 
 export type Comparison = ReturnType<typeof compareAgainstBaselines>
+export type RainfallSource = 'power' | 'imerg'
 
 export const initialScenario = {
   earlyDate: researchScenario.earlyDate as string,
@@ -32,9 +34,15 @@ export function scenarioForSeason(scenario: Scenario, fromYear: number, toYear: 
   return { ...scenario, earlyDate: moveDate(scenario.earlyDate), lateDate: moveDate(scenario.lateDate) }
 }
 
-export function compareScenario(scenario: Scenario, year = referenceYear): { comparison: Comparison; error?: never } | { comparison?: never; error: string } {
-  const season = historicalRainfall.seasons.find(({ startYear }) => startYear === year)
-  if (!season) return { error: researchReference.error ?? 'Rainfall is unavailable for this historical season.' }
+export function compareScenario(scenario: Scenario, year = referenceYear, source: RainfallSource = 'power'): { comparison: Comparison; error?: never } | { comparison?: never; error: string } {
+  const season = source === 'imerg'
+    ? (year === referenceYear && imergRainfall.days ? { window: historicalWindow(year), days: imergRainfall.days } : undefined)
+    : historicalRainfall.seasons.find(({ startYear }) => startYear === year)
+  if (!season) {
+    return { error: source === 'imerg'
+      ? imergRainfall.error ?? 'Verified IMERG rainfall is available for 2022/23.'
+      : researchReference.error ?? 'Rainfall is unavailable for this historical season.' }
+  }
   const { startIso, endIso, dates } = season.window
   const { earlyDate, lateDate, baselinePercent, addedPercent, plateau, duration } = scenario
 

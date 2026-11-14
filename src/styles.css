@@ -4,6 +4,21 @@
 @layer components {
   .season-controls { @apply flex flex-wrap items-center gap-2.5; }
   .season-select select { @apply min-h-10 rounded-md border border-[#aab6ad] bg-white px-2 text-sm text-ink; }
+  .season-axis { @apply ml-16 mr-14 grid grid-cols-[1fr_auto_1fr] gap-1 text-[.65rem] text-muted; }
+  .season-axis span:last-child { @apply text-right; }
+  .season-bars button { @apply grid min-h-10 w-full grid-cols-[3.5rem_minmax(0,1fr)_3rem] items-center gap-2 border-b border-line px-1 text-left text-xs tabular-nums hover:bg-[#edf1e8]; }
+  .season-bars button[aria-pressed="true"] { @apply bg-[#e3ede6] text-forest; }
+  .season-bars strong { @apply text-right; }
+  .season-track { @apply relative block h-4; }
+  .season-track::before { @apply absolute inset-y-0 left-1/2 w-px bg-muted content-['']; }
+  .season-bar { @apply absolute top-1/4 h-1/2 bg-rain; }
+  .map-view { @apply grid min-h-0 flex-1 place-items-center bg-[#1e4145]; }
+  .map-view img { @apply block aspect-[2/1] w-full bg-[#1e4145] object-contain; }
+  .map-view-switch { @apply inline-flex flex-wrap gap-1; }
+  .map-view-switch button { @apply rounded-sm border border-transparent px-2 py-1 text-xs font-semibold text-[#d9e9e4]; }
+  .map-view-switch button[aria-pressed="true"] { @apply border-[#7c9f93] bg-[#30504d] text-white; }
+  .map-view-switch button:focus-visible { @apply outline-[#bce4d5]; }
+  .satellite-product { @apply break-all; }
 }
 
 @theme {
@@ -97,7 +112,7 @@
   .fields-grid { @apply grid gap-3 sm:grid-cols-2; }
   .fields-grid label, .return-field { @apply grid min-w-0 content-start gap-1.5 text-xs font-semibold; }
   .fields-grid input, .fields-grid select, .day-control select { @apply min-h-10 w-full min-w-0 rounded-md border border-[#aab6ad] bg-white px-2.5 py-1.5 text-sm text-ink tabular-nums; }
-  .feasibility { @apply w-fit text-[0.71rem] font-semibold capitalize; }
+  .feasibility { @apply w-fit text-[0.71rem] font-semibold; }
   .feasibility-conditional { @apply text-ochre; }
   .feasibility-blocked { @apply text-[#8b3e2a]; }
   .feasibility-workable { @apply text-forest; }

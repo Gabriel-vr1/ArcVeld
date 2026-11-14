@@ -7,6 +7,7 @@
 | Class Variance Authority | Apache-2.0. See the [CVA license](https://github.com/joe-bell/cva/blob/main/LICENSE). |
 | shadcn/ui Button pattern | MIT. ArcVeld adapts this primitive locally. See the notice below. |
 | Africa welcome map and Malawi reference map | Public-domain Natural Earth boundaries and lakes. See the sources below. |
+| Kasungu Landsat 9 RGB crop | Public-domain USGS / NASA Landsat Collection 2 Level-2 imagery, rendered through the Microsoft Planetary Computer public mirror. [Product and image provenance](src/data/landsatKasungu.json) · [USGS reuse and citation](https://www.usgs.gov/media/images/landsat-product-citation-screenshot) |
 
 NASA product documentation is credited in the app. The development reference records historical precipitation from NASA POWER Daily, MERRA-2, PRECTOTCORR. Its provenance is recorded in [the research reference metadata](Arcveld_Malawi_2022_Rainfall_Reference_Provenance.json). NASA insignia is absent from the application.
 

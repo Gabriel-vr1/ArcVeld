@@ -17,13 +17,16 @@ describe('ArcVeld workspace shell', () => {
 
   it('keeps computed exposure, ground-cover assumptions and data eligibility distinct', () => {
     const observations = renderToStaticMarkup(<NASAComparison scenario={initialScenario} analysis={compareScenario(initialScenario)}
-      onDateSelect={() => {}} season={{ year: referenceYear, onChange: () => {} }} window={referenceWindow} />)
+      onDateSelect={() => {}} season={{ year: referenceYear, onChange: () => {} }} window={referenceWindow}
+      source="power" onSourceChange={() => {}} />)
     const research = renderToStaticMarkup(<SourcePanel />)
     expect(observations).toContain('Calendar and uniform-rainfall baselines tie.')
     expect(observations).toContain('NASA POWER / MERRA-2 · independently validated')
     expect(observations).toContain('Illustrative ground cover')
     expect(observations).not.toContain('Analysis unavailable')
-    expect(research).toContain('NASA source: unconfirmed.')
+    expect(research).toContain('NASA POWER is listed.')
+    expect(research).toContain('2026-11-14')
+    expect(research).toContain('NASA POWER: Agroclimatology &amp; Meteorological Data')
     expect(research).toContain('NASA POWER · MERRA-2 reanalysis')
   })
 })

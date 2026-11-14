@@ -6,17 +6,22 @@ import { routes } from '../navigation'
 import { ObservationChart } from './ObservationChart'
 import { ButtonLink } from './ui/Button'
 import { referenceProvenance, type referenceWindow } from '../data/researchReference'
-import { challengeEligibility, rainfallLabel } from '../data/historicalRainfall'
+import { rainfallLabel } from '../data/historicalRainfall'
+import { imergLabel } from '../data/imergRainfall'
+import challengeResources from '../data/challengeResources.json'
 import { HistoricalSeasonSelect, type HistoricalSeasonSelection } from './HistoricalSeasonSelect'
+import { SeasonComparison } from './SeasonComparison'
+import { RainfallSourceSelect, type RainfallSourceSelection } from './RainfallSourceSelect'
+import { RainfallSourceComparison } from './RainfallSourceComparison'
 
-export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect, season, window }: {
+export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect, season, window, source, onSourceChange }: {
   scenario: Scenario
   analysis: ReturnType<typeof compareScenario>
   selectedDate?: string
   onDateSelect: (date: string) => void
   season: HistoricalSeasonSelection
   window: typeof referenceWindow
-}) {
+} & RainfallSourceSelection) {
   const { comparison, error } = analysis
   const claim = comparison && formatScientificClaim(comparison)
 
@@ -25,19 +30,20 @@ export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect,
       <header className="page-heading">
         <div>
           <h1>Earth Observations</h1>
-          <p>Kasungu, Malawi · {rainfallLabel}</p>
+          <p>Kasungu, Malawi · {source === 'imerg' ? imergLabel : rainfallLabel}</p>
         </div>
         <div className="season-controls">
           <HistoricalSeasonSelect {...season} />
+          <RainfallSourceSelect year={season.year} source={source} onSourceChange={onSourceChange} />
           <ButtonLink variant="secondary" href={routes.planner.href}>Edit scenario <ArrowRight size={16} aria-hidden="true" /></ButtonLink>
         </div>
       </header>
       <div className="observation-meta">
         <span><CalendarDays size={16} aria-hidden="true" /> {formatWindow(window)} · UTC</span>
-        <span className="technical">PRECTOTCORR</span>
+        <span className="technical">{source === 'imerg' ? 'precipitation · 0.1° grid' : 'PRECTOTCORR'}</span>
         <span className="technical">{Math.abs(referenceProvenance.queryLat).toFixed(2)}° S, {referenceProvenance.queryLon.toFixed(2)}° E</span>
-        <span>Illustrative ground cover</span>
-        <span>Challenge source eligibility {challengeEligibility}</span>
+        <span>Managed residue return · Illustrative ground cover</span>
+        <a href={challengeResources.url}>POWER listed in Field Shift Resources</a>
         <a href={routes.research.href}>See data provenance</a>
       </div>
       {comparison ? (
@@ -67,6 +73,8 @@ export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect,
           </section>
         </>
       ) : <p className="analysis-error" role="status"><strong>Analysis unavailable.</strong> {error}</p>}
+      <RainfallSourceComparison scenario={scenario} year={season.year} />
+      <SeasonComparison scenario={scenario} season={season} />
       <p className="observation-limit">This historical exposure proxy uses regional rainfall and illustrative cover. Erosion, runoff, crop yield and future conditions are outside the scope of the calculation.</p>
     </div>
   )

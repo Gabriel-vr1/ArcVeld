@@ -1,6 +1,10 @@
 import { ArrowUpRight } from 'lucide-react'
 import { referenceProvenance } from '../data/researchReference'
-import { challengeEligibility, historicalRainfall, seasonLabel } from '../data/historicalRainfall'
+import { historicalRainfall, seasonLabel } from '../data/historicalRainfall'
+import { imergLabel, imergRainfall } from '../data/imergRainfall'
+import challengeResources from '../data/challengeResources.json'
+import landsat from '../data/landsatKasungu.json'
+import { formatDate } from '../format'
 import { routes } from '../navigation'
 
 const sections = [
@@ -83,6 +87,26 @@ export function SourcePanel() {
                 <li><SourceLink href={repo + 'Arcveld_Malawi_2022_Rainfall_Reference_Provenance.json'}>Provenance JSON</SourceLink></li>
               </ul>
             </details>
+            <details className="research-details">
+              <summary>{imergLabel}</summary>
+              {imergRainfall.metadata ? (
+                <>
+                  <p>NASA GES DISC collection {imergRainfall.metadata.collection}, processing revision {imergRainfall.metadata.version}. ArcVeld verified {imergRainfall.metadata.days.length} consecutive UTC days in 2022/23 at the 0.1° grid cell centred on 13.05° S, 33.45° E.</p>
+                  <p>NASA reports the combined, gauge-adjusted <code>precipitation</code> as a daily mean rate in mm/day, already calculated from the valid half-hourly rates. Over one UTC day, the rate has the same numerical value as the rainfall amount in mm. <code>precipitation_cnt</code> records the number of valid half-hourly retrievals used in that calculation. All 76 days had 48, and ArcVeld uses the published daily amount directly.</p>
+                  <p>The source files reproduced 616.35 mm from POWER and 284.40 mm from IMERG over the same 76 UTC dates. On 27 December 2022, the POWER response gave 83.34 mm and the original IMERG granule gave 0.145 mm at the Kasungu cell.</p>
+                  <p>POWER uses corrected MERRA-2 reanalysis on a coarser grid. IMERG uses a 0.1° cell and combines satellite retrievals with gauge adjustment. These differences in spatial coverage and estimation can affect daily totals. The comparison cannot establish what caused the 27 December discrepancy or how much rain fell on a particular farm. That would require local rain-gauge observations.</p>
+                  <SourceLink href="https://doi.org/10.5067/GPM/IMERGDF/DAY/07">NASA IMERG product</SourceLink>
+                  <SourceLink href={repo + 'data/README.md#source-file-sanity-check'}>Source-file sanity check</SourceLink>
+                </>
+              ) : <p>The bundled IMERG series is unavailable. {imergRainfall.error}</p>}
+            </details>
+            <details className="research-details">
+              <summary>Landsat geographic context</summary>
+              <p>{landsat.mission} · {landsat.collection} · {landsat.processingLevel} · {formatDate(landsat.acquiredOn)}.</p>
+              <p>Product <code>{landsat.productId}</code>. {landsat.bands}. Display bounds: {landsat.cropExtentLabel}.</p>
+              <p>Imagery from {landsat.provider} via the {landsat.distribution}. {landsat.license}. The image provides geographic context independently of the selected rainfall season and illustrative cover.</p>
+              <SourceLink href={landsat.sceneUrl}>Landsat scene metadata</SourceLink>
+            </details>
           </section>
 
           <section id="agriculture" tabIndex={-1}>
@@ -126,8 +150,12 @@ export function SourcePanel() {
 
           <section id="eligibility" tabIndex={-1}>
             <h2>Competition-resource eligibility</h2>
-            <p><strong>NASA source: {challengeEligibility}.</strong> The official Field Shift Resources tab could not be verified. GPM IMERG is a separate product and does not supply this comparison.</p>
-            <SourceLink href="https://www.spaceappschallenge.org/2026/challenges/field-shift-adapting-farms-with-nasa-data/?tab=resources">Field Shift challenge resources</SourceLink>
+            <p><strong>NASA POWER is listed.</strong> The project team reviewed the official Resources page on <time dateTime={challengeResources.verifiedOn}>{formatDate(challengeResources.verifiedOn)}</time> and confirmed these entries:</p>
+            <ul className="research-list">
+              {challengeResources.titles.map((title) => <li key={title}>{title}</li>)}
+            </ul>
+            <p>Resource listing, rainfall-data verification and validation of field recommendations are separate.</p>
+            <SourceLink href={challengeResources.url}>Official Field Shift Resources</SourceLink>
           </section>
 
           <section id="references" tabIndex={-1}>

@@ -1,6 +1,10 @@
 import { MapPin } from 'lucide-react'
+import { useState } from 'react'
 import geography from '../assets/kasungu-map.json'
+import satellite from '../assets/kasungu-landsat9.webp'
+import landsat from '../data/landsatKasungu.json'
 import { referenceProvenance } from '../data/researchReference'
+import { formatDate } from '../format'
 
 const { queryLat, queryLon } = referenceProvenance
 
@@ -9,12 +13,36 @@ const x = 340 + (queryLon - 34.4) * 43
 const y = 165 + (-13.25 - queryLat) * 38
 
 export function KasunguMap() {
+  const [view, setView] = useState<'map' | 'satellite'>('map')
+
   return (
     <figure className="reference-map">
       <div className="map-heading">
         <span><MapPin size={16} aria-hidden="true" /> Kasungu reference area</span>
-        <span>Central Malawi</span>
+        <div className="map-view-switch" role="group" aria-label="Kasungu view">
+          <button type="button" aria-pressed={view === 'map'} onClick={() => setView('map')}>Regional Map</button>
+          <button type="button" aria-pressed={view === 'satellite'} onClick={() => setView('satellite')}>Satellite View</button>
+        </div>
       </div>
+      <div className="map-view">
+        {view === 'map' ? <RegionalMap /> : <img src={satellite} width={landsat.width} height={landsat.height}
+          alt="Natural-colour Landsat view of the Kasungu reference area in Central Malawi, showing fields, wooded areas and drainage lines." />}
+      </div>
+      {view === 'map' ? <figcaption>
+        <div><span>NASA POWER query point</span><strong>{Math.abs(queryLat).toFixed(2)}° S, {queryLon.toFixed(2)}° E</strong></div>
+        <div><span>Fixed rainfall example</span><strong>1 Nov 2022 – 15 Jan 2023</strong></div>
+        <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>
+      </figcaption> : <figcaption>
+        <div><span>{landsat.mission} · {landsat.collection} · {formatDate(landsat.acquiredOn)}</span><strong className="satellite-product">{landsat.productId}</strong></div>
+        <a href={landsat.sceneUrl}>USGS / NASA Landsat via Planetary Computer</a>
+        <span className="basis-full">Geographic context for Kasungu. The exposure model uses rainfall and illustrative ground cover.</span>
+      </figcaption>}
+    </figure>
+  )
+}
+
+function RegionalMap() {
+  return (
       <svg viewBox="0 0 660 330" role="img" aria-labelledby="map-title map-description">
         <title id="map-title">Malawi and the Kasungu rainfall reference point</title>
         <desc id="map-description">Map of Malawi and its neighbours, with Lake Malawi and the NASA POWER query at 13.05 degrees south, 33.45 degrees east.</desc>
@@ -48,11 +76,5 @@ export function KasunguMap() {
           <text x="620" y="30" textAnchor="middle" className="map-north">N</text>
         </g>
       </svg>
-      <figcaption>
-        <div><span>NASA POWER query point</span><strong>{Math.abs(queryLat).toFixed(2)}° S, {queryLon.toFixed(2)}° E</strong></div>
-        <div><span>Observation period</span><strong>1 Nov 2022 – 15 Jan 2023</strong></div>
-        <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>
-      </figcaption>
-    </figure>
   )
 }

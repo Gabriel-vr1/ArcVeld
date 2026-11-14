@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import bundle from './rainfall.json'
 import manifest from './rainfall-provenance.json'
+import challengeResources from './challengeResources.json'
 import { historicalRainfall, validateProviderBundle } from './historicalRainfall'
 import { referenceYear, researchReference } from './researchReference'
 import { compareScenario, initialScenario, scenarioForSeason } from './scenario'
@@ -14,6 +15,8 @@ describe('audited NASA POWER evidence', () => {
     expect(Object.isFrozen(current.days[0])).toBe(true)
     expect(historicalRainfall.provenance?.sourceVerification).toBe('provider_validated')
     expect(historicalRainfall.provenance?.challengeEligibility).toBe('unconfirmed')
+    expect(challengeResources.status).toBe('confirmed_from_official_challenge_resources')
+    expect(challengeResources.titles).toContain('NASA POWER: Agroclimatology & Meteorological Data')
     expect(historicalRainfall.provenance?.researchComparison2022.exactMatches).toBe(76)
     expect(historicalRainfall.provenance?.spotCheck.rainMm).toBe(83.34)
   })

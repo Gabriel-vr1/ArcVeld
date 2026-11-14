@@ -2,7 +2,7 @@
 
 ArcVeld is a soil-cover scenario explorer for a rainfed groundnut-to-maize transition near Kasungu, Central Malawi. The Overview locates the reference site, the Rotation Planner holds management inputs, Earth Observations compares historical exposure, and Research & Methodology documents the evidence. Planner inputs carry across pages during the current session.
 
-The planner and observations share five independently validated NASA POWER seasons from 2018/19 to 2022/23. Changing the season carries the return month and day and the cover inputs into the selected year pair. Date-specific feasibility answers reset for the new period.
+The planner and observations share five independently validated NASA POWER seasons from 2018/19 to 2022/23. The 2022/23 season also supports GPM IMERG Final Daily V07 and a side-by-side comparison under the same cover assumptions. Changing the season carries the return month and day and the cover inputs into the selected year pair. Date-specific feasibility answers reset for the new period.
 
 The base URL opens the map-led welcome. The four workspaces use hash URLs (`#/`, `#/planner`, `#/observations`, and `#/research`). The production build uses relative asset paths and supports direct navigation and refresh on static hosts such as GitHub Pages.
 
@@ -34,8 +34,8 @@ The static build is in `dist/`. Run `npm run preview` to inspect it locally.
 
 ## Research files
 
-The [engineering blueprint](Arcveld_Malawi_Final_MVP_Product_and_Engineering_Blueprint.md), [2022/23 reference CSV](Arcveld_Malawi_2022_Research_Rainfall_Reference.csv), and [research provenance record](Arcveld_Malawi_2022_Rainfall_Reference_Provenance.json) are preserved. An independent POWER acquisition matched all 76 reference values. The app reads a bundled snapshot without provider requests at runtime. Field Shift source eligibility remains unconfirmed.
+The [engineering blueprint](Arcveld_Malawi_Final_MVP_Product_and_Engineering_Blueprint.md), [2022/23 reference CSV](Arcveld_Malawi_2022_Research_Rainfall_Reference.csv), and [research provenance record](Arcveld_Malawi_2022_Rainfall_Reference_Provenance.json) are preserved. An independent POWER acquisition matched all 76 reference values. The app reads a bundled snapshot without provider requests at runtime. The project team confirmed NASA POWER’s inclusion in the official Field Shift Resources on 14 November 2026.
 
-See the [rainfall audit](data/README.md) for provenance, seasonal results, the IMERG investigation and Python 3.11+ reproduction instructions.
+See the [data audit](data/README.md) for provenance, seasonal results, the Landsat image, the IMERG investigation and Python 3.11+ reproduction instructions.
 
 See [third-party notices](THIRD_PARTY_NOTICES.md) for asset and dependency credits.

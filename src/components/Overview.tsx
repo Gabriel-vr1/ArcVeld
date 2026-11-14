@@ -36,7 +36,7 @@ function RainPreview({ rain }: { rain: NonNullable<typeof researchReference.days
   return (
     <section className="rain-preview" aria-labelledby="rain-preview-title">
       <div className="rain-preview-heading">
-        <div><h2 id="rain-preview-title">Daily precipitation</h2><p>{rain.length} UTC days · NASA POWER / MERRA-2</p></div>
+        <div><h2 id="rain-preview-title">Daily precipitation</h2><p>Fixed 2022/23 example · {rain.length} UTC days · NASA POWER / MERRA-2</p></div>
         <a href={routes.observations.href} aria-label="Inspect historical rainfall"><ArrowUpRight size={19} aria-hidden="true" /></a>
       </div>
       <div className="rain-preview-value"><strong>{formatNumber(total)} <small>mm</small></strong><span>Period total</span></div>
