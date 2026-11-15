@@ -1,5 +1,5 @@
 import { MapPin } from 'lucide-react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import geography from '../assets/kasungu-map.json'
 import satellite from '../assets/kasungu-landsat9.webp'
 import landsat from '../data/landsatKasungu.json'
@@ -15,19 +15,22 @@ const y = 165 + (-13.25 - queryLat) * 38
 export function KasunguMap() {
   const [view, setView] = useState<'map' | 'satellite'>('map')
   const [satelliteUnavailable, setSatelliteUnavailable] = useState(false)
+  const regionalButton = useRef<HTMLButtonElement>(null)
+  const satelliteButton = useRef<HTMLButtonElement>(null)
 
   return (
     <figure className="reference-map">
       <div className="map-heading">
         <span><MapPin size={16} aria-hidden="true" /> Kasungu reference area</span>
         <div className="map-view-switch" role="group" aria-label="Kasungu view">
-          <button type="button" aria-pressed={view === 'map'} onClick={() => setView('map')}>Regional Map</button>
-          <button type="button" aria-pressed={view === 'satellite'} disabled={satelliteUnavailable} onClick={() => setView('satellite')}>Satellite View</button>
+          <button type="button" ref={regionalButton} aria-pressed={view === 'map'} onClick={() => setView('map')}>Regional Map</button>
+          <button type="button" ref={satelliteButton} aria-pressed={view === 'satellite'} disabled={satelliteUnavailable} onClick={() => setView('satellite')}>Satellite View</button>
         </div>
       </div>
       <div className="map-view">
         {view === 'map' ? <RegionalMap /> : <img src={satellite} width={landsat.width} height={landsat.height}
           onError={() => {
+            if (document.activeElement === satelliteButton.current) regionalButton.current?.focus()
             setSatelliteUnavailable(true)
             setView('map')
           }}
@@ -35,7 +38,6 @@ export function KasunguMap() {
       </div>
       {view === 'map' ? <figcaption>
         <div><span>NASA POWER query point</span><strong>{Math.abs(queryLat).toFixed(2)}° S, {queryLon.toFixed(2)}° E</strong></div>
-        <div><span>Fixed rainfall example</span><strong>1 Nov 2022 – 15 Jan 2023</strong></div>
         <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>
         {satelliteUnavailable && <span className="basis-full" role="status">Satellite imagery is unavailable. Showing the regional map.</span>}
       </figcaption> : <figcaption>

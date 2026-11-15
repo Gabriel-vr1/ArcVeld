@@ -43,10 +43,11 @@ export default function App() {
 
   return (
     <>
-      {page !== 'welcome' && <SiteHeader page={page} />}
+      {page !== 'welcome' && <SiteHeader key={page} page={page} />}
       <main id="main-content" className={page === 'welcome' ? undefined : 'application'} ref={main} tabIndex={-1}>
         {page === 'welcome' && <Welcome />}
-        {page === 'overview' && <Overview />}
+        {page === 'overview' && <Overview year={year} source={source} window={seasonWindow}
+          analysis={analysis} management={management} />}
         {page === 'planner' && (
           <RotationPlanner scenario={scenario} onScenarioChange={setScenario}
             constraints={constraints} onConstraintsChange={setConstraints} analysis={analysis}
