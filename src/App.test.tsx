@@ -22,7 +22,7 @@ describe('ArcVeld workspace shell', () => {
     const research = renderToStaticMarkup(<SourcePanel />)
     expect(observations).toContain('Calendar and uniform-rainfall baselines tie.')
     expect(observations).toContain('NASA POWER / MERRA-2 · independently validated')
-    expect(observations).toContain('Illustrative ground cover')
+    expect(observations).toContain('Ground cover is modelled from illustrative assumptions')
     expect(observations).not.toContain('Analysis unavailable')
     expect(research).toContain('NASA POWER is listed.')
     expect(research).toContain('2026-11-14')

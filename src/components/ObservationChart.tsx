@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { formatContribution, formatDate, formatNumber, formatShortDate } from '../format'
+import { comparisonTolerance } from '../domain/evidence'
 import type { Comparison, Scenario } from '../data/scenario'
 
 type Event = Comparison['events'][number]
@@ -18,7 +19,7 @@ export function ObservationChart({ events, scenario, selectedDate, onDateSelect 
   selectedDate?: string
   onDateSelect: (date: string) => void
 }) {
-  const topEvents = [...events].filter(({ contribution }) => Math.abs(contribution) > 1e-6)
+  const topEvents = [...events].filter(({ contribution }) => Math.abs(contribution) > comparisonTolerance)
     .sort((a, b) => Math.abs(b.contribution) - Math.abs(a.contribution)).slice(0, 3)
   const selected = events.find((event) => event.dateIso === selectedDate) ?? topEvents[0] ?? events[0]
   const selectedIndex = events.indexOf(selected)
@@ -45,30 +46,51 @@ export function ObservationChart({ events, scenario, selectedDate, onDateSelect 
   const coverY = (fraction: number) => coverBottom - fraction * 112
   const coverPoints = (key: 'earlyCover' | 'lateCover') => events
     .map((event, index) => `${x(index)},${coverY(event[key])}`).join(' ')
+  const contributionDirection = Math.abs(selected.contribution) <= comparisonTolerance ? 'No material difference on this day'
+    : selected.contribution < 0 ? 'Lower exposure for later return on this day' : 'Lower exposure for earlier return on this day'
   const setDay = (index: number) => onDateSelect(events[index].dateIso)
 
   return (
-    <section className="workspace-panel observation-workspace" aria-labelledby="timeline-title">
-      <div className="workspace-heading">
-        <div>
-          <h2 id="timeline-title">Rainfall and ground cover</h2>
-          <p className="muted">Select a day to inspect its rainfall, estimated cover, and contribution.</p>
-        </div>
-        <span className="context-label">{events.length} days · UTC</span>
-      </div>
+    <>
       <div className="chart-layout">
+        <div className="day-control">
+          <button type="button" aria-label="Previous UTC day" disabled={selectedIndex === 0} onClick={() => setDay(selectedIndex - 1)}>
+            <ChevronLeft size={17} aria-hidden="true" />
+          </button>
+          <label><span className="sr-only">Inspect UTC date</span>
+            <select value={selected.dateIso} onChange={(event) => onDateSelect(event.currentTarget.value)}>
+              {events.map(({ dateIso }) => <option key={dateIso} value={dateIso}>{formatShortDate(dateIso)} {dateIso.slice(0, 4)}</option>)}
+            </select>
+          </label>
+          <button type="button" aria-label="Next UTC day" disabled={selectedIndex === events.length - 1} onClick={() => setDay(selectedIndex + 1)}>
+            <ChevronRight size={17} aria-hidden="true" />
+          </button>
+        </div>
+        <aside className="day-evidence" aria-label="Daily evidence">
+          <div aria-live="polite">
+            <h3>{formatDate(selected.dateIso)} <span>UTC</span></h3>
+            <dl>
+              <div><dt>Rainfall</dt><dd>{formatNumber(selected.rainMm)} mm</dd></div>
+              <div><dt>Earlier cover</dt><dd>{(selected.earlyCover * 100).toFixed(1)}%</dd></div>
+              <div><dt>Later cover</dt><dd>{(selected.lateCover * 100).toFixed(1)}%</dd></div>
+              <div className="event-contribution"><dt>Contribution to later minus earlier</dt><dd>{formatContribution(selected.contribution)} mm-equivalent</dd></div>
+            </dl>
+            <p className="day-interpretation">{contributionDirection}.</p>
+          </div>
+        </aside>
         <div className="chart-main">
           <ul className="chart-legend" aria-label="Chart legend">
-            <li><i className="legend-rain" />Rainfall</li>
+            <li><i className="legend-rain" />NASA rainfall estimate</li>
             <li><i className="legend-early" />Earlier · {formatShortDate(scenario.earlyDate)}</li>
             <li><i className="legend-late" />Later · {formatShortDate(scenario.lateDate)}</li>
+            <li><i className="legend-selected" />Selected day</li>
           </ul>
           <div ref={chart} className="timeline-plot">
             <svg width={width} height="328" viewBox={`0 0 ${width} 328`} role="img" aria-labelledby="plot-title plot-description">
               <title id="plot-title">Daily rainfall and illustrative cover trajectories</title>
               <desc id="plot-description">Rainfall bars in millimetres above two cover lines in percent. Vertical lines mark residue-return dates and the selected date. The date control and daily data table provide the same evidence.</desc>
               <text className="plot-axis-title" x={left} y="20">Daily rainfall (mm)</text>
-              <text className="plot-axis-title" x={left} y="178">Estimated cover (%)</text>
+              <text className="plot-axis-title" x={left} y="178">Modelled ground cover (%)</text>
               {[0, maxRain / 2, maxRain].map((tick) => (
                 <g key={tick}>
                   <path d={`M ${left} ${rainY(tick)} H ${right}`} className="plot-grid" />
@@ -105,53 +127,29 @@ export function ObservationChart({ events, scenario, selectedDate, onDateSelect 
               <circle cx={x(selectedIndex)} cy={coverY(selected.earlyCover)} r="3.5" className="plot-dot plot-early" />
               <circle cx={x(selectedIndex)} cy={coverY(selected.lateCover)} r="3.5" className="plot-dot plot-late" />
               <rect className="plot-hit" x={left} y="39" width={right - left} height={coverBottom - 39} fill="transparent"
-                onPointerDown={(event) => {
+                onClick={(event) => {
                   const bounds = event.currentTarget.getBoundingClientRect()
                   const index = Math.floor(((event.clientX - bounds.left) / bounds.width) * events.length)
                   setDay(Math.max(0, Math.min(index, events.length - 1)))
                 }} />
             </svg>
           </div>
-          <div className="day-control">
-            <button type="button" aria-label="Previous UTC day" disabled={selectedIndex === 0} onClick={() => setDay(selectedIndex - 1)}>
-              <ChevronLeft size={17} aria-hidden="true" />
-            </button>
-            <label><span className="sr-only">Inspect UTC date</span>
-              <select value={selected.dateIso} onChange={(event) => onDateSelect(event.currentTarget.value)}>
-                {events.map(({ dateIso }) => <option key={dateIso} value={dateIso}>{formatDate(dateIso)} (UTC)</option>)}
-              </select>
-            </label>
-            <button type="button" aria-label="Next UTC day" disabled={selectedIndex === events.length - 1} onClick={() => setDay(selectedIndex + 1)}>
-              <ChevronRight size={17} aria-hidden="true" />
-            </button>
-          </div>
         </div>
-        <aside className="day-evidence" aria-label="Daily evidence">
-          <div aria-live="polite">
-            <h3>{formatDate(selected.dateIso)} <span>UTC</span></h3>
-            <dl>
-              <div><dt>Rainfall</dt><dd>{formatNumber(selected.rainMm)} mm</dd></div>
-              <div><dt>Earlier cover</dt><dd>{(selected.earlyCover * 100).toFixed(1)}%</dd></div>
-              <div><dt>Later cover</dt><dd>{(selected.lateCover * 100).toFixed(1)}%</dd></div>
-              <div className="event-contribution"><dt>Contribution to later minus earlier</dt><dd>{formatContribution(selected.contribution)} mm-equivalent</dd></div>
-            </dl>
+        {topEvents.length > 0 && (
+          <div className="event-list">
+            <h3>Largest contributions</h3>
+            <ul>
+              {topEvents.map((event) => (
+                <li key={event.dateIso}>
+                  <button type="button" aria-pressed={event === selected} onClick={() => onDateSelect(event.dateIso)}>
+                    <span>{formatShortDate(event.dateIso)}</span><strong>{formatContribution(event.contribution)}</strong>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <p className="muted">Select a day · mm-equivalent, ranked by magnitude</p>
           </div>
-          {topEvents.length > 0 && (
-            <div className="event-list">
-              <h3>Largest contributions</h3>
-              <ul>
-                {topEvents.map((event) => (
-                  <li key={event.dateIso}>
-                    <button type="button" aria-pressed={event === selected} onClick={() => onDateSelect(event.dateIso)}>
-                      <span>{formatShortDate(event.dateIso)}</span><strong>{formatContribution(event.contribution)}</strong>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <p className="muted">mm-equivalent, ranked by magnitude</p>
-            </div>
-          )}
-        </aside>
+        )}
       </div>
       <details className="daily-data">
         <summary>View all {events.length} days as a table</summary>
@@ -170,6 +168,6 @@ export function ObservationChart({ events, scenario, selectedDate, onDateSelect 
           </table>
         </div>
       </details>
-    </section>
+    </>
   )
 }
