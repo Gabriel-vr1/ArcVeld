@@ -33,17 +33,14 @@ export function Overview({ year, source, window, analysis, management }: {
     ? 'less than 0.01' : formatNumber(Math.abs(difference))
 
   return (
-    <div className="page-width overview">
-      <header className="overview-heading">
-        <div>
+    <div className="overview">
+      <KasunguMap heading={
+        <header className="overview-heading">
           <p className="context-label">Kasungu, Central Malawi</p>
           <h1>Agricultural Rotation Planning</h1>
-          <p className="muted">Explore how residue-return timing changes modelled ground cover and exposure to historical rainfall.</p>
-        </div>
-        <ButtonLink href={routes.planner.href}>Open Rotation Planner <ArrowRight size={17} aria-hidden="true" /></ButtonLink>
-      </header>
-      <div className="overview-layout">
-        <KasunguMap />
+          <ButtonLink href={routes.planner.href}>Open Rotation Planner <ArrowRight size={17} aria-hidden="true" /></ButtonLink>
+        </header>
+      }>
         <aside className="overview-context" aria-label="Current investigation">
           <section aria-labelledby="investigation-title">
             <h2 id="investigation-title">Current investigation</h2>
@@ -64,7 +61,7 @@ export function Overview({ year, source, window, analysis, management }: {
             : <p className="muted">Rainfall preview is unavailable for this selection.</p>}
           <a className="text-link" href={routes.observations.href}>Explore Earth Observations <ArrowUpRight size={15} aria-hidden="true" /></a>
         </aside>
-      </div>
+      </KasunguMap>
     </div>
   )
 }

@@ -1,49 +1,61 @@
 import { MapPin } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import geography from '../assets/kasungu-map.json'
 import satellite from '../assets/kasungu-landsat9.webp'
 import landsat from '../data/landsatKasungu.json'
 import { referenceProvenance } from '../data/researchReference'
 import { formatDate } from '../format'
+import { MalawiLocator } from './MalawiLocator'
 
 const { queryLat, queryLon } = referenceProvenance
 
-// Match the longitude and latitude scales used to prepare the bundled map.
 const x = 340 + (queryLon - 34.4) * 43
 const y = 165 + (-13.25 - queryLat) * 38
 
-export function KasunguMap() {
-  const [view, setView] = useState<'map' | 'satellite'>('map')
+export function KasunguMap({ heading, children }: { heading: ReactNode; children: ReactNode }) {
+  const [view, setView] = useState<'map' | 'satellite'>('satellite')
   const [satelliteUnavailable, setSatelliteUnavailable] = useState(false)
   const regionalButton = useRef<HTMLButtonElement>(null)
   const satelliteButton = useRef<HTMLButtonElement>(null)
 
   return (
     <figure className="reference-map">
-      <div className="map-heading">
-        <span><MapPin size={16} aria-hidden="true" /> Kasungu reference area</span>
-        <div className="map-view-switch" role="group" aria-label="Kasungu view">
-          <button type="button" ref={regionalButton} aria-pressed={view === 'map'} onClick={() => setView('map')}>Regional Map</button>
-          <button type="button" ref={satelliteButton} aria-pressed={view === 'satellite'} disabled={satelliteUnavailable} onClick={() => setView('satellite')}>Satellite View</button>
+      <div className="map-stage">
+        {heading}
+        <div className="map-heading">
+          <div className="map-location">
+            <MapPin size={16} aria-hidden="true" />
+            <div>Kasungu reference area <span>{Math.abs(queryLat).toFixed(2)}° S, {queryLon.toFixed(2)}° E · NASA POWER query point</span></div>
+          </div>
+          <div className="map-view-switch" role="group" aria-label="Kasungu view">
+            <button type="button" ref={satelliteButton} aria-pressed={view === 'satellite'} disabled={satelliteUnavailable} onClick={() => setView('satellite')}>Satellite View</button>
+            <button type="button" ref={regionalButton} aria-pressed={view === 'map'} onClick={() => setView('map')}>Regional Map</button>
+          </div>
         </div>
-      </div>
-      <div className="map-view">
-        {view === 'map' ? <RegionalMap /> : <img src={satellite} width={landsat.width} height={landsat.height}
-          onError={() => {
-            if (document.activeElement === satelliteButton.current) regionalButton.current?.focus()
-            setSatelliteUnavailable(true)
-            setView('map')
-          }}
-          alt="Natural-colour Landsat view of the Kasungu reference area in Central Malawi, showing fields, wooded areas and drainage lines." />}
+        <div className={`map-view map-view-${view}`}>
+          {view === 'map' ? <RegionalMap /> : <img src={satellite} width={landsat.width} height={landsat.height}
+            onError={() => {
+              if (document.activeElement === satelliteButton.current) regionalButton.current?.focus()
+              setSatelliteUnavailable(true)
+              setView('map')
+            }}
+            alt="Natural-colour Landsat view of the Kasungu reference area in Central Malawi, showing fields, wooded areas and drainage lines." />}
+        </div>
+        {view === 'satellite' && (
+          <div className="scene-locator" aria-label="Malawi locator with the Kasungu reference point" role="img">
+            <MalawiLocator />
+            <span><strong>Malawi</strong><small>Kasungu</small></span>
+          </div>
+        )}
+        {children}
       </div>
       {view === 'map' ? <figcaption>
-        <div><span>NASA POWER query point</span><strong>{Math.abs(queryLat).toFixed(2)}° S, {queryLon.toFixed(2)}° E</strong></div>
         <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>
         {satelliteUnavailable && <span className="basis-full" role="status">Satellite imagery is unavailable. Showing the regional map.</span>}
       </figcaption> : <figcaption>
         <div><span>{landsat.mission} · {landsat.collection} · {formatDate(landsat.acquiredOn)}</span><strong className="satellite-product">{landsat.productId}</strong></div>
         <a href={landsat.sceneUrl}>USGS / NASA Landsat via Planetary Computer</a>
-        <span className="basis-full">Geographic context for Kasungu. The exposure model uses rainfall and illustrative ground cover.</span>
+        <span className="basis-full">Kasungu study-area crop · {landsat.cropExtentLabel}. Ground cover is modelled separately.</span>
       </figcaption>}
     </figure>
   )

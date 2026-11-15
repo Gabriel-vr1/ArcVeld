@@ -1,54 +1,63 @@
 /*
  * ArcVeld identity primitives.
  * styles.css owns component rules. The named Tailwind layers are declared there;
- * no independent override layer is used. Dark workspaces remap the same tokens.
+ * no independent override layer is used. Workspaces share the same colour primitives.
  */
 @theme {
   --font-sans: "Public Sans Variable", system-ui, sans-serif;
   --font-display: "Public Sans Variable", system-ui, sans-serif;
-  --color-paper: #154B91;
-  --color-panel: #10365F;
-  --color-ink: #F3F7FC;
-  --color-primary: #A9D9F4;
+  --color-paper: #F8F1E3;
+  --color-panel: #FFFBF2;
+  --color-ink: #302039;
+  --color-primary: #673D91;
 }
 
 @layer base {
   :root {
-    color-scheme: dark;
-    --space-blue: var(--color-paper);
-    --atlantic-blue: #1D61A5;
-    --orbital-blue: var(--color-panel);
-    --brand-rule: #CC2746;
-    --highlight: #F0C94D;
-    --ice-blue: var(--color-primary);
-    --soft-white: var(--color-ink);
+    color-scheme: light;
+    --ivory: var(--color-paper);
+    --violet: var(--color-primary);
+    --plum: #40254F;
+    --aubergine: var(--color-ink);
+    --gold: #E9BE45;
+    --green: #55B88A;
+    --earth-blue: #4D9FD1;
+    --brand-rule: var(--plum);
+    --highlight: var(--gold);
+    --gold-ink: #7B5717;
     --frame-rule-width: 3px;
-    --star-field: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='137' height='109' fill='%23F3F7FC' fill-opacity='.18'%3E%3Ccircle cx='12' cy='19' r='.75'/%3E%3Ccircle cx='42' cy='80' r='.6'/%3E%3Ccircle cx='81' cy='44' r='.8'/%3E%3Ccircle cx='120' cy='12' r='.5'/%3E%3Ccircle cx='112' cy='96' r='.7'/%3E%3C/svg%3E");
+    --star-field: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='137' height='109' fill='%23BAA67A' fill-opacity='.18'%3E%3Ccircle cx='12' cy='19' r='.75'/%3E%3Ccircle cx='42' cy='80' r='.6'/%3E%3Ccircle cx='81' cy='44' r='.8'/%3E%3Ccircle cx='120' cy='12' r='.5'/%3E%3Ccircle cx='112' cy='96' r='.7'/%3E%3C/svg%3E");
     --globe-art: url('./assets/orbital-globe.svg');
-    --color-muted: color-mix(in srgb, var(--soft-white) 64%, var(--ice-blue));
-    --color-line: color-mix(in srgb, var(--ice-blue) 32%, var(--orbital-blue));
-    --color-rain: var(--ice-blue);
-    --surface-subtle: color-mix(in srgb, var(--atlantic-blue) 24%, var(--orbital-blue));
-    --surface-selected: color-mix(in srgb, var(--atlantic-blue) 48%, var(--orbital-blue));
-    --surface-result: color-mix(in srgb, var(--atlantic-blue) 14%, var(--orbital-blue));
-    --border-control: color-mix(in srgb, var(--ice-blue) 60%, var(--orbital-blue));
-    --border-selected: var(--highlight);
-    --text-on-dark: var(--soft-white);
-    --text-on-primary: var(--orbital-blue);
-    --primary-hover: var(--soft-white);
-    --focus: var(--ice-blue);
-    --rainfall: color-mix(in srgb, var(--ice-blue) 62%, var(--atlantic-blue));
-    --rainfall-selected: var(--soft-white);
-    --cover-early: var(--ice-blue);
-    --cover-early-fill: color-mix(in srgb, var(--cover-early) 18%, transparent);
-    --cover-late: var(--highlight);
-    --cover-late-fill: color-mix(in srgb, var(--cover-late) 15%, transparent);
-    --difference-lower: var(--ice-blue);
-    --difference-higher: var(--highlight);
-    --warning-text: var(--highlight);
-    --warning-surface: var(--orbital-blue);
-    --warning-border: var(--highlight);
-    --error-text: color-mix(in srgb, var(--brand-rule) 40%, var(--soft-white));
+    --color-muted: #61544A;
+    --color-line: #D9CBB3;
+    --surface-subtle: #F0E7D7;
+    --surface-selected: #F3E8CA;
+    --surface-result: #F6EEDC;
+    --surface-agriculture: #E5F0DE;
+    --surface-agriculture-selected: #D7ECD8;
+    --surface-earth: #EAF3F7;
+    --surface-earth-selected: #DCECF5;
+    --border-control: #887865;
+    --border-selected: var(--violet);
+    --text-on-dark: var(--ivory);
+    --text-on-primary: var(--ivory);
+    --primary-hover: var(--plum);
+    --focus: var(--violet);
+    --color-rain: #205C82;
+    --rainfall: color-mix(in srgb, var(--earth-blue) 59%, var(--color-rain));
+    --rainfall-selected: #16496C;
+    --chart-guide: var(--aubergine);
+    --cover-early: #177748;
+    --cover-early-label: #205C3C;
+    --cover-early-fill: color-mix(in srgb, var(--green) 28%, transparent);
+    --cover-late: #9A7020;
+    --cover-late-fill: color-mix(in srgb, var(--gold) 18%, transparent);
+    --difference-lower: var(--cover-early);
+    --difference-higher: var(--cover-late);
+    --warning-text: var(--gold-ink);
+    --warning-surface: #FCF1D6;
+    --warning-border: var(--cover-late);
+    --error-text: #933954;
     --control-height: 2.75rem;
     --radius-control: .375rem;
     --radius-panel: .625rem;
@@ -57,88 +66,83 @@
     --text-sm: .875rem;
     --text-body: .9375rem;
     --text-title: clamp(1.8rem, 3vw, 2.65rem);
-    --map-water: var(--orbital-blue);
-    --map-land: color-mix(in srgb, var(--atlantic-blue) 56%, var(--orbital-blue));
-    --map-boundary: color-mix(in srgb, var(--ice-blue) 52%, var(--atlantic-blue));
-    --map-region: color-mix(in srgb, var(--ice-blue) 24%, var(--atlantic-blue));
-    --map-lake: color-mix(in srgb, var(--ice-blue) 38%, var(--atlantic-blue));
+  }
+
+  .reference-map {
+    --map-water: var(--plum);
+    --map-land: var(--violet);
+    --map-boundary: color-mix(in srgb, var(--ivory) 65%, transparent);
+    --map-region: var(--plum);
+    --map-lake: var(--violet);
+  }
+
+  .observations {
+    --surface-subtle: var(--surface-earth);
+    --surface-selected: var(--surface-earth-selected);
   }
 }
 
 @layer components {
-  .welcome { color: var(--color-ink); background: var(--star-field) center / auto repeat, var(--space-blue); min-height: 100svh; display: grid; overflow-x: clip; }
-  .welcome-frame { width: min(100% - 3rem, 92rem); margin-inline: auto; display: grid; grid-template-rows: auto 1fr auto; }
-  .welcome-top, .welcome-footer { position: relative; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem 1rem; padding: 1rem 0; font-size: var(--text-xs); color: var(--text-on-dark); }
-  /* Full-width framing retains the existing content alignment and grid. */
-  .welcome-top::before, .welcome-footer::before { content: ''; position: absolute; z-index: -1; inset-block: 0; inset-inline: calc((100vw - 100%) / -2); background: var(--brand-rule); border-color: var(--highlight); border-style: solid; border-width: 0; }
+  .welcome { min-height: 100svh; display: grid; overflow-x: clip; background: var(--color-paper); }
+  .welcome-frame { width: min(100% - 3rem, 82rem); margin-inline: auto; display: grid; grid-template-rows: auto 1fr auto; }
+  .welcome-top, .welcome-footer { position: relative; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .45rem 1rem; padding: .8rem 0; font-size: var(--text-xs); color: var(--text-on-dark); }
+  .welcome-top::before, .welcome-footer::before { content: ''; position: absolute; z-index: -1; inset-block: 0; inset-inline: calc((100vw - 100%) / -2); background: var(--brand-rule); border: 0 solid var(--highlight); }
   .welcome-top::before { border-bottom-width: var(--frame-rule-width); }
   .welcome-footer::before { border-top-width: var(--frame-rule-width); }
-  .welcome-top strong, .welcome-footer strong { color: var(--color-ink); }
   .welcome-footer a { text-decoration: underline; text-underline-offset: .25em; }
-  .welcome-stage { display: grid; align-items: center; position: relative; isolation: isolate; }
-  .welcome-stage::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    background:
-      url('./assets/mission-tracks.svg') left 3% top .75rem / min(34%, 32rem, 45svh) auto no-repeat,
-      var(--globe-art) left 10% top calc(70% + .7 * clamp(20rem, 32vw, 30rem)) / clamp(20rem, 32vw, 30rem) no-repeat;
-    opacity: .44;
+  .welcome-stage { display: grid; align-items: center; align-content: center; gap: 1.35rem; padding-block: 1.6rem 1.15rem; }
+  .welcome-copy h1 { font-size: clamp(3.7rem, 9vw, 8rem); font-weight: 650; line-height: .98; letter-spacing: -.065em; }
+  .welcome-copy p { max-width: 28ch; margin-top: .75rem; font-size: clamp(.95rem, 1.5vw, 1.13rem); line-height: 1.5; color: var(--color-muted); }
+  .welcome-copy .welcome-location { margin: 0 0 .55rem; color: var(--gold-ink); font-size: var(--text-xs); font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+  .welcome-enter { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 1.15rem; min-height: 3rem; background: var(--green); color: var(--aubergine); border: 1px solid var(--cover-early); border-radius: var(--radius-control); padding: .65rem 1rem; font-size: var(--text-sm); font-weight: 700; }
+  .welcome-enter:hover { background: var(--surface-agriculture-selected); }
+  .welcome-atlas { min-width: 0; width: min(100%, 35rem); margin: 0 auto; }
+  .welcome-atlas svg { display: block; width: 100%; max-height: 53svh; overflow: visible; }
+  .welcome-atlas figcaption { color: var(--color-muted); text-align: center; font-size: var(--text-xs); }
+  .relief-plane-shadow { fill: #E4D6BD; stroke: var(--color-line); }
+  .relief-plane { fill: var(--surface-subtle); stroke: var(--color-line); }
+  .relief-grid { fill: none; stroke: var(--plum); stroke-width: .55; opacity: .21; }
+  .relief-neighbour { fill: none; stroke: var(--plum); stroke-width: .75; opacity: .34; }
+  .relief-layer { fill: var(--plum); stroke: var(--ivory); stroke-opacity: .6; stroke-width: .8; }
+  .relief-face { fill: url(#relief-face); stroke: var(--ivory); stroke-width: 1.25; }
+  .relief-contours { fill: none; stroke: var(--plum); stroke-width: .9; opacity: .6; }
+  .relief-lakes { fill: var(--plum); stroke: var(--ivory); stroke-width: .65; }
+  .relief-lake-label { fill: var(--plum); font-size: 13px; font-style: italic; }
+  .relief-lake-leader { fill: none; stroke: var(--plum); opacity: .65; }
+  .relief-country-label { fill: var(--plum); font-size: 22px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .relief-pin { fill: none; stroke: var(--highlight); stroke-width: 1.6; }
+  .relief-pin path { stroke: var(--cover-late); }
+  .relief-pin .relief-pin-dot { fill: var(--highlight); }
+  .relief-location { fill: var(--plum); font-size: 23px; font-weight: 700; }
+  .relief-coordinates { fill: var(--plum); font: 15px ui-monospace, monospace; }
+
+  @media (width >= 54rem) {
+    .welcome-frame { width: min(100% - 6rem, 82rem); }
+    .welcome-stage { grid-template-columns: minmax(16rem, .85fr) minmax(0, 1.65fr); gap: clamp(1rem, 3vw, 3rem); }
+    .welcome-atlas { width: 100%; }
+    .welcome-atlas svg { max-height: 72svh; }
   }
-  .welcome-copy { position: relative; inset-block-start: -.5rem; z-index: 1; }
-  .welcome-copy h1 { color: var(--color-ink); font-size: clamp(4rem, 8vw, 8rem); font-weight: 650; line-height: 1; letter-spacing: -.065em; }
-  .welcome-copy p { margin-top: 1.5rem; max-width: 24em; font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.65; color: var(--color-muted); }
-  .welcome-enter { display: inline-flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 2rem; min-height: 3.25rem; background: var(--color-primary); color: var(--orbital-blue); border: 1px solid transparent; border-radius: var(--radius-control); padding: .75rem 1.1rem; font-size: var(--text-sm); font-weight: 700; }
-  .welcome-enter:hover { background: var(--text-on-dark); }
-  .welcome-atlas { min-width: 0; margin: 0; position: relative; }
-  .welcome-atlas svg { display: block; width: 100%; max-height: 79svh; }
-  .atlas-gridline { stroke: var(--text-on-dark); opacity: .16; }
-  .atlas-country { fill: color-mix(in srgb, var(--ice-blue) 14%, var(--orbital-blue)); stroke: var(--ice-blue); stroke-width: .85; }
-  .atlas-malawi { fill: var(--ice-blue); stroke: var(--soft-white); stroke-width: 1.5; }
-  .atlas-label { fill: var(--color-muted); font-size: 15px; letter-spacing: .25em; font-weight: 650; }
-  .atlas-marker path, .atlas-ring { stroke: var(--highlight); fill: none; }
-  .atlas-marker path { stroke-width: 1.15; }
-  .atlas-ring-outer { fill: var(--orbital-blue); fill-opacity: .48; stroke: var(--highlight); stroke-opacity: .7; stroke-dasharray: 3 4; }
-  .atlas-dot { fill: var(--highlight); }
-  .atlas-location { fill: var(--color-ink); font-size: 20px; font-weight: 750; letter-spacing: .1em; }
-  .atlas-coordinates { fill: var(--color-muted); font-family: ui-monospace, monospace; font-size: 13px; }
+  @media (width < 40rem) {
+    .relief-lake-label, .relief-lake-leader { display: none; }
+    .relief-location { font-size: 27px; }
+    .relief-coordinates { font-size: 18px; }
+    .relief-country-label { font-size: 26px; }
+  }
 
   .regional-water { fill: var(--map-water); }
   .regional-country { fill: var(--map-land); stroke: var(--map-boundary); stroke-width: .85; }
-  .regional-malawi { fill: var(--map-region); stroke: var(--soft-white); stroke-width: 1.6; }
-  .regional-lake { fill: var(--map-lake); stroke: var(--soft-white); stroke-width: .85; }
-  .regional-gridline { stroke: var(--color-muted); opacity: .18; }
+  .regional-malawi { fill: var(--map-region); stroke: var(--ivory); stroke-width: 1.6; }
+  .regional-lake { fill: var(--map-lake); stroke: var(--ivory); stroke-width: .85; }
+  .regional-gridline { stroke: var(--ivory); opacity: .18; }
   .regional-leader, .regional-ring { stroke: var(--highlight); stroke-width: 1.5; fill: none; }
   .regional-dot { fill: var(--highlight); }
-  .map-labels { fill: var(--color-muted); font-size: 13px; letter-spacing: 1.2px; font-weight: 650; }
-  .map-country { fill: var(--color-ink); font-weight: 800; }
-  .map-water { fill: var(--color-ink); font-style: italic; font-size: 14px; letter-spacing: 0; }
-  .map-point { fill: var(--color-ink); font-size: 15px; font-weight: 650; }
-  .map-point-background { fill: var(--orbital-blue); }
-  .map-north { fill: var(--color-ink); font-size: 13px; font-weight: 700; }
+  .map-labels { fill: var(--ivory); font-size: 13px; letter-spacing: 1.2px; font-weight: 650; }
+  .map-country { fill: var(--ivory); font-weight: 800; }
+  .map-water { fill: var(--ivory); font-style: italic; font-size: 14px; letter-spacing: 0; }
+  .map-point { fill: var(--ivory); font-size: 15px; font-weight: 650; }
+  .map-point-background { fill: var(--plum); }
+  .map-north { fill: var(--ivory); font-size: 13px; font-weight: 700; }
 
-  @media (width >= 54rem) {
-    .welcome-frame { width: min(100% - 6rem, 92rem); }
-    .welcome-stage { grid-template-columns: minmax(20rem, .8fr) minmax(0, 1.3fr); }
-    .welcome-copy { inset-block-start: -3rem; padding-left: clamp(1rem, 3vw, 3rem); }
-    .welcome-atlas { margin-left: -2rem; }
-    .welcome-atlas svg { height: min(76svh, 56rem); }
-  }
-  @media (width < 54rem) {
-    .welcome-stage::before {
-      background-position: right 2% top .25rem, left -7rem bottom -9rem;
-      background-size: auto clamp(3rem, 9svh, 5rem), 20rem;
-    }
-    .welcome-stage { align-content: center; gap: .75rem; padding: 2rem 0 .5rem; }
-    .welcome-copy h1 { font-size: clamp(3.75rem, 14vw, 6rem); }
-    .welcome-copy p { margin-top: 1rem; }
-    .welcome-enter { margin-top: 1.25rem; }
-    .welcome-atlas svg { width: min(100%, 35rem); max-height: 51svh; margin-inline: auto; }
-    .atlas-location { font-size: 25px; }
-    .atlas-coordinates { font-size: 17px; }
-  }
   @media (width < 40rem) {
     .map-labels, .map-water { font-size: 18px; }
     .map-point, .map-north { font-size: 17px; }

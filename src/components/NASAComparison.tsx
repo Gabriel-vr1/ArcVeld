@@ -1,10 +1,10 @@
 import { ArrowRight, Info } from 'lucide-react'
 import { useRef } from 'react'
-import { formatNumber, formatSigned, formatWindow } from '../format'
+import { formatDate, formatNumber, formatSigned, formatWindow } from '../format'
 import { formatScientificClaim } from '../domain/scientificClaim'
 import type { compareScenario, Scenario } from '../data/scenario'
 import { routes } from '../navigation'
-import { ObservationChart } from './ObservationChart'
+import { ObservationChart, ObservationDailyTable } from './ObservationChart'
 import { ButtonLink } from './ui/Button'
 import { referenceProvenance, type referenceWindow } from '../data/researchReference'
 import { rainfallLabel, seasonLabel } from '../data/historicalRainfall'
@@ -15,6 +15,9 @@ import { HistoricalSeasonSelect, type HistoricalSeasonSelection } from './Histor
 import { SeasonComparison } from './SeasonComparison'
 import { RainfallSourceSelect, type RainfallSourceSelection } from './RainfallSourceSelect'
 import { RainfallSourceComparison } from './RainfallSourceComparison'
+import { MalawiLocator } from './MalawiLocator'
+import satellite from '../assets/kasungu-landsat9.webp'
+import landsat from '../data/landsatKasungu.json'
 
 export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect, season, window, source, onSourceChange }: {
   scenario: Scenario
@@ -26,6 +29,10 @@ export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect,
 } & RainfallSourceSelection) {
   const { comparison, error } = analysis
   const timelineTitle = useRef<HTMLHeadingElement>(null)
+  const events = comparison?.events ?? []
+  const topEvents = events.filter(({ contribution }) => Math.abs(contribution) > comparisonTolerance)
+    .sort((a, b) => Math.abs(b.contribution) - Math.abs(a.contribution)).slice(0, 3)
+  const selected = events.find((event) => event.dateIso === selectedDate) ?? topEvents[0] ?? events[0]
   const claim = comparison && formatScientificClaim(comparison)
   const difference = comparison?.dailyDifference ?? 0
   const direction = Math.abs(difference) <= comparisonTolerance ? 'Both schedules have equal estimated exposure'
@@ -34,19 +41,24 @@ export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect,
     ? (difference < 0 ? '\u2212<0.01' : '+<0.01') : formatSigned(difference)
 
   return (
-    <div className="page-width page-body observations">
-      <header className="page-heading">
-        <div>
-          <h1>Earth Observations</h1>
-          <p>Explore historical rainfall alongside illustrative ground cover.</p>
+    <div className="observations">
+      <header className="observation-masthead">
+        <div className="observation-scene">
+          <img src={satellite} width={landsat.width} height={landsat.height} alt="" />
+          <MalawiLocator />
+          <span>{landsat.mission} · {formatDate(landsat.acquiredOn)} · Kasungu study area</span>
         </div>
-        <div className="season-controls">
-          <HistoricalSeasonSelect {...season} />
-          <RainfallSourceSelect year={season.year} source={source} onSourceChange={onSourceChange} compact />
-          <ButtonLink variant="secondary" href={routes.planner.href}>Edit scenario <ArrowRight size={16} aria-hidden="true" /></ButtonLink>
+        <div className="page-width observation-masthead-content">
+          <p className="context-label">Kasungu, Malawi</p>
+          <h1>Earth Observations</h1>
+          <div className="season-controls">
+            <HistoricalSeasonSelect {...season} />
+            <RainfallSourceSelect year={season.year} source={source} onSourceChange={onSourceChange} compact />
+            <ButtonLink variant="secondary" href={routes.planner.href}>Edit scenario <ArrowRight size={16} aria-hidden="true" /></ButtonLink>
+          </div>
         </div>
       </header>
-      <section className="workspace-panel observation-workspace" aria-labelledby="timeline-title">
+      <section className="page-width observation-workspace" aria-labelledby="timeline-title">
         <div className="observation-context">
           <p className="context-label">Kasungu, Malawi · {seasonLabel(season.year)}</p>
           <h2 id="timeline-title" tabIndex={-1} ref={timelineTitle}>Rainfall and ground cover</h2>
@@ -57,10 +69,10 @@ export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect,
             <p><strong>{direction}.</strong> <span>Later minus earlier: <b>{signedDifference} mm-equivalent</b></span></p>
             <p><strong>{formatNumber(comparison.totalRainMm)} mm</strong> season rainfall</p>
           </div>
-          <ObservationChart events={comparison.events} scenario={scenario} selectedDate={selectedDate} onDateSelect={onDateSelect} />
+          <ObservationChart events={comparison.events} scenario={scenario} selected={selected} topEvents={topEvents} onDateSelect={onDateSelect} />
         </> : <p className="analysis-error" role="status"><strong>Analysis unavailable.</strong> {error}</p>}
       </section>
-      <section className="observation-history" aria-labelledby="history-title">
+      <section className="page-width observation-history" aria-labelledby="history-title">
         <div className="observation-history-heading">
           <h2 id="history-title">Compare the historical record</h2>
           <button className="text-link" type="button" onClick={() => timelineTitle.current?.focus()}>Back to timeline</button>
@@ -74,9 +86,9 @@ export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect,
         </div>
       </section>
 
-      <section className="observation-method" aria-labelledby="observation-method-title">
-        <h2 id="observation-method-title">Method and limitations</h2>
-        <p className="observation-limit">Rainfall is a regional NASA estimate. Ground cover is modelled from illustrative assumptions; field feasibility is assessed separately in the Planner. The rainfall-weighted exposure proxy (mm-equivalent) does not measure erosion, runoff, crop yield or soil health, and does not forecast future conditions.</p>
+      <section className="page-width observation-method" aria-labelledby="observation-method-title">
+        <h2 id="observation-method-title">Daily data and methodology</h2>
+        {comparison && <ObservationDailyTable events={comparison.events} selectedDate={selected.dateIso} onDateSelect={onDateSelect} />}
         {comparison && (
           <details className="daily-data">
             <summary>Calendar and rainfall baselines</summary>
@@ -100,6 +112,7 @@ export function NASAComparison({ scenario, analysis, selectedDate, onDateSelect,
             <a href={challengeResources.url}>POWER listed in Field Shift Resources</a>
           </div>
         </details>
+        <p className="observation-limit">Rainfall is a regional NASA estimate. Ground cover is modelled from illustrative assumptions; field feasibility is assessed in the Planner. The rainfall-weighted exposure proxy does not measure erosion, runoff, crop yield or soil health, and does not forecast future conditions.</p>
         <a className="text-link observation-provenance" href={routes.research.href}>See data provenance</a>
       </section>
     </div>

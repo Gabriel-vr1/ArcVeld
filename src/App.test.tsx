@@ -9,7 +9,7 @@ import { referenceWindow, referenceYear } from './data/researchReference'
 describe('ArcVeld workspace shell', () => {
   it('renders the geographic welcome with a direct link to the overview', () => {
     const markup = renderToStaticMarkup(<App />)
-    for (const label of ['ArcVeld', 'Earth Observation for Agricultural Planning', 'Africa with Malawi highlighted', 'Kasungu', 'href="#/"']) {
+    for (const label of ['ArcVeld', 'Illustrative relief of Malawi and the Kasungu reference point', 'Illustrative relief · Natural Earth boundaries', 'Kasungu', 'href="#/"']) {
       expect(markup).toContain(label)
     }
     expect(markup).not.toContain('Main navigation')

@@ -27,11 +27,11 @@ function SourceLink({ href, children }: { href: string; children: string }) {
 export function SourcePanel() {
   const provenance = historicalRainfall.provenance
   return (
-    <div className="page-width page-body">
+    <div className="page-width page-body research-page">
       <header className="page-heading">
         <div>
           <h1>Research &amp; Methodology</h1>
-          <p>Data sources, scenario assumptions, and how to interpret the comparison.</p>
+          <p>NASA data, model assumptions, and limits.</p>
         </div>
       </header>
       <div className="research-layout">
@@ -54,6 +54,7 @@ export function SourcePanel() {
           </section>
           <section id="datasets" tabIndex={-1}>
             <h2>NASA data &amp; provenance</h2>
+            <h3>NASA POWER</h3>
             {provenance ? (
               <p>ArcVeld independently retrieved and validated {provenance.validation.publishedRecordCount} daily values across {provenance.seasons.length} seasons. The frozen 2022/23 research CSV is retained separately for comparison.</p>
             ) : historicalRainfall.seasons.length > 0 ? (
@@ -67,8 +68,8 @@ export function SourcePanel() {
               <div><dt>Historical seasons</dt><dd>{historicalRainfall.seasons.map(({ startYear }) => seasonLabel(startYear)).join(', ') || 'Unavailable'} · {referenceProvenance.dayCount} UTC days per season</dd></div>
               <div><dt>Query point</dt><dd>13.05° S, 33.45° E · Kasungu reference</dd></div>
             </dl>
-            <details className="research-details">
-              <summary>Technical provenance</summary>
+            <details className="research-details research-product">
+              <summary>NASA POWER technical provenance</summary>
               {provenance && (
                 <>
                   <p>POWER Daily API {provenance.product.apiVersion}. NASA reports {provenance.product.providerUnits} for each full UTC day, represented as mm per observation in ArcVeld.</p>
@@ -87,7 +88,7 @@ export function SourcePanel() {
                 <li><SourceLink href={repo + 'Arcveld_Malawi_2022_Rainfall_Reference_Provenance.json'}>Provenance JSON</SourceLink></li>
               </ul>
             </details>
-            <details className="research-details">
+            <details className="research-details research-product">
               <summary>{imergLabel}</summary>
               {imergRainfall.metadata ? (
                 <>
@@ -100,7 +101,7 @@ export function SourcePanel() {
                 </>
               ) : <p>The bundled IMERG series is unavailable. {imergRainfall.error}</p>}
             </details>
-            <details className="research-details">
+            <details className="research-details research-product">
               <summary>Landsat geographic context</summary>
               <p>{landsat.mission} · {landsat.collection} · {landsat.processingLevel} · {formatDate(landsat.acquiredOn)}.</p>
               <p>Product <code>{landsat.productId}</code>. {landsat.bands}. Display bounds: {landsat.cropExtentLabel}.</p>
