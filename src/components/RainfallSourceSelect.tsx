@@ -7,9 +7,11 @@ export interface RainfallSourceSelection {
   onSourceChange: (source: RainfallSource) => void
 }
 
-export function RainfallSourceSelect({ source, onSourceChange, year }: RainfallSourceSelection & { year: number }) {
+export function RainfallSourceSelect({ source, onSourceChange, year, compact = false }: RainfallSourceSelection & { year: number; compact?: boolean }) {
   const available = year === referenceYear && Boolean(imergRainfall.days)
-  const option = available ? imergLabel : imergRainfall.days ? 'GPM IMERG · 2022/23 only' : 'GPM IMERG unavailable'
+  const option = available ? (compact ? 'GPM IMERG V07' : imergLabel)
+    : imergRainfall.days ? (compact ? 'IMERG · 2022/23 only' : 'GPM IMERG · 2022/23 only')
+      : 'GPM IMERG unavailable'
   return (
     <label className="page-context season-select">
       Rainfall source
