@@ -145,6 +145,51 @@ test('all workspaces fit at 360 px and use locally bundled data', async ({ page,
   expect(externalRequests).toEqual([])
 })
 
+test('planner aligns daily rainfall and modelled cover with the selected source and season', async ({ page }) => {
+  await page.goto('./#/planner')
+  const result = page.getByRole('region', { name: 'Historical exposure' })
+  const timeline = page.getByRole('figure', { name: 'Season timeline' })
+  const day = timeline.getByLabel('Inspect a day (UTC)')
+  await expect(result.getByRole('status')).toContainText('Later return had 38.35 mm-equivalent lower')
+  await expect(day).toHaveValue('2022-12-27')
+  await expect(timeline).toContainText('83.34 mm')
+  await expect(timeline).toContainText('Modelled ground cover')
+
+  await day.selectOption('2022-12-22')
+  await expect(timeline).toContainText('9.32 mm')
+  await page.getByLabel('Rainfall source').selectOption('imerg')
+  await expect(day).toHaveValue('2022-12-22')
+  await expect(timeline).toContainText('31.36 mm')
+  await expect(result.getByRole('status')).toContainText('Later return had 6.62 mm-equivalent lower')
+
+  await page.getByLabel('Historical season').selectOption('2021')
+  await expect(timeline).toContainText('NASA POWER / MERRA-2')
+  await expect(result.getByRole('status')).toContainText('Earlier return had 3.53 mm-equivalent lower')
+  await page.getByLabel('Later return (UTC)').fill('2021-11-15')
+  await expect(result.getByRole('status')).toContainText('Both return dates have equal')
+})
+
+test('mobile Planner shows updated exposure beside the date controls before the timeline', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 800 })
+  await page.goto('./#/planner')
+  const configuration = page.getByRole('region', { name: 'Scenario configuration' })
+  const preview = configuration.getByRole('status')
+  await expect(preview).toBeInViewport({ ratio: 1 })
+  await expect(preview).toContainText('2022/23 · NASA POWER / MERRA-2')
+  await expect(preview).toContainText('Later return had 38.35 mm-equivalent lower')
+  await expect(preview).toContainText('Illustrative historical exposure proxy')
+  await expect(page.getByRole('figure', { name: 'Season timeline' })).not.toBeInViewport()
+
+  await page.getByLabel('Rainfall source').selectOption('imerg')
+  await expect(preview).toContainText('2022/23 · GPM IMERG Final Daily V07')
+  await expect(preview).toContainText('Later return had 6.62 mm-equivalent lower')
+  await page.getByLabel('Later return (UTC)').fill('2022-11-15')
+  await expect(preview).toContainText('Both return dates have equal')
+  await page.getByLabel('Later return (UTC)').fill('2022-11-14')
+  await expect(preview).toContainText('No comparison yet.')
+  await expect(page.getByRole('figure', { name: 'Season timeline' })).toHaveCount(0)
+})
+
 test('planner edits and feasibility carry between routes while historical rainfall stays fixed', async ({ page }) => {
   await page.goto('./#/observations')
   const daily = page.getByRole('table', { name: 'Calendar, uniform and historical daily rainfall exposure' })

@@ -3,6 +3,7 @@ import { useRef, type Dispatch, type SetStateAction } from 'react'
 import { referenceYear, type referenceWindow } from '../data/researchReference'
 import { initialScenario, scenarioForSeason, type compareScenario, type Constraints, type Scenario } from '../data/scenario'
 import { evaluateFeasibility } from '../domain/cover'
+import { comparisonTolerance } from '../domain/evidence'
 import { formatScientificClaim } from '../domain/scientificClaim'
 import { formatNumber, formatSigned, formatWindow } from '../format'
 import { routes } from '../navigation'
@@ -30,13 +31,19 @@ export type ManagementOption = 'current' | 'ordinary' | 'managed'
 const context = {
   current: {
     title: 'Current maize management',
-    description: 'Maize → Maize. Record how much ground remains covered after harvest and after any residue removal, grazing or land preparation.',
-    steps: 'Estimate cover on the field and note the date and management practice. Discuss what to measure with a local extension officer.',
+    observations: [
+      ['After maize harvest', 'Estimate the percentage of ground still covered.'],
+      ['After each field operation', 'Repeat the cover estimate after residue removal, grazing or land preparation.'],
+      ['At each visit', 'Record the date and management practice. Review the observations with a local extension officer.'],
+    ],
   },
   ordinary: {
     title: 'Ordinary groundnut rotation',
-    description: 'Groundnut → Maize. Check which residues stay on the field, which are removed for household or livestock use, and what grazing leaves behind.',
-    steps: 'Confirm how much residue is available and observe the resulting ground cover before maize planting.',
+    observations: [
+      ['After groundnut harvest', 'Record how much residue stays on the field and how much is removed for household or livestock use.'],
+      ['After grazing', 'Check how much residue remains available.'],
+      ['Before maize planting', 'Record the date and estimate the percentage of ground covered.'],
+    ],
   },
 }
 
@@ -70,6 +77,12 @@ export function RotationPlanner({ scenario, onScenarioChange, constraints, onCon
   const feasibility = evaluateFeasibility(constraints)
   const { comparison, error } = analysis
   const claim = comparison && formatScientificClaim(comparison)
+  const difference = comparison?.dailyDifference ?? 0
+  const tied = Math.abs(difference) <= comparisonTolerance
+  const differenceLabel = Math.abs(difference) < 0.005 ? 'less than 0.01' : formatNumber(Math.abs(difference))
+  const outcome = tied ? 'Both return dates have equal estimated rainfall exposure.' : (
+    <>{difference < 0 ? 'Later' : 'Earlier'} return had <strong>{differenceLabel} mm-equivalent</strong> lower estimated rainfall exposure.</>
+  )
   const sourceLabel = source === 'imerg' ? imergLabel : historicalRainfall.provenance
     ? 'NASA POWER / MERRA-2'
     : 'Research-transcribed NASA POWER / MERRA-2'
@@ -102,56 +115,30 @@ export function RotationPlanner({ scenario, onScenarioChange, constraints, onCon
       <header className="page-heading">
         <div>
           <h1>Crop Rotation Planner</h1>
-          <p>Compare two crop sequences and test when to return protected groundnut residue.</p>
-        </div>
-        <div className="season-controls">
-          <HistoricalSeasonSelect {...season} />
-          <RainfallSourceSelect year={season.year} source={source} onSourceChange={onSourceChange} />
-          <span className="page-context"><CalendarDays size={16} aria-hidden="true" /> {formatWindow(window)} · UTC</span>
+          <p>Compare two groundnut-residue return dates under historical rainfall.</p>
         </div>
       </header>
 
       <div className="planner-grid">
-        <section className="workspace-panel planner-controls" aria-labelledby="management-title">
-          <div className="planner-control-section">
-            <h2 id="management-title">Crop sequences</h2>
-            <table className="sequence-table">
-              <caption className="sr-only">Current and alternative rotation timelines</caption>
-              <thead><tr><th scope="col">Rotation</th><th scope="col">Season 1</th><th scope="col">Season 2</th></tr></thead>
-              <tbody>
-                <tr className={management === 'current' ? 'sequence-active' : undefined}><th scope="row">Current</th><td><Crop name="Maize" /></td><td><ArrowRight className="sequence-arrow" size={15} aria-hidden="true" /><Crop name="Maize" /></td></tr>
-                <tr className={management !== 'current' ? 'sequence-active' : undefined}><th scope="row">Alternative</th><td><Crop name="Groundnut" /></td><td><ArrowRight className="sequence-arrow" size={15} aria-hidden="true" /><Crop name="Maize" /></td></tr>
-              </tbody>
-            </table>
+        <section className="planner-controls" aria-labelledby="management-title">
+          <h2 id="management-title">Scenario configuration</h2>
+          <div className="season-controls">
+            <HistoricalSeasonSelect {...season} />
+            <RainfallSourceSelect year={season.year} source={source} onSourceChange={onSourceChange} compact />
           </div>
-          <fieldset className="management-selector">
-            <legend>Residue management</legend>
-            <div className="management-options">
-              {([
-                ['current', 'Existing maize management', 'Maize → Maize'],
-                ['ordinary', 'Ordinary practice', 'Groundnut → Maize'],
-                ['managed', 'Managed return', 'Groundnut → Maize · compare two dates'],
-              ] as const).map(([value, label, crop]) => (
-                <label key={value}>
-                  <input type="radio" name="residue-management" value={value} checked={management === value}
-                    ref={value === 'managed' ? managedRadio : undefined} onChange={() => onManagementChange(value)} />
-                  <span><strong>{label}</strong><small>{crop}</small></span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-          <div hidden={management !== 'managed'}>
+          <div className="planner-editing" hidden={management !== 'managed'}>
             <fieldset className="control-fieldset">
               <legend>Managed return dates</legend>
+              <p className="planner-date-window"><CalendarDays size={14} aria-hidden="true" /> {formatWindow(window)} · UTC</p>
               <div className="fields-grid">
-                <div className="return-field">
+                <div className="return-field planner-earlier">
                   <label htmlFor="early-return">Earlier return (UTC)</label>
                   <input id="early-return" type="date" min={window.startIso} max={window.endIso}
                     aria-describedby="early-feasibility" value={scenario.earlyDate}
                     onChange={(event) => updateDate('earlyDate', event.currentTarget.value)} />
                   <span id="early-feasibility" className={`feasibility feasibility-${feasibility.early}`}>{feasibilityLabels[feasibility.early] ?? feasibilityLabels.conditional}</span>
                 </div>
-                <div className="return-field">
+                <div className="return-field planner-later">
                   <label htmlFor="late-return">Later return (UTC)</label>
                   <input id="late-return" type="date" min={window.startIso} max={window.endIso}
                     aria-describedby="late-feasibility" value={scenario.lateDate}
@@ -160,6 +147,35 @@ export function RotationPlanner({ scenario, onScenarioChange, constraints, onCon
                 </div>
               </div>
             </fieldset>
+            <div className="planner-preview" role="status">
+              <div className="planner-preview-context">{seasonLabel(season.year)} · {sourceLabel}</div>
+              <p>{comparison ? outcome : <>No comparison yet. {error}</>}</p>
+              <span>Illustrative historical exposure proxy</span>
+            </div>
+          </div>
+          <fieldset className="management-selector">
+            <legend>Management practice</legend>
+            <div className="management-options">
+              {([
+                ['managed', 'Managed return', 'Compare exposure'],
+                ['current', 'Existing maize management', 'Field context'],
+                ['ordinary', 'Ordinary practice', 'Field context'],
+              ] as const).map(([value, label, purpose]) => (
+                <label key={value}>
+                  <input type="radio" name="residue-management" value={value} checked={management === value}
+                    ref={value === 'managed' ? managedRadio : undefined} onChange={() => onManagementChange(value)} />
+                  <strong>{label}</strong><small>{purpose}</small>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <div className="planner-sequence" aria-label="Selected crop sequence">
+            <span className="sr-only">{management === 'current' ? 'Maize → Maize' : 'Groundnut → Maize'}</span>
+            <div><span>Season 1</span><Crop name={management === 'current' ? 'Maize' : 'Groundnut'} /></div>
+            <ArrowRight size={17} aria-hidden="true" />
+            <div><span>Season 2</span><Crop name="Maize" /></div>
+          </div>
+          <div hidden={management !== 'managed'}>
             <details className="planner-detail">
               <summary>Check management constraints</summary>
               <div className="fields-grid">
@@ -196,31 +212,38 @@ export function RotationPlanner({ scenario, onScenarioChange, constraints, onCon
 
         {management === 'managed' ? <section className="workspace-panel planner-results" aria-labelledby="planner-result-title">
           <div className="planner-analysis-heading">
-            <div><h2 id="planner-result-title">Historical exposure</h2><p>Managed residue return · hypothetical scenario</p></div>
+            <h2 id="planner-result-title">Historical exposure</h2>
             <span className="context-label">{seasonLabel(season.year)}</span>
           </div>
           {comparison ? (
             <>
-              <dl className="planner-result-values" aria-live="polite">
-                <div><dt>Earlier return</dt><dd>{formatNumber(comparison.early.dailyExposure)}</dd></div>
-                <div><dt>Later return</dt><dd>{formatNumber(comparison.late.dailyExposure)}</dd></div>
+              <PlannerTimeline key={season.year} comparison={comparison} scenario={scenario} sourceLabel={sourceLabel} />
+              <div className="planner-outcome" role="status">
+                <p>{outcome}</p>
+              </div>
+              <p className="planner-unit">Historical rainfall-weighted exposure proxy under illustrative ground-cover assumptions.</p>
+              <dl className="planner-result-values">
+                <div><dt>Earlier exposure</dt><dd><span>{formatNumber(comparison.early.dailyExposure)}</span> <small>mm-equivalent</small></dd></div>
+                <div><dt>Later exposure</dt><dd><span>{formatNumber(comparison.late.dailyExposure)}</span> <small>mm-equivalent</small></dd></div>
+                <div><dt>Later minus earlier</dt><dd>{!tied && Math.abs(difference) < 0.005
+                  ? `${difference < 0 ? '−' : '+'}<0.01`
+                  : formatSigned(tied ? 0 : difference)} <small>mm-equivalent</small></dd></div>
               </dl>
-              <p className="planner-unit">mm-equivalent · {sourceLabel}</p>
-              <p className="planner-delta">Later minus earlier <strong>{formatSigned(comparison.dailyDifference)} mm-equivalent</strong></p>
-              <PlannerTimeline comparison={comparison} scenario={scenario} />
-              {claim && <p className="planner-claim" role="status"><strong>{claim.title}</strong> {claim.detail}</p>}
+              {claim && <p className="planner-claim"><strong>{claim.title}</strong> {claim.detail}</p>}
             </>
           ) : <p className="analysis-error" role="status"><strong>Analysis unavailable.</strong> {error}</p>}
           <h3 className="mt-4 text-sm font-semibold">Before applying this to a field</h3>
-          <p className="planner-limit">Confirm usable residue after household and livestock needs, protection from grazing and workable dates. Observe ground cover and review it with a local extension officer.</p>
+          <p className="planner-limit">Check each date’s workability in Scenario configuration. Confirm usable residue after household and livestock needs, protection from grazing and workable dates. Observe ground cover and review it with a local extension officer.</p>
           <ButtonLink variant="secondary" href={routes.observations.href}>Inspect rainfall and cover <ArrowRight size={16} aria-hidden="true" /></ButtonLink>
         </section> : (
-          <section className="workspace-panel planner-results" aria-labelledby="planner-result-title">
+          <section className="planner-results planner-field-guide" aria-labelledby="planner-result-title">
             <h2 id="planner-result-title">{context[management].title}</h2>
-            <p className="muted">{context[management].description}</p>
-            <h3 className="mt-4 text-sm font-semibold">Before calculating field exposure</h3>
-            <p className="muted">{context[management].steps}</p>
-            <p className="planner-limit">This option needs field cover evidence. The historical calculation is available for managed residue return.</p>
+            <p className="muted">Field observations needed before exposure can be quantified.</p>
+            <dl>
+              {context[management].observations.map(([when, observation]) => (
+                <div key={when}><dt>{when}</dt><dd>{observation}</dd></div>
+              ))}
+            </dl>
             <button className="plain-button" type="button" onClick={() => {
               onManagementChange('managed')
               managedRadio.current?.focus()
