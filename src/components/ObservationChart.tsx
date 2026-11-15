@@ -84,7 +84,7 @@ export function ObservationChart({ events, scenario, selectedDate, onDateSelect 
               {timeTicks(events).map((index) => (
                 <g key={events[index].dateIso}>
                   <path d={`M ${x(index)} 40 V ${rainBottom} M ${x(index)} 188 V ${coverBottom}`} className="plot-grid" />
-                  <text className="plot-tick" x={x(index)} y="320" textAnchor={index === 0 ? 'start' : index === events.length - 1 ? 'end' : 'middle'}>
+                  <text className="plot-tick" x={x(index)} y="320" textAnchor={index === 0 ? 'start' : compact || index === events.length - 1 ? 'end' : 'middle'}>
                     {formatShortDate(events[index].dateIso)}
                   </text>
                 </g>

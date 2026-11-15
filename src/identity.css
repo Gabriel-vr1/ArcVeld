@@ -1,274 +1,146 @@
-@layer identity {
-  .welcome {
-    --atlas-text: #e4eee3;
-    --atlas-muted: #adcbc7;
-    color: var(--atlas-text);
-    background: #0d2524;
-    min-height: 100svh;
-    display: grid;
-  }
+/*
+ * ArcVeld identity primitives.
+ * styles.css owns component rules. The named Tailwind layers are declared there;
+ * no independent override layer is used. Dark workspaces remap the same tokens.
+ */
+@theme {
+  --font-sans: "Public Sans Variable", system-ui, sans-serif;
+  --font-display: "Public Sans Variable", system-ui, sans-serif;
+  --color-paper: #154B91;
+  --color-panel: #10365F;
+  --color-ink: #F3F7FC;
+  --color-primary: #A9D9F4;
+}
 
-  .welcome-frame {
-    width: min(100% - 3rem, 92rem);
-    margin-inline: auto;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+@layer base {
+  :root {
+    color-scheme: dark;
+    --space-blue: var(--color-paper);
+    --atlantic-blue: #1D61A5;
+    --orbital-blue: var(--color-panel);
+    --brand-rule: #CC2746;
+    --highlight: #F0C94D;
+    --ice-blue: var(--color-primary);
+    --soft-white: var(--color-ink);
+    --frame-rule-width: 3px;
+    --star-field: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='137' height='109' fill='%23F3F7FC' fill-opacity='.18'%3E%3Ccircle cx='12' cy='19' r='.75'/%3E%3Ccircle cx='42' cy='80' r='.6'/%3E%3Ccircle cx='81' cy='44' r='.8'/%3E%3Ccircle cx='120' cy='12' r='.5'/%3E%3Ccircle cx='112' cy='96' r='.7'/%3E%3C/svg%3E");
+    --globe-art: url('./assets/orbital-globe.svg');
+    --color-muted: color-mix(in srgb, var(--soft-white) 64%, var(--ice-blue));
+    --color-line: color-mix(in srgb, var(--ice-blue) 32%, var(--orbital-blue));
+    --color-rain: var(--ice-blue);
+    --surface-subtle: color-mix(in srgb, var(--atlantic-blue) 24%, var(--orbital-blue));
+    --surface-selected: color-mix(in srgb, var(--atlantic-blue) 48%, var(--orbital-blue));
+    --surface-result: color-mix(in srgb, var(--atlantic-blue) 14%, var(--orbital-blue));
+    --border-control: color-mix(in srgb, var(--ice-blue) 60%, var(--orbital-blue));
+    --border-selected: var(--highlight);
+    --text-on-dark: var(--soft-white);
+    --text-on-primary: var(--orbital-blue);
+    --primary-hover: var(--soft-white);
+    --focus: var(--ice-blue);
+    --rainfall: color-mix(in srgb, var(--ice-blue) 62%, var(--atlantic-blue));
+    --rainfall-selected: var(--soft-white);
+    --cover-early: var(--ice-blue);
+    --cover-early-fill: color-mix(in srgb, var(--cover-early) 18%, transparent);
+    --cover-late: var(--highlight);
+    --cover-late-fill: color-mix(in srgb, var(--cover-late) 15%, transparent);
+    --difference-lower: var(--ice-blue);
+    --difference-higher: var(--highlight);
+    --warning-text: var(--highlight);
+    --warning-surface: var(--orbital-blue);
+    --warning-border: var(--highlight);
+    --error-text: color-mix(in srgb, var(--brand-rule) 40%, var(--soft-white));
+    --control-height: 2.75rem;
+    --radius-control: .375rem;
+    --radius-panel: .625rem;
+    --space-panel: clamp(1rem, 2vw, 1.5rem);
+    --text-xs: .75rem;
+    --text-sm: .875rem;
+    --text-body: .9375rem;
+    --text-title: clamp(1.8rem, 3vw, 2.65rem);
+    --map-water: var(--orbital-blue);
+    --map-land: color-mix(in srgb, var(--atlantic-blue) 56%, var(--orbital-blue));
+    --map-boundary: color-mix(in srgb, var(--ice-blue) 52%, var(--atlantic-blue));
+    --map-region: color-mix(in srgb, var(--ice-blue) 24%, var(--atlantic-blue));
+    --map-lake: color-mix(in srgb, var(--ice-blue) 38%, var(--atlantic-blue));
   }
+}
 
-  .welcome-top, .welcome-footer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: .55rem 1rem;
-    padding: 1rem 0;
-    font-size: .75rem;
-    color: var(--atlas-muted);
+@layer components {
+  .welcome { color: var(--color-ink); background: var(--star-field) center / auto repeat, var(--space-blue); min-height: 100svh; display: grid; overflow-x: clip; }
+  .welcome-frame { width: min(100% - 3rem, 92rem); margin-inline: auto; display: grid; grid-template-rows: auto 1fr auto; }
+  .welcome-top, .welcome-footer { position: relative; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem 1rem; padding: 1rem 0; font-size: var(--text-xs); color: var(--text-on-dark); }
+  /* Full-width framing retains the existing content alignment and grid. */
+  .welcome-top::before, .welcome-footer::before { content: ''; position: absolute; z-index: -1; inset-block: 0; inset-inline: calc((100vw - 100%) / -2); background: var(--brand-rule); border-color: var(--highlight); border-style: solid; border-width: 0; }
+  .welcome-top::before { border-bottom-width: var(--frame-rule-width); }
+  .welcome-footer::before { border-top-width: var(--frame-rule-width); }
+  .welcome-top strong, .welcome-footer strong { color: var(--color-ink); }
+  .welcome-footer a { text-decoration: underline; text-underline-offset: .25em; }
+  .welcome-stage { display: grid; align-items: center; position: relative; isolation: isolate; }
+  .welcome-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+      url('./assets/mission-tracks.svg') left 3% top .75rem / min(34%, 32rem, 45svh) auto no-repeat,
+      var(--globe-art) left 10% top calc(70% + .7 * clamp(20rem, 32vw, 30rem)) / clamp(20rem, 32vw, 30rem) no-repeat;
+    opacity: .44;
   }
-
-  .welcome-top { border-bottom: 1px solid #375454; }
-  .welcome-footer { border-top: 1px solid #375454; }
-  .welcome-top strong, .welcome-footer strong { color: var(--atlas-text); }
-  .welcome-footer a { text-decoration: underline; text-underline-offset: .2em; }
-  .welcome-stage { display: grid; align-items: center; position: relative; }
-  .welcome-copy { position: relative; z-index: 1; }
-  .welcome-copy h1 {
-    font-family: var(--font-display);
-    color: #f4f6e9;
-    font-size: clamp(5.5rem, 12vw, 11rem);
-    line-height: .86;
-    letter-spacing: -.045em;
-  }
-  .welcome-copy p { margin-top: 1.35rem; font-size: clamp(.9rem, 1.8vw, 1.2rem); color: #d1e3dc; }
-  .welcome-enter {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.6rem;
-    margin-top: 1.75rem;
-    min-height: 3rem;
-    background: #e5edc9;
-    color: #142923;
-    border-radius: .22rem;
-    padding: .65rem .95rem;
-    font-size: .9rem;
-    font-weight: 750;
-  }
-  .welcome-enter:hover { background: #f1f5df; }
-  .welcome a:focus-visible { outline-color: #def2ad; }
-  .welcome-atlas { min-width: 0; margin: 0; }
+  .welcome-copy { position: relative; inset-block-start: -.5rem; z-index: 1; }
+  .welcome-copy h1 { color: var(--color-ink); font-size: clamp(4rem, 8vw, 8rem); font-weight: 650; line-height: 1; letter-spacing: -.065em; }
+  .welcome-copy p { margin-top: 1.5rem; max-width: 24em; font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.65; color: var(--color-muted); }
+  .welcome-enter { display: inline-flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 2rem; min-height: 3.25rem; background: var(--color-primary); color: var(--orbital-blue); border: 1px solid transparent; border-radius: var(--radius-control); padding: .75rem 1.1rem; font-size: var(--text-sm); font-weight: 700; }
+  .welcome-enter:hover { background: var(--text-on-dark); }
+  .welcome-atlas { min-width: 0; margin: 0; position: relative; }
   .welcome-atlas svg { display: block; width: 100%; max-height: 79svh; }
-  .atlas-gridline { stroke: #728f90; opacity: .33; }
-  .atlas-country { fill: #244945; stroke: #5a7771; stroke-width: .85; }
-  .atlas-malawi { fill: #c4d998; stroke: #e3edba; stroke-width: 1.5; }
-  .atlas-label { fill: #b6cbbf; font-size: 15px; letter-spacing: .25em; font-weight: 650; }
-  .atlas-marker path, .atlas-ring { stroke: #d6e7a8; fill: none; }
+  .atlas-gridline { stroke: var(--text-on-dark); opacity: .16; }
+  .atlas-country { fill: color-mix(in srgb, var(--ice-blue) 14%, var(--orbital-blue)); stroke: var(--ice-blue); stroke-width: .85; }
+  .atlas-malawi { fill: var(--ice-blue); stroke: var(--soft-white); stroke-width: 1.5; }
+  .atlas-label { fill: var(--color-muted); font-size: 15px; letter-spacing: .25em; font-weight: 650; }
+  .atlas-marker path, .atlas-ring { stroke: var(--highlight); fill: none; }
   .atlas-marker path { stroke-width: 1.15; }
-  .atlas-ring-outer { fill: #d6e7a8; fill-opacity: .14; stroke: #d6e7a8; stroke-opacity: .6; stroke-dasharray: 3 4; }
-  .atlas-dot { fill: #eef8c5; }
-  .atlas-location { fill: #edf3ce; font-size: 20px; font-weight: 750; letter-spacing: .1em; }
-  .atlas-coordinates { fill: #d0e4d9; font-family: ui-monospace, monospace; font-size: 13px; }
+  .atlas-ring-outer { fill: var(--orbital-blue); fill-opacity: .48; stroke: var(--highlight); stroke-opacity: .7; stroke-dasharray: 3 4; }
+  .atlas-dot { fill: var(--highlight); }
+  .atlas-location { fill: var(--color-ink); font-size: 20px; font-weight: 750; letter-spacing: .1em; }
+  .atlas-coordinates { fill: var(--color-muted); font-family: ui-monospace, monospace; font-size: 13px; }
+
+  .regional-water { fill: var(--map-water); }
+  .regional-country { fill: var(--map-land); stroke: var(--map-boundary); stroke-width: .85; }
+  .regional-malawi { fill: var(--map-region); stroke: var(--soft-white); stroke-width: 1.6; }
+  .regional-lake { fill: var(--map-lake); stroke: var(--soft-white); stroke-width: .85; }
+  .regional-gridline { stroke: var(--color-muted); opacity: .18; }
+  .regional-leader, .regional-ring { stroke: var(--highlight); stroke-width: 1.5; fill: none; }
+  .regional-dot { fill: var(--highlight); }
+  .map-labels { fill: var(--color-muted); font-size: 13px; letter-spacing: 1.2px; font-weight: 650; }
+  .map-country { fill: var(--color-ink); font-weight: 800; }
+  .map-water { fill: var(--color-ink); font-style: italic; font-size: 14px; letter-spacing: 0; }
+  .map-point { fill: var(--color-ink); font-size: 15px; font-weight: 650; }
+  .map-point-background { fill: var(--orbital-blue); }
+  .map-north { fill: var(--color-ink); font-size: 13px; font-weight: 700; }
 
   @media (width >= 54rem) {
     .welcome-frame { width: min(100% - 6rem, 92rem); }
     .welcome-stage { grid-template-columns: minmax(20rem, .8fr) minmax(0, 1.3fr); }
-    .welcome-copy { padding-left: clamp(1rem, 4vw, 4rem); }
+    .welcome-copy { inset-block-start: -3rem; padding-left: clamp(1rem, 3vw, 3rem); }
     .welcome-atlas { margin-left: -2rem; }
-    .welcome-atlas svg { width: 100%; height: min(76svh, 56rem); }
+    .welcome-atlas svg { height: min(76svh, 56rem); }
   }
-
   @media (width < 54rem) {
-    .welcome-stage { align-content: center; gap: .7rem; padding: 2rem 0 .5rem; }
-    .welcome-copy h1 { font-size: clamp(4.75rem, 17vw, 7.3rem); }
+    .welcome-stage::before {
+      background-position: right 2% top .25rem, left -7rem bottom -9rem;
+      background-size: auto clamp(3rem, 9svh, 5rem), 20rem;
+    }
+    .welcome-stage { align-content: center; gap: .75rem; padding: 2rem 0 .5rem; }
+    .welcome-copy h1 { font-size: clamp(3.75rem, 14vw, 6rem); }
     .welcome-copy p { margin-top: 1rem; }
-    .welcome-enter { margin-top: 1.2rem; }
+    .welcome-enter { margin-top: 1.25rem; }
     .welcome-atlas svg { width: min(100%, 35rem); max-height: 51svh; margin-inline: auto; }
     .atlas-location { font-size: 25px; }
     .atlas-coordinates { font-size: 17px; }
   }
-
-  .header-inner { min-height: 3.85rem; }
-  .brand { font-size: 2.1rem; letter-spacing: -.025em; }
-  .header-event { text-transform: uppercase; }
-  .footer-brand { letter-spacing: -.015em; }
-  .page-heading h1, .overview h1 {
-    font-family: var(--font-sans);
-    font-size: clamp(1.8rem, 3vw, 2.9rem);
-    font-weight: 720;
-    letter-spacing: -.047em;
-    line-height: 1.05;
-  }
-  .context-label, .technical, .map-heading > span:last-child {
-    font-family: ui-monospace, Consolas, monospace;
-    font-variant-numeric: tabular-nums;
-  }
-  .context-label { font-size: .73rem; font-weight: 650; color: var(--color-forest); }
-  .overview { padding-block: clamp(1.7rem, 4vw, 3.4rem); }
-  .overview-layout { display: grid; gap: 1.15rem; }
-  .overview-copy { align-self: center; }
-  .overview h1 { margin-top: .75rem; max-width: 12em; }
-  .overview .intro-text { margin-top: .85rem; font-size: .96rem; }
-  .overview .actions { margin-top: 1.15rem; }
-  .reference-map {
-    border-radius: .3rem;
-    border-color: #2d5050;
-    background: #173232;
-    color: #e2eee7;
-  }
-  .reference-map .map-heading { border-color: #385854; color: #b9d2ce; font-size: .76rem; }
-  .reference-map .map-heading > span:first-child { color: #e4efe6; }
-  .regional-water { fill: #1e4145; }
-  .regional-country { fill: #294942; stroke: #6b8377; stroke-width: .85; }
-  .regional-malawi { fill: #617e51; stroke: #bad39b; stroke-width: 1.25; }
-  .regional-lake { fill: #44717d; stroke: #87acb2; stroke-width: .85; }
-  .regional-gridline { stroke: #a9c9c0; opacity: .22; }
-  .regional-leader, .regional-ring { stroke: #e3eeb6; stroke-width: 1.5; fill: none; }
-  .regional-dot { fill: #e3eeb6; }
-  .map-labels { fill: #c8d7ce; }
-  .map-country, .map-point, .map-north { fill: #edf3d5; }
-  .map-water { fill: #d0e9ee; }
-  .reference-map figcaption { border-top: 1px solid #385854; color: #b8d0c9; align-items: end; }
-  .reference-map figcaption div { display: grid; gap: .12rem; }
-  .reference-map figcaption strong { margin-left: 0; color: #eff6eb; font-variant-numeric: tabular-nums; }
-  .reference-map figcaption a:hover { color: white; }
-
-  .rain-preview { min-width: 0; border-top: 1px solid #a9b8ae; padding: .8rem 0 0; color: var(--color-rain); }
-  .rain-preview-heading { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
-  .rain-preview-heading h2 { font-size: .92rem; font-weight: 700; }
-  .rain-preview-heading p { margin-top: .2rem; color: var(--color-muted); font-size: .73rem; }
-  .rain-preview-heading a { display: grid; width: 2.25rem; height: 2.25rem; flex: 0 0 auto; place-items: center; border: 1px solid #c1ccc3; border-radius: .25rem; }
-  .rain-preview-heading a:hover { background: #e4eeeb; }
-  .rain-preview-value { display: flex; align-items: baseline; flex-wrap: wrap; gap: .4rem .65rem; margin-top: .35rem; }
-  .rain-preview-value strong { font-size: 1.8rem; font-weight: 720; font-variant-numeric: tabular-nums; }
-  .rain-preview-value small, .rain-preview-value > span { font-size: .73rem; }
-  .rain-preview-value > span { color: var(--color-muted); }
-  .rain-preview > svg { display: block; width: 100%; height: 3.5rem; }
-  .rain-preview > svg rect { fill: #5f8999; }
-  .rain-preview .preview-peak { fill: #21556e; }
-  .preview-gridline { stroke: #cad8d6; stroke-width: 1; fill: none; }
-  .rain-preview-axis { display: flex; justify-content: space-between; margin-top: .15rem; color: var(--color-muted); font-size: .68rem; }
-
-  @media (width >= 58rem) {
-    .overview-layout { grid-template-columns: minmax(0, .83fr) minmax(0, 1.32fr); gap: 1.5rem 2.25rem; }
-    .overview-copy { grid-column: 1; grid-row: 1; }
-    .reference-map { grid-column: 2; grid-row: 1 / span 2; align-self: stretch; display: flex; flex-direction: column; }
-    .reference-map svg[role="img"] { flex: 1; background: #1e4145; }
-    .rain-preview { grid-column: 1; grid-row: 2; }
-  }
   @media (width < 40rem) {
-    .overview .actions { gap: .5rem; }
-    .reference-map figcaption a { flex-basis: 100%; }
+    .map-labels, .map-water { font-size: 18px; }
+    .map-point, .map-north { font-size: 17px; }
   }
-
-  .page-body { padding-top: 1.6rem; }
-  .page-heading { margin-bottom: 1rem; }
-  .page-heading p { font-size: .9rem; margin-top: .4rem; }
-  .workspace-panel { border-radius: .3rem; }
-  .planner-grid { margin-top: 0; gap: 1rem; }
-  .planner-controls { padding: 0; }
-  .planner-control-section, .management-selector, .planner-controls > div:last-child { padding: .9rem 1rem; }
-  .planner-control-section { border-bottom: 1px solid var(--color-line); }
-  .sequence-table th:first-child { width: 28%; }
-  .sequence-table tbody th { padding-left: .3rem; }
-  .sequence-active { background: #edf1e8; }
-  .sequence-active > th { box-shadow: inset 2px 0 0 #547b5f; }
-  .management-selector { min-width: 0; margin-top: .75rem; padding-top: .15rem; border-bottom: 1px solid var(--color-line); }
-  .management-selector legend, .control-fieldset legend { color: var(--color-ink); font-size: .92rem; font-weight: 750; }
-  .management-options { display: grid; gap: .25rem; margin-top: .25rem; }
-  .management-options label { display: flex; align-items: start; gap: .6rem; padding: .35rem .5rem; border: 1px solid transparent; border-radius: .25rem; cursor: pointer; }
-  .management-options label:has(:checked) { background: #ecf1e7; border-color: #b7c8b3; }
-  .management-options input { appearance: auto; margin-top: .18rem; accent-color: var(--color-forest); }
-  .management-options strong, .management-options small { display: block; }
-  .management-options strong { font-size: .81rem; }
-  .management-options small { font-size: .69rem; color: var(--color-muted); }
-  .management-context { padding: .75rem 1rem; font-size: .8rem; color: var(--color-muted); }
-  .management-context button { display: block; margin-top: .4rem; color: var(--color-forest); text-decoration: underline; text-underline-offset: .2em; }
-  .control-fieldset { margin-top: 0; }
-  .planner-results { background: #f0f4eb; border-color: #c5d1c3; }
-  .planner-analysis-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem .8rem; align-items: baseline; }
-  .planner-analysis-heading p, .planner-unit, .planner-limit { color: var(--color-muted); font-size: .75rem; }
-  .planner-results .planner-limit { margin-top: .8rem; }
-  .planner-result-values { margin-top: .75rem; }
-  .planner-timeline { margin-top: .9rem; border-top: 1px solid #c4d1c3; padding-top: .8rem; }
-  .planner-timeline figcaption { font-size: .86rem; font-weight: 750; }
-  .planner-timeline p { margin-top: .2rem; font-size: .74rem; color: var(--color-muted); }
-  .schedule-lanes { display: grid; gap: .5rem; margin-top: .7rem; }
-  .schedule-lane { --lane: #2b694d; --lane-fill: #c6ddc9; }
-  .schedule-late { --lane: #875c31; --lane-fill: #e3d4b8; }
-  .schedule-label, .schedule-axis { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .25rem .65rem; font-size: .74rem; }
-  .schedule-label time, .schedule-axis { color: var(--color-muted); font-variant-numeric: tabular-nums; }
-  .schedule-lane svg { display: block; width: 100%; height: 2.5rem; }
-  .schedule-grid { fill: none; stroke: #c0cbbd; vector-effect: non-scaling-stroke; }
-  .schedule-fill { fill: var(--lane-fill); }
-  .schedule-cover, .schedule-return { fill: none; stroke: var(--lane); vector-effect: non-scaling-stroke; }
-  .schedule-cover { stroke-width: 1.5; }
-  .schedule-late .schedule-cover, .schedule-return { stroke-dasharray: 4 3; }
-  .schedule-axis { margin-top: .2rem; }
-  @media (width >= 48rem) {
-    .planner-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.28fr); }
-  }
-
-  .observations .observation-meta { margin-bottom: .8rem; }
-  .observation-stats { margin-bottom: .65rem; border-radius: .3rem; }
-  .observation-stats > div { padding-block: .6rem; }
-  .observation-stats .observation-delta { background: #dfece7; color: #234e55; }
-  .observation-workspace {
-    --plot-text: #e1eee6;
-    --plot-muted: #bbd1cc;
-    --plot-line: #395c59;
-    background: #102c2c;
-    color: var(--plot-text);
-    border-color: #284846;
-  }
-  .observation-workspace h2, .observation-workspace h3 { color: var(--plot-text); }
-  .observation-workspace .muted, .observation-workspace .context-label { color: var(--plot-muted); }
-  .observation-workspace :focus-visible { outline-color: #d6e8ac; }
-  .workspace-heading { display: flex; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; flex-wrap: wrap; }
-  .workspace-heading p { font-size: .77rem; }
-  .chart-layout { margin-top: .7rem; }
-  .chart-legend { color: var(--plot-muted); }
-  .legend-rain { background: #7fadc0; }
-  .legend-early { border-color: #b0dda6; }
-  .legend-late { border-color: #efbd83; }
-  .plot-axis-title { fill: var(--plot-text); }
-  .plot-tick { fill: var(--plot-muted); }
-  .plot-grid { stroke: var(--plot-line); }
-  .plot-selection { fill: #294846; }
-  .plot-cursor { stroke: #e0eee4; stroke-width: 1; stroke-dasharray: 2 3; opacity: .9; }
-  .plot-rain { fill: #80adbf; }
-  .plot-rain-selected { fill: #d7eef3; stroke: #edf8f7; stroke-width: 1; }
-  .plot-early { stroke: #a9d89f; }
-  .plot-late { stroke: #efbd83; }
-  .plot-return.plot-early { stroke-dasharray: none; }
-  .plot-dot { fill: #102c2c; }
-  .day-evidence, .day-evidence dl > div, .daily-data, .data-table :is(th, td) { border-color: var(--plot-line); }
-  .day-evidence h3 span { color: var(--plot-muted); }
-  .day-evidence .event-contribution { color: #c1e2ed; }
-  .event-list button:hover, .event-list button[aria-pressed="true"], .data-table .selected-row { background: #30514d; color: #f3f7ee; }
-  .event-list button[aria-pressed="true"] { box-shadow: inset 2px 0 0 #d6e8ac; }
-  .day-control button, .day-control select {
-    background: #1c3c39;
-    color: var(--plot-text);
-    color-scheme: dark;
-    border-color: #597974;
-  }
-  .day-control button:hover { background: #30514d; }
-  .observation-workspace .daily-data summary { color: #d7e9ca; }
-  .data-table thead th { background: #22423f; }
-  .data-table th button { text-decoration: underline; text-underline-offset: .2em; }
-  .baseline-panel { display: grid; gap: .75rem 1.3rem; }
-  .comparison-table { margin-top: 0; }
-  .daily-comparison { background: #eaf2ee; }
-  .daily-comparison > th { padding-left: .3rem; }
-  .daily-comparison > td:last-child { padding-right: .3rem; }
-  @media (width >= 58rem) {
-    .baseline-panel { grid-template-columns: minmax(0, .68fr) minmax(0, 1.32fr); }
-  }
-
-  .research-layout { padding-top: 0; border-top: 0; }
-  .research-index { background: #e9eee4; padding: .75rem; align-content: start; border: 1px solid #d0d8cb; border-radius: .25rem; }
-  .research-content section { margin-bottom: .85rem; padding-bottom: .85rem; }
-  .research-content h2 { font-size: 1rem; }
-  .research-content p { margin-top: .35rem; }
-  .method-equation { display: block; color: var(--color-forest); font-family: ui-monospace, Consolas, monospace; font-size: .82rem; font-weight: 700; }
 }

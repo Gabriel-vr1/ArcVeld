@@ -44,7 +44,7 @@ export default function App() {
   return (
     <>
       {page !== 'welcome' && <SiteHeader page={page} />}
-      <main id="main-content" ref={main} tabIndex={-1}>
+      <main id="main-content" className={page === 'welcome' ? undefined : 'application'} ref={main} tabIndex={-1}>
         {page === 'welcome' && <Welcome />}
         {page === 'overview' && <Overview />}
         {page === 'planner' && (

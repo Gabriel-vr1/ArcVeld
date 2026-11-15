@@ -76,7 +76,7 @@ function RegionalMap() {
           <path d={`M ${x} ${y} l -32 30 h -65`} className="regional-leader" />
           <circle cx={x} cy={y} r="13" className="regional-ring" />
           <circle cx={x} cy={y} r="5.5" className="regional-dot" />
-          <rect x={x - 175} y={y + 16} width="94" height="30" rx="3" fill="#142e29" />
+          <rect x={x - 175} y={y + 16} width="94" height="30" rx="3" className="map-point-background" />
           <text x={x - 128} y={y + 35.5} textAnchor="middle" className="map-point">Kasungu</text>
           <path d="M 620 58 V 36 m -6 7 l 6 -7 l 6 7" className="regional-leader" />
           <text x="620" y="30" textAnchor="middle" className="map-north">N</text>
